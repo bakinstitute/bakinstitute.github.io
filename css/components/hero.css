@@ -1,127 +1,296 @@
-/* ─── HERO ─── */
+/* ═══════════════════════════════════════
+   HERO — REDESIGNED
+   ═══════════════════════════════════════ */
+
+/* ─── Outer Shell ─── */
 .hero {
-  min-height: 100vh;
+  min-height: 85vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 55% 45%;
   position: relative;
   overflow: hidden;
 }
 
+/* ─── Vertical Year Marker ─── */
+.hero-vmarker {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1.25rem;
+  animation: fadeIn 1.4s ease 0.6s both;
+}
+
+.hero-vmarker-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 239, 223, 0.25);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.hero-vmarker-line {
+  display: block;
+  width: 1px;
+  height: 5rem;
+  background: rgba(245, 239, 223, 0.12);
+}
+
+/* ─── LEFT PANEL ─── */
 .hero-left {
   background: var(--indigo);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 8rem 4rem 6rem;
+  justify-content: center;
+  padding: 7rem 4rem 4rem 4.5rem;
   position: relative;
   overflow: hidden;
 }
 
+/* Subtle warm orb in top-right corner of left panel */
 .hero-left::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 80% 20%, rgba(232, 131, 42, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(193, 68, 14, 0.1) 0%, transparent 50%);
+  top: -15%;
+  right: -10%;
+  width: 60%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(232, 131, 42, 0.12) 0%, transparent 70%);
+  pointer-events: none;
 }
 
+/* Warm orb at bottom-left */
+.hero-left::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -15%;
+  width: 50%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(193, 68, 14, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Giant Bengali Watermark ─── */
 .hero-script-bg {
   position: absolute;
-  top: -2rem;
-  right: -1rem;
+  bottom: -2rem;
+  right: -2rem;
   font-family: 'Noto Sans Bengali', sans-serif;
-  font-size: 18rem;
+  font-size: clamp(11rem, 16vw, 18rem);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.032);
   line-height: 1;
   pointer-events: none;
   user-select: none;
+  letter-spacing: -0.05em;
 }
 
+/* ─── Inner content wrapper ─── */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
+
+/* ─── Eyebrow ─── */
 .hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-family: 'DM Mono', monospace;
   font-size: 0.6rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--saffron);
-  margin-bottom: 1.5rem;
-  animation: fadeUp 1s ease both;
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.9s ease both;
 }
 
+.hero-eyebrow-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--saffron);
+  flex-shrink: 0;
+}
+
+/* ─── Title ─── */
 .hero-title {
-  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
   font-weight: 300;
-  line-height: 1.05;
+  line-height: 1.0;
   color: var(--parchment);
-  margin-bottom: 1rem;
-  animation: fadeUp 1s ease 0.1s both;
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.01em;
+  animation: fadeUp 0.9s ease 0.1s both;
 }
 
 .hero-title em {
   font-style: italic;
-  color: var(--light-gold);
+  color: var(--saffron);
+  /* Subtle underline stroke */
+  text-decoration: underline;
+  text-decoration-color: rgba(232, 131, 42, 0.35);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
 }
 
+/* ─── Bengali subtitle ─── */
 .hero-bengali-title {
   font-family: 'Noto Sans Bengali', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
   font-weight: 300;
-  color: rgba(245, 239, 223, 0.5);
-  margin-bottom: 2.5rem;
-  animation: fadeUp 1s ease 0.2s both;
+  color: rgba(245, 239, 223, 0.3);
+  margin-bottom: 1.25rem;
+  border-left: 2px solid rgba(232, 131, 42, 0.3);
+  padding-left: 1rem;
+  animation: fadeUp 0.9s ease 0.2s both;
 }
 
+/* ─── Description ─── */
 .hero-desc {
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.7;
-  color: rgba(245, 239, 223, 0.75);
-  max-width: 38ch;
-  animation: fadeUp 1s ease 0.3s both;
+  color: rgba(245, 239, 223, 0.65);
+  max-width: 44ch;
+  animation: fadeUp 0.9s ease 0.3s both;
 }
 
+/* ─── CTA Buttons ─── */
 .hero-actions {
   display: flex;
-  gap: 1rem;
-  margin-top: 3rem;
-  animation: fadeUp 1s ease 0.4s both;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  animation: fadeUp 0.9s ease 0.4s both;
   flex-wrap: wrap;
 }
 
+/* ─── Live Indicator ─── */
+.hero-live {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  animation: fadeUp 0.9s ease 0.55s both;
+}
 
-/* ─── HERO RIGHT ─── */
+.hero-live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+  flex-shrink: 0;
+  animation: pulse-green 2.5s infinite;
+}
+
+.hero-live-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 239, 223, 0.3);
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+/* ─── RIGHT PANEL ─── */
 .hero-right {
   background: var(--parchment);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 8rem 4rem 4rem;
   overflow: hidden;
 }
 
-.hero-right::before {
+/* Dot-grid texture */
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(200, 154, 46, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* Warm fade mask over dot grid */
+.hero-right::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200, 154, 46, 0.08) 39px, rgba(200, 154, 46, 0.08) 40px);
+  background: radial-gradient(ellipse at 60% 50%, rgba(245, 239, 223, 0.6) 0%, transparent 75%);
+  pointer-events: none;
 }
 
+.hero-right-inner {
+  position: relative;
+  z-index: 2;
+  padding: 6rem 3.5rem 3rem;
+}
+
+/* ─── Stat Grid ─── */
 .stat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2px;
-  margin-bottom: 4rem;
-  position: relative;
-  z-index: 1;
+  margin-bottom: 2rem;
 }
 
 .stat-card {
-  background: white;
-  padding: 2rem 1.5rem;
-  border: 1px solid rgba(200, 154, 46, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid rgba(200, 154, 46, 0.12);
+  transition: background 0.25s, transform 0.25s;
   animation: fadeIn 1s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--saffron);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.stat-card:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
 }
 
 .stat-card:nth-child(1) {
@@ -140,46 +309,83 @@
   animation-delay: 0.65s;
 }
 
+/* Bengali numeral above the main stat */
+.stat-bn {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--saffron);
+  opacity: 0.7;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.05em;
+}
+
 .stat-number {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 300;
   color: var(--terracotta);
   line-height: 1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
 }
 
 .stat-label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--warm-gray);
+  line-height: 1.4;
 }
 
+/* ─── Divider between stats and quote ─── */
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  animation: fadeIn 1s ease 0.75s both;
+}
+
+.hero-divider span:not(.hero-divider-label) {
+  flex: 1;
+  height: 1px;
+  background: rgba(200, 154, 46, 0.2);
+}
+
+.hero-divider-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ─── Quote ─── */
 .hero-quote {
   position: relative;
-  z-index: 1;
-  padding: 1.5rem 0 1.5rem 2rem;
+  padding: 1rem 1.25rem 1rem 1.5rem;
   border-left: 3px solid var(--gold);
-  animation: fadeIn 1s ease 0.8s both;
+  background: rgba(200, 154, 46, 0.05);
+  animation: fadeIn 1s ease 0.85s both;
 }
 
 .hero-quote p {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 300;
   color: var(--indigo);
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
 }
 
 .hero-quote cite {
   font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   letter-spacing: 0.1em;
   color: var(--warm-gray);
   font-style: normal;
+  text-transform: uppercase;
 }
-
-
-

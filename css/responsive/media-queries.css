@@ -39,14 +39,22 @@
     min-height: auto;
   }
 
+  .hero-vmarker {
+    display: none;
+  }
+
   .hero-left {
-    padding: 9rem 3rem 5rem;
-    min-height: 70vh;
+    padding: 7rem 3rem 4rem;
+    min-height: 65vh;
     justify-content: flex-end;
   }
 
-  .hero-right {
+  .hero-right-inner {
     padding: 4rem 3rem;
+  }
+
+  .hero-right {
+    min-height: auto;
   }
 
   .mission-grid,
@@ -120,8 +128,12 @@
     min-height: auto;
   }
 
-  .hero-right {
-    padding: 3rem 1.5rem;
+  .hero-right-inner {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .hero-script-bg {
+    font-size: 12rem;
   }
 
   .hero-actions {

@@ -1,827 +1,1217 @@
+/* ─────────────────────────────────────────
+   BĀK INSTITUTE — STYLESHEET
+   ───────────────────────────────────────── */
+
+/* ─── CSS VARIABLES ─── */
 :root {
-    --ink: #1a1208;
-    --parchment: #f5efdf;
-    --saffron: #e8832a;
-    --terracotta: #c1440e;
-    --indigo: #1d2b5e;
-    --moss: #3d5a3e;
-    --cream: #faf7f0;
-    --warm-gray: #8a7f6e;
-    --gold: #c89a2e;
-    --light-gold: #f0d980;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    background: var(--cream);
-    color: var(--ink);
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 3rem;
-    background: rgba(250, 247, 240, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(200, 154, 46, 0.2);
-  }
-
-  .nav-logo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    text-decoration: none;
-  }
-
-  .nav-logo-bengali {
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--terracotta);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .nav-logo-roman {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    color: var(--warm-gray);
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    align-items: center;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink);
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--terracotta); }
-
-  .nav-cta {
-    background: var(--indigo) !important;
-    color: var(--parchment) !important;
-    padding: 0.5rem 1.2rem;
-    border-radius: 2px;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--terracotta) !important; color: white !important; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    background: var(--indigo);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 8rem 4rem 6rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 80% 20%, rgba(232, 131, 42, 0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 20% 80%, rgba(193, 68, 14, 0.1) 0%, transparent 50%);
-  }
-
-  .hero-script-bg {
-    position: absolute;
-    top: -2rem;
-    right: -1rem;
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-size: 18rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.03);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--saffron);
-    margin-bottom: 1.5rem;
-    animation: fadeUp 1s ease both;
-  }
-
-  .hero-title {
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    color: var(--parchment);
-    margin-bottom: 1rem;
-    animation: fadeUp 1s ease 0.1s both;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--light-gold);
-  }
-
-  .hero-bengali-title {
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 3rem);
-    font-weight: 300;
-    color: rgba(245, 239, 223, 0.5);
-    margin-bottom: 2.5rem;
-    animation: fadeUp 1s ease 0.2s both;
-  }
-
-  .hero-desc {
-    font-size: 1.15rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: rgba(245, 239, 223, 0.75);
-    max-width: 38ch;
-    animation: fadeUp 1s ease 0.3s both;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 3rem;
-    animation: fadeUp 1s ease 0.4s both;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--saffron);
-    color: var(--ink);
-    padding: 0.85rem 2rem;
-    text-decoration: none;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    transition: transform 0.2s, background 0.2s;
-  }
-
-  .btn-primary:hover { background: var(--light-gold); transform: translateY(-2px); }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid rgba(245, 239, 223, 0.3);
-    color: var(--parchment);
-    padding: 0.85rem 2rem;
-    text-decoration: none;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .btn-ghost:hover { border-color: var(--saffron); background: rgba(232, 131, 42, 0.1); }
-
-  .hero-right {
-    background: var(--parchment);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 4rem 4rem;
-    overflow: hidden;
-  }
-
-  .hero-right::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200, 154, 46, 0.08) 39px, rgba(200, 154, 46, 0.08) 40px);
-  }
-
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-bottom: 4rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stat-card {
-    background: white;
-    padding: 2rem 1.5rem;
-    border: 1px solid rgba(200, 154, 46, 0.15);
-    animation: fadeIn 1s ease both;
-  }
-
-  .stat-card:nth-child(1) { animation-delay: 0.2s; }
-  .stat-card:nth-child(2) { animation-delay: 0.35s; }
-  .stat-card:nth-child(3) { animation-delay: 0.5s; }
-  .stat-card:nth-child(4) { animation-delay: 0.65s; }
-
-  .stat-number {
-    font-size: 3.5rem;
-    font-weight: 300;
-    color: var(--terracotta);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-  }
-
-  .hero-quote {
-    position: relative;
-    z-index: 1;
-    padding: 1.5rem 0 1.5rem 2rem;
-    border-left: 3px solid var(--gold);
-    animation: fadeIn 1s ease 0.8s both;
-  }
-
-  .hero-quote p {
-    font-size: 1.3rem;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--indigo);
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
-  }
-
-  .hero-quote cite {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    color: var(--warm-gray);
-    font-style: normal;
-  }
-
-  /* ─── TICKER ─── */
-  .ticker {
-    background: var(--terracotta);
-    padding: 0.8rem 0;
-    overflow: hidden;
-  }
-
-  .ticker-inner {
-    display: flex;
-    gap: 4rem;
-    animation: ticker 30s linear infinite;
-    white-space: nowrap;
-  }
-
-  .ticker-item {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(245,239,223,0.85);
-    flex-shrink: 0;
-  }
-
-  .ticker-dot {
-    color: var(--light-gold);
-    margin-right: 4rem;
-  }
-
-  @keyframes ticker {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* ─── SECTIONS ─── */
-  section { padding: 7rem 0; }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 3rem;
-  }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(193, 68, 14, 0.2);
-    max-width: 60px;
-  }
-
-  .section-title {
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-
-  /* ─── MISSION ─── */
-  .mission {
-    background: var(--ink);
-    color: var(--parchment);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .mission::before {
-    content: 'ভাষা';
-    font-family: 'Noto Sans Bengali', sans-serif;
-    position: absolute;
-    right: -2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.02);
-    pointer-events: none;
-    line-height: 1;
-  }
-
-  .mission-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .mission .section-label { color: var(--saffron); }
-  .mission .section-label::after { background: rgba(232, 131, 42, 0.3); }
-
-  .mission-statement {
-    font-size: 1.5rem;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.65;
-    color: rgba(245, 239, 223, 0.9);
-  }
-
-  .mission-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .pillar {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  .pillar-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--saffron);
-    padding-top: 0.4rem;
-  }
-
-  .pillar h3 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--parchment);
-    margin-bottom: 0.4rem;
-  }
-
-  .pillar p {
-    font-size: 0.95rem;
-    font-weight: 300;
-    line-height: 1.6;
-    color: rgba(245, 239, 223, 0.55);
-  }
-
-  /* ─── RESEARCH ─── */
-  .research { background: var(--cream); }
-
-  .research-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: rgba(200, 154, 46, 0.15);
-    border: 1.5px solid rgba(200, 154, 46, 0.15);
-    margin-top: 4rem;
-  }
-
-  .research-card {
-    background: var(--cream);
-    padding: 2.5rem 2rem;
-    transition: background 0.3s;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-  }
-
-  .research-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--terracotta);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-
-  .research-card:hover { background: white; }
-  .research-card:hover::after { transform: scaleX(1); }
-
-  .card-icon {
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-size: 2.5rem;
-    color: var(--terracotta);
-    margin-bottom: 1.2rem;
-    opacity: 0.7;
-    display: block;
-  }
-
-  .card-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 0.8rem;
-  }
-
-  .card-title {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 0.8rem;
-    color: var(--indigo);
-  }
-
-  .card-desc {
-    font-size: 0.95rem;
-    font-weight: 300;
-    line-height: 1.65;
-    color: var(--warm-gray);
-  }
-
-  /* ─── PUBLICATIONS ─── */
-  .publications { background: var(--parchment); }
-
-  .pub-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 3rem;
-  }
-
-  .pub-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-top: 1px solid rgba(200, 154, 46, 0.2);
-  }
-
-  .pub-item {
-    display: grid;
-    grid-template-columns: 6rem 1fr auto;
-    gap: 2rem;
-    align-items: start;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(200, 154, 46, 0.2);
-    transition: padding-left 0.3s;
-    cursor: pointer;
-  }
-
-  .pub-item:hover { padding-left: 1rem; background: rgba(200, 154, 46, 0.04); }
-
-  .pub-year {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--warm-gray);
-    padding-top: 0.25rem;
-  }
-
-  .pub-title {
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: var(--indigo);
-    margin-bottom: 0.3rem;
-  }
-
-  .pub-authors {
-    font-size: 0.9rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--warm-gray);
-  }
-
-  .pub-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--indigo);
-    color: var(--parchment);
-    padding: 0.3rem 0.8rem;
-    border-radius: 2px;
-    white-space: nowrap;
-    margin-top: 0.2rem;
-  }
-
-  /* ─── TEAM ─── */
-  .team { background: var(--cream); }
-
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 3.5rem;
-  }
-
-  .team-card {
-    text-align: center;
-  }
-
-  .team-avatar {
-    width: 100%;
-    aspect-ratio: 1;
-    background: var(--indigo);
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .team-avatar-initials {
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: rgba(245, 239, 223, 0.5);
-  }
-
-  .team-avatar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(232,131,42,0.2) 0%, transparent 60%);
-  }
-
-  .team-name {
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--indigo);
-    margin-bottom: 0.2rem;
-  }
-
-  .team-role {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 0.5rem;
-  }
-
-  .team-inst {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--terracotta);
-  }
-
-  /* ─── CONTRIBUTE ─── */
-  .contribute {
-    background: var(--indigo);
-    color: var(--parchment);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contribute::before {
-    content: 'বাক্';
-    font-family: 'Noto Sans Bengali', sans-serif;
-    position: absolute;
-    left: -3rem;
-    bottom: -3rem;
-    font-size: 30rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.025);
-    pointer-events: none;
-    line-height: 1;
-  }
-
-  .contribute-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .contribute .section-label { color: var(--saffron); }
-  .contribute .section-label::after { background: rgba(232, 131, 42, 0.3); }
-  .contribute .section-title { color: var(--parchment); }
-
-  .contribute-desc {
-    font-size: 1.1rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: rgba(245, 239, 223, 0.65);
-    margin-bottom: 2rem;
-  }
-
-  .ways {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .way {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    border: 1px solid rgba(245, 239, 223, 0.1);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    text-decoration: none;
-  }
-
-  .way:hover {
-    border-color: var(--saffron);
-    background: rgba(232, 131, 42, 0.08);
-  }
-
-  .way-icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
-  }
-
-  .way-title {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--parchment);
-    margin-bottom: 0.2rem;
-  }
-
-  .way-desc {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: rgba(245, 239, 223, 0.5);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.02em;
-  }
-
-  .way-arrow {
-    margin-left: auto;
-    color: var(--saffron);
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--ink);
-    color: rgba(245, 239, 223, 0.5);
-    padding: 4rem 0 2rem;
-  }
-
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 4rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    margin-bottom: 2rem;
-  }
-
-  .footer-brand-bengali {
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--saffron);
-    margin-bottom: 0.3rem;
-  }
-
-  .footer-brand-roman {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 1.2rem;
-  }
-
-  .footer-tagline {
-    font-size: 0.9rem;
-    font-weight: 300;
-    line-height: 1.6;
-    max-width: 30ch;
-  }
-
-  .footer-col h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--parchment);
-    margin-bottom: 1.2rem;
-  }
-
-  .footer-col ul { list-style: none; }
-
-  .footer-col li { margin-bottom: 0.7rem; }
-
-  .footer-col a {
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: rgba(245, 239, 223, 0.45);
-    transition: color 0.2s;
-  }
-
-  .footer-col a:hover { color: var(--saffron); }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-bottom p {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .footer-lang {
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-size: 1rem;
-    color: rgba(245, 239, 223, 0.2);
-    letter-spacing: 0.3em;
-  }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .reveal {
+  --ink: #1a1208;
+  --parchment: #f5efdf;
+  --saffron: #e8832a;
+  --terracotta: #c1440e;
+  --indigo: #1d2b5e;
+  --cream: #faf7f0;
+  --warm-gray: #8a7f6e;
+  --gold: #c89a2e;
+  --light-gold: #f0d980;
+}
+
+/* ─── RESET ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(250, 247, 240, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(200, 154, 46, 0.2);
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-decoration: none;
+  z-index: 102;
+}
+
+.nav-logo-bengali {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.nav-logo-roman {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--warm-gray);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--terracotta);
+}
+
+/* Nav CTA — no !important, more specific selector */
+.nav-links a.nav-cta {
+  background: var(--indigo);
+  color: var(--parchment);
+  padding: 0.5rem 1.2rem;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links a.nav-cta:hover {
+  background: var(--terracotta);
+  color: white;
+}
+
+/* ─── HAMBURGER ─── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 102;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s;
+}
+
+.hamburger.is-active span {
+  background: var(--parchment);
+}
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--indigo);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8rem 4rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(232, 131, 42, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(193, 68, 14, 0.1) 0%, transparent 50%);
+}
+
+.hero-script-bg {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 18rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease both;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--parchment);
+  margin-bottom: 1rem;
+  animation: fadeUp 1s ease 0.1s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--light-gold);
+}
+
+.hero-bengali-title {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 300;
+  color: rgba(245, 239, 223, 0.5);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 1s ease 0.2s both;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 239, 223, 0.75);
+  max-width: 38ch;
+  animation: fadeUp 1s ease 0.3s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  animation: fadeUp 1s ease 0.4s both;
+  flex-wrap: wrap;
+}
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--saffron);
+  color: var(--ink);
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--light-gold);
+  transform: translateY(-2px);
+}
+
+/* Modifier: spaced top — replaces former inline style */
+.btn-primary--spaced {
+  margin-bottom: 1.5rem;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(245, 239, 223, 0.3);
+  color: var(--parchment);
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--saffron);
+  background: rgba(232, 131, 42, 0.1);
+}
+
+/* ─── HERO RIGHT ─── */
+.hero-right {
+  background: var(--parchment);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
+  overflow: hidden;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200, 154, 46, 0.08) 39px, rgba(200, 154, 46, 0.08) 40px);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(200, 154, 46, 0.15);
+  animation: fadeIn 1s ease both;
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.stat-card:nth-child(4) {
+  animation-delay: 0.65s;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.hero-quote {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0 1.5rem 2rem;
+  border-left: 3px solid var(--gold);
+  animation: fadeIn 1s ease 0.8s both;
+}
+
+.hero-quote p {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--indigo);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.hero-quote cite {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--warm-gray);
+  font-style: normal;
+}
+
+/* ─── TICKER ─── */
+.ticker {
+  background: var(--terracotta);
+  padding: 0.8rem 0;
+  overflow: hidden;
+}
+
+.ticker-inner {
+  display: flex;
+  gap: 4rem;
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 239, 223, 0.85);
+  flex-shrink: 0;
+}
+
+.ticker-dot {
+  color: var(--light-gold);
+  margin-right: 4rem;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── SHARED SECTION STYLES ─── */
+section {
+  padding: 7rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(193, 68, 14, 0.2);
+  max-width: 60px;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── MISSION ─── */
+.mission {
+  background: var(--ink);
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission::before {
+  content: 'ভাষা';
+  font-family: 'Noto Sans Bengali', sans-serif;
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.mission .section-label {
+  color: var(--saffron);
+}
+
+.mission .section-label::after {
+  background: rgba(232, 131, 42, 0.3);
+}
+
+.mission-statement {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(245, 239, 223, 0.9);
+}
+
+.mission-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pillar {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.pillar-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--saffron);
+  padding-top: 0.4rem;
+}
+
+.pillar h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--parchment);
+  margin-bottom: 0.4rem;
+}
+
+.pillar p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(245, 239, 223, 0.55);
+}
+
+/* ─── RESEARCH ─── */
+.research {
+  background: var(--cream);
+}
+
+.research-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(200, 154, 46, 0.15);
+  border: 2px solid rgba(200, 154, 46, 0.15);
+  margin-top: 4rem;
+}
+
+.research-card {
+  background: var(--cream);
+  padding: 2.5rem 2rem;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.research-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--terracotta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.research-card:hover {
+  background: white;
+}
+
+.research-card:hover::after {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 2.5rem;
+  color: var(--terracotta);
+  margin-bottom: 1.2rem;
+  opacity: 0.7;
+  display: block;
+}
+
+.card-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 0.8rem;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  color: var(--indigo);
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--warm-gray);
+}
+
+/* ─── PUBLICATIONS ─── */
+.publications {
+  background: var(--parchment);
+}
+
+.pub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(200, 154, 46, 0.2);
+}
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 6rem 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(200, 154, 46, 0.2);
+  transition: padding-left 0.3s, background 0.3s;
+  cursor: default;
+}
+
+.pub-item:hover {
+  padding-left: 1rem;
+  background: rgba(200, 154, 46, 0.04);
+}
+
+.pub-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--warm-gray);
+  padding-top: 0.25rem;
+}
+
+.pub-title {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--indigo);
+  margin-bottom: 0.3rem;
+}
+
+.pub-authors {
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--warm-gray);
+}
+
+.pub-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--indigo);
+  color: var(--parchment);
+  padding: 0.3rem 0.8rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  margin-top: 0.2rem;
+  display: inline-block;
+}
+
+/* ─── TEAM ─── */
+.team {
+  background: var(--cream);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--indigo);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-avatar-initials {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: rgba(245, 239, 223, 0.5);
+}
+
+.team-avatar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(232, 131, 42, 0.2) 0%, transparent 60%);
+}
+
+.team-name {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--indigo);
+  margin-bottom: 0.2rem;
+}
+
+.team-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 0.5rem;
+}
+
+.team-inst {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+/* ─── CONTRIBUTE ─── */
+.contribute {
+  background: var(--indigo);
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+}
+
+.contribute::before {
+  content: 'বাক্';
+  font-family: 'Noto Sans Bengali', sans-serif;
+  position: absolute;
+  left: -3rem;
+  bottom: -3rem;
+  font-size: 30rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.025);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.contribute-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.contribute .section-label {
+  color: var(--saffron);
+}
+
+.contribute .section-label::after {
+  background: rgba(232, 131, 42, 0.3);
+}
+
+.contribute .section-title {
+  color: var(--parchment);
+}
+
+.contribute-desc {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 239, 223, 0.65);
+  margin-bottom: 2rem;
+}
+
+.ways {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.way {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(245, 239, 223, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+
+.way:hover {
+  border-color: var(--saffron);
+  background: rgba(232, 131, 42, 0.08);
+}
+
+.way-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.way-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--parchment);
+  margin-bottom: 0.2rem;
+}
+
+.way-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(245, 239, 223, 0.5);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.way-arrow {
+  margin-left: auto;
+  color: var(--saffron);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  color: rgba(245, 239, 223, 0.5);
+  padding: 4rem 0 2rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 2rem;
+}
+
+.footer-brand-bengali {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--saffron);
+  margin-bottom: 0.3rem;
+}
+
+.footer-brand-roman {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 1.2rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 30ch;
+}
+
+.footer-col h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-col a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(245, 239, 223, 0.45);
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--saffron);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-lang {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 1rem;
+  color: rgba(245, 239, 223, 0.2);
+  letter-spacing: 0.3em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(24px);
   }
 
-  .reveal.visible {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── BACK TO TOP ─── */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--terracotta);
+  color: white;
+  border: none;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s, background 0.2s;
+  z-index: 99;
+  font-family: 'DM Mono', monospace;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  background: var(--saffron);
+  transform: translateY(-3px);
+}
+
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .ticker-inner {
+    animation: none;
+  }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+   ───────────────────────────────────────── */
+
+/* ── Tablet / Small Desktop: ≤ 1024px ── */
+@media (max-width: 1024px) {
+  nav {
+    padding: 1rem 2rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 9rem 3rem 5rem;
+    min-height: 70vh;
+    justify-content: flex-end;
+  }
+
+  .hero-right {
+    padding: 4rem 3rem;
+  }
+
+  .mission-grid,
+  .contribute-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .research-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ── Mobile: ≤ 768px ── */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+
+  /* Hamburger visible on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Mobile nav overlay */
+  .nav-links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--ink);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 101;
+    padding: 2rem;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+    color: var(--parchment);
+    letter-spacing: 0.2em;
+  }
+
+  .nav-links a:hover {
+    color: var(--saffron);
+  }
+
+  .nav-links a.nav-cta {
+    background: var(--saffron);
+    color: var(--ink);
+    padding: 0.7rem 2rem;
+  }
+
+  /* Hero */
+  .hero-left {
+    padding: 8rem 1.5rem 4rem;
+    min-height: auto;
+  }
+
+  .hero-right {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 5rem 0;
+  }
+
+  /* Research */
+  .research-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Team */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Publications */
+  .pub-item {
+    grid-template-columns: 4rem 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .pub-item>div:last-child {
+    grid-column: 2;
+  }
+
+  /* Contribute */
+  .contribute-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Footer */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  /* Back to top */
+  #back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+}
+
+/* ── Small Mobile: ≤ 480px ── */
+@media (max-width: 480px) {
+  .hero-left {
+    padding: 7rem 1.25rem 3rem;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .team-avatar-initials {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .mission-statement {
+    font-size: 1.2rem;
+  }
+}

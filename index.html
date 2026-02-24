@@ -4,23 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta -->
     <title>বাক্ — Bāk Institute for Bengali Language Research</title>
+    <meta name="description"
+        content="Bāk Institute advances open, equitable research in Bengali linguistics and computational language science — building free tools, datasets, and resources for 230 million Bengali speakers.">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bāk Institute for Bengali Language Research">
+    <meta property="og:description"
+        content="Open-access NLP tools, datasets, and research for the Bengali language — advancing linguistic equity for 230 million speakers.">
+    <meta property="og:image" content="assets/cover.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bāk Institute for Bengali Language Research">
+    <meta name="twitter:description" content="Open-access NLP tools, datasets, and research for the Bengali language.">
+    <meta name="twitter:image" content="assets/cover.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
         rel="stylesheet">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- NAV -->
-    <nav>
+    <nav aria-label="Main navigation">
         <a class="nav-logo" href="#">
-            <span class="nav-logo-bengali">বাক্</span>
+            <span class="nav-logo-bengali" lang="bn">বাক্</span>
             <span class="nav-logo-roman">Bāk Institute</span>
         </a>
-        <ul class="nav-links">
+
+        <!-- Hamburger (mobile) -->
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links" role="list">
             <li><a href="#mission">Mission</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#publications">Publications</a></li>
@@ -29,364 +62,370 @@
         </ul>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-left">
-            <div class="hero-script-bg">বাং</div>
-            <div class="hero-eyebrow">Bāk Institute · Est. 2019 · Dhaka — Kolkata — Toronto</div>
-            <h1 class="hero-title">
-                Making <em>Bengali</em><br>
-                a language of<br>
-                open science
-            </h1>
-            <div class="hero-bengali-title">বাংলা গবেষণার গণতন্ত্রীকরণ</div>
-            <p class="hero-desc">
-                We build free, open-access tools, datasets, and resources to ensure that 230 million Bengali speakers
-                can participate fully in the global knowledge economy.
-            </p>
-            <div class="hero-actions">
-                <a href="#research" class="btn-primary">Explore Research →</a>
-                <a href="#contribute" class="btn-ghost">Join the Mission</a>
-            </div>
-        </div>
+    <main>
 
-        <div class="hero-right">
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="stat-number">230M</div>
-                    <div class="stat-label">Native Speakers</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">7th</div>
-                    <div class="stat-label">Most Spoken Language</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">48</div>
-                    <div class="stat-label">Open Datasets Released</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">120+</div>
-                    <div class="stat-label">Research Collaborators</div>
+        <!-- HERO -->
+        <section class="hero" aria-label="Hero">
+            <div class="hero-left">
+                <div class="hero-script-bg" aria-hidden="true" lang="bn">বাং</div>
+                <div class="hero-eyebrow">Bāk Institute · Est. 2019</div>
+                <h1 class="hero-title">
+                    Making <em>Bengali</em><br>
+                    a language of<br>
+                    open science
+                </h1>
+                <div class="hero-bengali-title" lang="bn">বাংলা গবেষণার গণতন্ত্রীকরণ</div>
+                <p class="hero-desc">
+                    We build free, open-access tools, datasets, and resources to ensure that 230 million Bengali
+                    speakers
+                    can participate fully in the global knowledge economy.
+                </p>
+                <div class="hero-actions">
+                    <a href="#research" class="btn-primary">Explore Research →</a>
+                    <a href="#contribute" class="btn-ghost">Join the Mission</a>
                 </div>
             </div>
-            <div class="hero-quote">
-                <p>"আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।"</p>
-                <cite>— Rabindranath Tagore · National Anthem of Bangladesh</cite>
-            </div>
-        </div>
-    </section>
 
-    <!-- TICKER -->
-    <div class="ticker">
-        <div class="ticker-inner">
-            <span class="ticker-item">Open-Source NLP Tools <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Corpus Linguistics <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Speech Recognition <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Dialect Preservation <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Machine Translation <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Computational Morphology <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Educational Technology <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Language Documentation <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Open-Source NLP Tools <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Corpus Linguistics <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Speech Recognition <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Dialect Preservation <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Machine Translation <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Computational Morphology <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Educational Technology <span class="ticker-dot">✦</span></span>
-            <span class="ticker-item">Language Documentation <span class="ticker-dot">✦</span></span>
-        </div>
-    </div>
-
-    <!-- MISSION -->
-    <section class="mission" id="mission">
-        <div class="container">
-            <div class="mission-grid">
-                <div class="reveal">
-                    <div class="section-label">Our Mission</div>
-                    <p class="mission-statement">
-                        "Bengali is one of humanity's great literary languages—yet it remains underrepresented in
-                        computational research. We exist to close that gap, one open dataset at a time."
-                    </p>
-                </div>
-                <div class="mission-pillars reveal">
-                    <div class="pillar">
-                        <div class="pillar-num">01</div>
-                        <div>
-                            <h3>Open Access Research</h3>
-                            <p>All our publications, datasets, and code are freely available under permissive licenses.
-                                No paywalls, no gatekeeping.</p>
-                        </div>
+            <div class="hero-right">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">230M</div>
+                        <div class="stat-label">Native Speakers</div>
                     </div>
-                    <div class="pillar">
-                        <div class="pillar-num">02</div>
-                        <div>
-                            <h3>Community-Driven Science</h3>
-                            <p>We partner with linguists, technologists, and speakers across Bangladesh, West Bengal,
-                                and the diaspora.</p>
-                        </div>
+                    <div class="stat-card">
+                        <div class="stat-number">7th</div>
+                        <div class="stat-label">Most Spoken Language</div>
                     </div>
-                    <div class="pillar">
-                        <div class="pillar-num">03</div>
-                        <div>
-                            <h3>Dialect Equity</h3>
-                            <p>Standard Bengali dominates NLP research. We invest in Sylheti, Chittagonian, Rajshahi,
-                                and other regional varieties.</p>
-                        </div>
+                    <div class="stat-card">
+                        <div class="stat-number">48</div>
+                        <div class="stat-label">Open Datasets Released</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">120+</div>
+                        <div class="stat-label">Research Collaborators</div>
                     </div>
                 </div>
+                <blockquote class="hero-quote">
+                    <p lang="bn">&#x201C;আমার সোনার বাংলা, আমি তোমায় ভালোবাসি।&#x201D;</p>
+                    <cite>— Rabindranath Tagore · National Anthem of Bangladesh</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- TICKER -->
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker-inner" id="ticker-inner">
+                <span class="ticker-item">Open-Source NLP Tools <span class="ticker-dot">✦</span></span>
+                <span class="ticker-item">Corpus Linguistics <span class="ticker-dot">✦</span></span>
+                <span class="ticker-item">Speech Recognition <span class="ticker-dot">✦</span></span>
+                <span class="ticker-item">Dialect Preservation <span class="ticker-dot">✦</span></span>
+                <span class="ticker-item">Machine Translation <span class="ticker-dot">✦</span></span>
+                <span class="ticker-item">Computational Morphology <span class="ticker-dot">✦</span></span>
+                <span class="ticker-item">Educational Technology <span class="ticker-dot">✦</span></span>
+                <span class="ticker-item">Language Documentation <span class="ticker-dot">✦</span></span>
             </div>
         </div>
-    </section>
 
-    <!-- RESEARCH -->
-    <section class="research" id="research">
-        <div class="container">
-            <div class="section-label reveal">Research Areas</div>
-            <h2 class="section-title reveal">Six fields.<br>One language.</h2>
-            <div class="research-cards reveal">
-                <div class="research-card">
-                    <span class="card-icon">অ</span>
-                    <div class="card-tag">NLP · AI</div>
-                    <div class="card-title">Natural Language Processing</div>
-                    <p class="card-desc">Building tokenizers, parsers, POS taggers, and language models trained natively
-                        on Bengali—not translated from English.</p>
-                </div>
-                <div class="research-card">
-                    <span class="card-icon">শ</span>
-                    <div class="card-tag">Phonetics · Speech</div>
-                    <div class="card-title">Speech &amp; Phonology</div>
-                    <p class="card-desc">Acoustic modeling, ASR systems, and TTS engines that capture the full prosodic
-                        range of spoken Bengali.</p>
-                </div>
-                <div class="research-card">
-                    <span class="card-icon">গ</span>
-                    <div class="card-tag">Computational Linguistics</div>
-                    <div class="card-title">Morphology &amp; Grammar</div>
-                    <p class="card-desc">Formal computational accounts of Bengali's rich morphological
-                        system—agglutinative verb forms, honorific scales, and nominal declension.</p>
-                </div>
-                <div class="research-card">
-                    <span class="card-icon">ব</span>
-                    <div class="card-tag">Machine Translation</div>
-                    <div class="card-title">Cross-Lingual Systems</div>
-                    <p class="card-desc">High-quality neural MT between Bengali and low-resource language pairs, with a
-                        focus on South and Southeast Asia.</p>
-                </div>
-                <div class="research-card">
-                    <span class="card-icon">ড</span>
-                    <div class="card-tag">Dialectology</div>
-                    <div class="card-title">Dialect Documentation</div>
-                    <p class="card-desc">Fieldwork, corpora, and computational tools for underrepresented Bengali
-                        dialects facing endangerment or diglossia.</p>
-                </div>
-                <div class="research-card">
-                    <span class="card-icon">শি</span>
-                    <div class="card-tag">EdTech · Tools</div>
-                    <div class="card-title">Language Learning Technology</div>
-                    <p class="card-desc">AI-assisted tools for heritage learners, diaspora communities, and literacy
-                        programs in under-resourced schools.</p>
+        <!-- MISSION -->
+        <section class="mission" id="mission" aria-labelledby="mission-heading">
+            <div class="container">
+                <div class="mission-grid">
+                    <div class="reveal">
+                        <div class="section-label">Our Mission</div>
+                        <p class="mission-statement">
+                            &#x201C;Bengali is one of humanity&#x2019;s great literary languages—yet it remains
+                            underrepresented in
+                            computational research. We exist to close that gap, one open dataset at a time.&#x201D;
+                        </p>
+                    </div>
+                    <div class="mission-pillars reveal">
+                        <div class="pillar">
+                            <div class="pillar-num">01</div>
+                            <div>
+                                <h3>Open Access Research</h3>
+                                <p>All our publications, datasets, and code are freely available under permissive
+                                    licenses.
+                                    No paywalls, no gatekeeping.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-num">02</div>
+                            <div>
+                                <h3>Community-Driven Science</h3>
+                                <p>We partner with linguists, technologists, and speakers across Bangladesh, West
+                                    Bengal,
+                                    and the diaspora.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-num">03</div>
+                            <div>
+                                <h3>Dialect Equity</h3>
+                                <p>Standard Bengali dominates NLP research. We invest in Sylheti, Chittagonian,
+                                    Rajshahi,
+                                    and other regional varieties.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PUBLICATIONS -->
-    <section class="publications" id="publications">
-        <div class="container">
-            <div class="pub-header">
-                <div>
-                    <div class="section-label reveal">Publications</div>
-                    <h2 class="section-title reveal">Recent Work</h2>
+        <!-- RESEARCH -->
+        <section class="research" id="research" aria-labelledby="research-heading">
+            <div class="container">
+                <div class="section-label reveal">Research Areas</div>
+                <h2 class="section-title reveal" id="research-heading">Six fields.<br>One language.</h2>
+                <div class="research-cards reveal">
+                    <div class="research-card">
+                        <span class="card-icon" aria-hidden="true" lang="bn">অ</span>
+                        <div class="card-tag">NLP · AI</div>
+                        <div class="card-title">Natural Language Processing</div>
+                        <p class="card-desc">Building tokenizers, parsers, POS taggers, and language models trained
+                            natively
+                            on Bengali—not translated from English.</p>
+                    </div>
+                    <div class="research-card">
+                        <span class="card-icon" aria-hidden="true" lang="bn">শ</span>
+                        <div class="card-tag">Phonetics · Speech</div>
+                        <div class="card-title">Speech &amp; Phonology</div>
+                        <p class="card-desc">Acoustic modeling, ASR systems, and TTS engines that capture the full
+                            prosodic
+                            range of spoken Bengali.</p>
+                    </div>
+                    <div class="research-card">
+                        <span class="card-icon" aria-hidden="true" lang="bn">গ</span>
+                        <div class="card-tag">Computational Linguistics</div>
+                        <div class="card-title">Morphology &amp; Grammar</div>
+                        <p class="card-desc">Formal computational accounts of Bengali&#x2019;s rich morphological
+                            system—agglutinative verb forms, honorific scales, and nominal declension.</p>
+                    </div>
+                    <div class="research-card">
+                        <span class="card-icon" aria-hidden="true" lang="bn">ব</span>
+                        <div class="card-tag">Machine Translation</div>
+                        <div class="card-title">Cross-Lingual Systems</div>
+                        <p class="card-desc">High-quality neural MT between Bengali and low-resource language pairs,
+                            with a
+                            focus on South and Southeast Asia.</p>
+                    </div>
+                    <div class="research-card">
+                        <span class="card-icon" aria-hidden="true" lang="bn">ড</span>
+                        <div class="card-tag">Dialectology</div>
+                        <div class="card-title">Dialect Documentation</div>
+                        <p class="card-desc">Fieldwork, corpora, and computational tools for underrepresented Bengali
+                            dialects facing endangerment or diglossia.</p>
+                    </div>
+                    <div class="research-card">
+                        <span class="card-icon" aria-hidden="true" lang="bn">শি</span>
+                        <div class="card-tag">EdTech · Tools</div>
+                        <div class="card-title">Language Learning Technology</div>
+                        <p class="card-desc">AI-assisted tools for heritage learners, diaspora communities, and literacy
+                            programs in under-resourced schools.</p>
+                    </div>
                 </div>
-                <a href="#" class="btn-primary" style="margin-bottom: 1.5rem;">View All →</a>
             </div>
-            <div class="pub-list reveal">
-                <div class="pub-item">
-                    <div class="pub-year">2025</div>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section class="publications" id="publications" aria-labelledby="pub-heading">
+            <div class="container">
+                <div class="pub-header">
                     <div>
-                        <div class="pub-title">BengaliQA: A Large-Scale Open-Domain Question Answering Benchmark</div>
-                        <div class="pub-authors">Rahman, M. · Hossain, T. · Chowdhury, S. · 4 others</div>
+                        <div class="section-label reveal">Publications</div>
+                        <h2 class="section-title reveal" id="pub-heading">Recent Work</h2>
                     </div>
-                    <div><span class="pub-badge">ACL 2025</span></div>
+                    <a href="mailto:contact@bakinstitute.org" class="btn-primary btn-primary--spaced">View All →</a>
                 </div>
-                <div class="pub-item">
-                    <div class="pub-year">2025</div>
-                    <div>
-                        <div class="pub-title">Tonal Variation in Chittagonian: A Computational Phonological Analysis
+                <div class="pub-list reveal">
+                    <article class="pub-item">
+                        <div class="pub-year">2025</div>
+                        <div>
+                            <div class="pub-title">BengaliQA: A Large-Scale Open-Domain Question Answering Benchmark
+                            </div>
+                            <div class="pub-authors">Rahman, M. · Hossain, T. · Chowdhury, S. · 4 others</div>
                         </div>
-                        <div class="pub-authors">Das, P. · Biswas, A.</div>
-                    </div>
-                    <div><span class="pub-badge">Journal of Phonetics</span></div>
-                </div>
-                <div class="pub-item">
-                    <div class="pub-year">2024</div>
-                    <div>
-                        <div class="pub-title">Bāko Corpus 2.0: A 5-Billion Token Web Corpus for Bengali</div>
-                        <div class="pub-authors">Ahmed, K. · Islam, N. · Sen, R. · Roy, D.</div>
-                    </div>
-                    <div><span class="pub-badge">LREC-COLING</span></div>
-                </div>
-                <div class="pub-item">
-                    <div class="pub-year">2024</div>
-                    <div>
-                        <div class="pub-title">Low-Resource Neural Machine Translation: Bengali↔Tibetan</div>
-                        <div class="pub-authors">Chakraborty, M. · Tamang, S. · Islam, F.</div>
-                    </div>
-                    <div><span class="pub-badge">EMNLP 2024</span></div>
-                </div>
-                <div class="pub-item">
-                    <div class="pub-year">2024</div>
-                    <div>
-                        <div class="pub-title">Morphological Inflection in Agglutinative Languages: Lessons from Bengali
+                        <div><span class="pub-badge">ACL 2025</span></div>
+                    </article>
+                    <article class="pub-item">
+                        <div class="pub-year">2025</div>
+                        <div>
+                            <div class="pub-title">Tonal Variation in Chittagonian: A Computational Phonological
+                                Analysis</div>
+                            <div class="pub-authors">Das, P. · Biswas, A.</div>
                         </div>
-                        <div class="pub-authors">Ghosh, I. · Paul, S.</div>
-                    </div>
-                    <div><span class="pub-badge">Computational Linguistics</span></div>
+                        <div><span class="pub-badge">Journal of Phonetics</span></div>
+                    </article>
+                    <article class="pub-item">
+                        <div class="pub-year">2024</div>
+                        <div>
+                            <div class="pub-title">Bāko Corpus 2.0: A 5-Billion Token Web Corpus for Bengali</div>
+                            <div class="pub-authors">Ahmed, K. · Islam, N. · Sen, R. · Roy, D.</div>
+                        </div>
+                        <div><span class="pub-badge">LREC-COLING</span></div>
+                    </article>
+                    <article class="pub-item">
+                        <div class="pub-year">2024</div>
+                        <div>
+                            <div class="pub-title">Low-Resource Neural Machine Translation: Bengali↔Tibetan</div>
+                            <div class="pub-authors">Chakraborty, M. · Tamang, S. · Islam, F.</div>
+                        </div>
+                        <div><span class="pub-badge">EMNLP 2024</span></div>
+                    </article>
+                    <article class="pub-item">
+                        <div class="pub-year">2024</div>
+                        <div>
+                            <div class="pub-title">Morphological Inflection in Agglutinative Languages: Lessons from
+                                Bengali</div>
+                            <div class="pub-authors">Ghosh, I. · Paul, S.</div>
+                        </div>
+                        <div><span class="pub-badge">Computational Linguistics</span></div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- TEAM -->
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-label reveal">Our People</div>
-            <h2 class="section-title reveal">The researchers behind<br><em>Bāk Institute</em></h2>
-            <div class="team-grid reveal">
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">মর</div>
+        <!-- TEAM -->
+        <section class="team" id="team" aria-labelledby="team-heading">
+            <div class="container">
+                <div class="section-label reveal">Our People</div>
+                <h2 class="section-title reveal" id="team-heading">The researchers behind<br><em>Bāk Institute</em></h2>
+                <div class="team-grid reveal">
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">মর</div>
+                        </div>
+                        <div class="team-name">Dr. Minhaj Rahman</div>
+                        <div class="team-role">Executive Director</div>
+                        <div class="team-inst">University of Dhaka</div>
                     </div>
-                    <div class="team-name">Dr. Minhaj Rahman</div>
-                    <div class="team-role">Executive Director</div>
-                    <div class="team-inst">University of Dhaka</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">পদ</div>
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">পদ</div>
+                        </div>
+                        <div class="team-name">Prof. Priya Das</div>
+                        <div class="team-role">Research Lead, Phonetics</div>
+                        <div class="team-inst">Jadavpur University</div>
                     </div>
-                    <div class="team-name">Prof. Priya Das</div>
-                    <div class="team-role">Research Lead, Phonetics</div>
-                    <div class="team-inst">Jadavpur University</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">কআ</div>
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">কআ</div>
+                        </div>
+                        <div class="team-name">Dr. Karim Ahmed</div>
+                        <div class="team-role">Research Lead, NLP</div>
+                        <div class="team-inst">University of Toronto</div>
                     </div>
-                    <div class="team-name">Dr. Karim Ahmed</div>
-                    <div class="team-role">Research Lead, NLP</div>
-                    <div class="team-inst">University of Toronto</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">নই</div>
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">নই</div>
+                        </div>
+                        <div class="team-name">Nusrat Islam</div>
+                        <div class="team-role">Data Infrastructure</div>
+                        <div class="team-inst">BUET</div>
                     </div>
-                    <div class="team-name">Nusrat Islam</div>
-                    <div class="team-role">Data Infrastructure</div>
-                    <div class="team-inst">BUET</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">রস</div>
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">রস</div>
+                        </div>
+                        <div class="team-name">Dr. Riya Sen</div>
+                        <div class="team-role">Computational Morphology</div>
+                        <div class="team-inst">IIT Kharagpur</div>
                     </div>
-                    <div class="team-name">Dr. Riya Sen</div>
-                    <div class="team-role">Computational Morphology</div>
-                    <div class="team-inst">IIT Kharagpur</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">তহ</div>
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">তহ</div>
+                        </div>
+                        <div class="team-name">Tanvir Hossain</div>
+                        <div class="team-role">Machine Translation</div>
+                        <div class="team-inst">BRAC University</div>
                     </div>
-                    <div class="team-name">Tanvir Hossain</div>
-                    <div class="team-role">Machine Translation</div>
-                    <div class="team-inst">BRAC University</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">মচ</div>
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">মচ</div>
+                        </div>
+                        <div class="team-name">Dr. Mohua Chakraborty</div>
+                        <div class="team-role">Dialectology</div>
+                        <div class="team-inst">Presidency University</div>
                     </div>
-                    <div class="team-name">Dr. Mohua Chakraborty</div>
-                    <div class="team-role">Dialectology</div>
-                    <div class="team-inst">Presidency University</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <div class="team-avatar-initials">ফই</div>
+                    <div class="team-card">
+                        <div class="team-avatar" aria-hidden="true">
+                            <div class="team-avatar-initials" lang="bn">ফই</div>
+                        </div>
+                        <div class="team-name">Fahmida Islam</div>
+                        <div class="team-role">Community Outreach</div>
+                        <div class="team-inst">Bāk Institute</div>
                     </div>
-                    <div class="team-name">Fahmida Islam</div>
-                    <div class="team-role">Community Outreach</div>
-                    <div class="team-inst">Bāk Institute</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CONTRIBUTE -->
-    <section class="contribute" id="contribute">
-        <div class="container">
-            <div class="contribute-inner">
-                <div class="reveal">
-                    <div class="section-label">Get Involved</div>
-                    <h2 class="section-title">Bengali language research<br>needs <em>you.</em></h2>
-                    <p class="contribute-desc">
-                        Whether you speak Bengali, write code, annotate data, or simply believe in linguistic
-                        equity—there is a place for you in this work.
-                    </p>
-                    <a href="#" class="btn-primary">Contact Us →</a>
-                </div>
-                <div class="ways reveal">
-                    <a href="#" class="way">
-                        <div class="way-icon">🔬</div>
-                        <div>
-                            <div class="way-title">Research Collaboration</div>
-                            <div class="way-desc">Partner on datasets, papers, or tools</div>
-                        </div>
-                        <span class="way-arrow">→</span>
-                    </a>
-                    <a href="#" class="way">
-                        <div class="way-icon">🏷️</div>
-                        <div>
-                            <div class="way-title">Data Annotation</div>
-                            <div class="way-desc">Help label corpora as a volunteer annotator</div>
-                        </div>
-                        <span class="way-arrow">→</span>
-                    </a>
-                    <a href="#" class="way">
-                        <div class="way-icon">💻</div>
-                        <div>
-                            <div class="way-title">Open Source Contribution</div>
-                            <div class="way-desc">Contribute to our tools on GitHub</div>
-                        </div>
-                        <span class="way-arrow">→</span>
-                    </a>
-                    <a href="#" class="way">
-                        <div class="way-icon">🎓</div>
-                        <div>
-                            <div class="way-title">Fellowship Program</div>
-                            <div class="way-desc">For early-career Bengali language researchers</div>
-                        </div>
-                        <span class="way-arrow">→</span>
-                    </a>
-                    <a href="#" class="way">
-                        <div class="way-icon">❤️</div>
-                        <div>
-                            <div class="way-title">Donate</div>
-                            <div class="way-desc">Support our non-profit mission financially</div>
-                        </div>
-                        <span class="way-arrow">→</span>
-                    </a>
+        <!-- CONTRIBUTE -->
+        <section class="contribute" id="contribute" aria-labelledby="contribute-heading">
+            <div class="container">
+                <div class="contribute-inner">
+                    <div class="reveal">
+                        <div class="section-label">Get Involved</div>
+                        <h2 class="section-title" id="contribute-heading">Bengali language research<br>needs
+                            <em>you.</em></h2>
+                        <p class="contribute-desc">
+                            Whether you speak Bengali, write code, annotate data, or simply believe in linguistic
+                            equity—there is a place for you in this work.
+                        </p>
+                        <a href="mailto:contact@bakinstitute.org" class="btn-primary">Contact Us →</a>
+                    </div>
+                    <div class="ways reveal">
+                        <a href="mailto:contact@bakinstitute.org" class="way">
+                            <div class="way-icon" aria-hidden="true">🔬</div>
+                            <div>
+                                <div class="way-title">Research Collaboration</div>
+                                <div class="way-desc">Partner on datasets, papers, or tools</div>
+                            </div>
+                            <span class="way-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a href="mailto:contact@bakinstitute.org" class="way">
+                            <div class="way-icon" aria-hidden="true">🏷️</div>
+                            <div>
+                                <div class="way-title">Data Annotation</div>
+                                <div class="way-desc">Help label corpora as a volunteer annotator</div>
+                            </div>
+                            <span class="way-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a href="https://github.com" class="way" target="_blank" rel="noopener noreferrer">
+                            <div class="way-icon" aria-hidden="true">💻</div>
+                            <div>
+                                <div class="way-title">Open Source Contribution</div>
+                                <div class="way-desc">Contribute to our tools on GitHub</div>
+                            </div>
+                            <span class="way-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a href="mailto:contact@bakinstitute.org" class="way">
+                            <div class="way-icon" aria-hidden="true">🎓</div>
+                            <div>
+                                <div class="way-title">Fellowship Program</div>
+                                <div class="way-desc">For early-career Bengali language researchers</div>
+                            </div>
+                            <span class="way-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a href="mailto:donate@bakinstitute.org" class="way">
+                            <div class="way-icon" aria-hidden="true">❤️</div>
+                            <div>
+                                <div class="way-title">Donate</div>
+                                <div class="way-desc">Support our non-profit mission financially</div>
+                            </div>
+                            <span class="way-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-inner">
                 <div>
-                    <div class="footer-brand-bengali">বাক্</div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
                     <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
                     <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
                         computational language science.</p>
@@ -394,40 +433,44 @@
                 <div class="footer-col">
                     <h4>Research</h4>
                     <ul>
-                        <li><a href="#">NLP &amp; AI</a></li>
-                        <li><a href="#">Speech</a></li>
-                        <li><a href="#">Morphology</a></li>
-                        <li><a href="#">Dialects</a></li>
-                        <li><a href="#">Translation</a></li>
+                        <li><a href="#research">NLP &amp; AI</a></li>
+                        <li><a href="#research">Speech</a></li>
+                        <li><a href="#research">Morphology</a></li>
+                        <li><a href="#research">Dialects</a></li>
+                        <li><a href="#research">Translation</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Datasets</a></li>
-                        <li><a href="#">Publications</a></li>
-                        <li><a href="#">Tools &amp; Code</a></li>
-                        <li><a href="#">Fellowship</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#publications">Datasets</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Tools &amp; Code</a>
+                        </li>
+                        <li><a href="#contribute">Fellowship</a></li>
+                        <li><a href="mailto:contact@bakinstitute.org">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Organization</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#mission">About</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="mailto:contact@bakinstitute.org">Partners</a></li>
+                        <li><a href="mailto:contact@bakinstitute.org">Press</a></li>
+                        <li><a href="mailto:contact@bakinstitute.org">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
-                <div class="footer-lang">ক খ গ ঘ ঙ চ ছ</div>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
             </div>
         </div>
     </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" aria-label="Back to top">↑</button>
 
     <script src="script.js"></script>
 </body>

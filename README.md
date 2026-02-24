@@ -1,15 +1,12 @@
-<div align="center">
-
 # বাক্ · Bāk Institute
-### for Bengali Language Research
+
+## For Bengali Language Research
 
 **Democratizing Bengali language research — one open dataset at a time.**
 
 [![Website](https://img.shields.io/badge/website-bakinstitute.org-c1440e?style=flat-square)](https://bakinstitute.org)
-[![License](https://img.shields.io/badge/license-CC--BY--4.0%20%2F%20MIT-3d5a3e?style=flat-square)](#)
-[![Collaborators](https://img.shields.io/badge/collaborators-120%2B-1d2b5e?style=flat-square)](#)
-
-</div>
+[![License](https://img.shields.io/badge/license-CC--BY--4.0%20%2F%20MIT-3d5a3e?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
+[![Collaborators](https://img.shields.io/badge/collaborators-120%2B-1d2b5e?style=flat-square)](https://bakinstitute.org/team/)
 
 ---
 
@@ -51,16 +48,17 @@ We build the tools, corpora, and models that the research community needs, and w
 We welcome contributions from researchers, developers, linguists, and native speakers.
 
 - 🐛 **Bug reports & feature requests** — open an issue in the relevant repo
-- 🏷️ **Data annotation** — see our [Volunteer Annotator Program](#)
+- 🏷️ **Data annotation** — contact us to join the Volunteer Annotator Program
 - 💻 **Code contributions** — read our [Contributing Guide](CONTRIBUTING.md)
-- 🎓 **Research collaboration** — email us at hello@bakinstitute.org
-- 🌱 **Fellowship** — apply to our early-career researcher fellowship
+- 🎓 **Research collaboration** — email us at [bakinstitute.official@gmail.com](mailto:bakinstitute.official@gmail.com)
+- 🌱 **Fellowship** — apply to our early-career researcher fellowship at [bakinstitute.org/fellowship/](https://bakinstitute.org/fellowship/)
 
 ---
 
 ## 📄 License
 
 Unless otherwise noted:
+
 - **Code** is released under the [MIT License](LICENSE-MIT)
 - **Datasets & corpora** are released under [CC BY 4.0](LICENSE-CC)
 - **Research papers** are open access
@@ -72,14 +70,11 @@ Unless otherwise noted:
 | Channel | Link |
 |---|---|
 | Website | [bakinstitute.org](https://bakinstitute.org) |
-| Email | hello@bakinstitute.org |
-| Facebook | [@bakinstitute](https://facebook.com/bakinstitute) |
+| Email | [bakinstitute.official@gmail.com](mailto:bakinstitute.official@gmail.com) |
+| Facebook | [@bakinstitute.bd](https://www.facebook.com/bakinstitute.bd/) |
+| GitHub | [github.com/bakinstitute](https://github.com/bakinstitute) |
 
 ---
 
-<div align="center">
-
 *বাংলা ভাষার গবেষণায় সবার অধিকার।*
 *Bengali language research belongs to everyone.*
-
-</div>

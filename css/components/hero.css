@@ -1,0 +1,185 @@
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--indigo);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8rem 4rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(232, 131, 42, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(193, 68, 14, 0.1) 0%, transparent 50%);
+}
+
+.hero-script-bg {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 18rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease both;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--parchment);
+  margin-bottom: 1rem;
+  animation: fadeUp 1s ease 0.1s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--light-gold);
+}
+
+.hero-bengali-title {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 300;
+  color: rgba(245, 239, 223, 0.5);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 1s ease 0.2s both;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 239, 223, 0.75);
+  max-width: 38ch;
+  animation: fadeUp 1s ease 0.3s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  animation: fadeUp 1s ease 0.4s both;
+  flex-wrap: wrap;
+}
+
+
+/* ─── HERO RIGHT ─── */
+.hero-right {
+  background: var(--parchment);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
+  overflow: hidden;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200, 154, 46, 0.08) 39px, rgba(200, 154, 46, 0.08) 40px);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(200, 154, 46, 0.15);
+  animation: fadeIn 1s ease both;
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.stat-card:nth-child(4) {
+  animation-delay: 0.65s;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.hero-quote {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0 1.5rem 2rem;
+  border-left: 3px solid var(--gold);
+  animation: fadeIn 1s ease 0.8s both;
+}
+
+.hero-quote p {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--indigo);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.hero-quote cite {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--warm-gray);
+  font-style: normal;
+}
+
+
+

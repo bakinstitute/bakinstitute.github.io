@@ -1,0 +1,49 @@
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--saffron);
+  color: var(--ink);
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--light-gold);
+  transform: translateY(-2px);
+}
+
+/* Modifier: spaced top — replaces former inline style */
+.btn-primary--spaced {
+  margin-bottom: 1.5rem;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(245, 239, 223, 0.3);
+  color: var(--parchment);
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--saffron);
+  background: rgba(232, 131, 42, 0.1);
+}
+
+

@@ -1,0 +1,208 @@
+/* ─── PUBLICATIONS ─── */
+.publications {
+  background: var(--parchment);
+}
+
+.pub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(200, 154, 46, 0.2);
+}
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 6rem 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(200, 154, 46, 0.2);
+  transition: padding-left 0.3s, background 0.3s;
+  cursor: default;
+}
+
+.pub-item:hover {
+  padding-left: 1rem;
+  background: rgba(200, 154, 46, 0.04);
+}
+
+.pub-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--warm-gray);
+  padding-top: 0.25rem;
+}
+
+.pub-title {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--indigo);
+  margin-bottom: 0.3rem;
+}
+
+.pub-authors {
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--warm-gray);
+}
+
+.pub-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--indigo);
+  color: var(--parchment);
+  padding: 0.3rem 0.8rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  margin-top: 0.2rem;
+  display: inline-block;
+}
+
+
+/* ─── Filter Tabs (publications) ─── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.filter-tab {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(200, 154, 46, 0.3);
+  background: transparent;
+  color: var(--warm-gray);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-tab:hover {
+  border-color: var(--saffron);
+  color: var(--ink);
+}
+
+.filter-tab.active {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: var(--parchment);
+}
+
+/* ─── Publication search ─── */
+.pub-search-wrap {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.pub-search {
+  width: 100%;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  border: 1px solid rgba(200, 154, 46, 0.3);
+  background: white;
+  color: var(--ink);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pub-search::placeholder {
+  color: var(--warm-gray);
+}
+
+.pub-search:focus {
+  border-color: var(--gold);
+}
+
+.pub-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--warm-gray);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+/* Extended pub-item for inner pages */
+.pub-abstract {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--warm-gray);
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.pub-item.expanded .pub-abstract {
+  display: block;
+}
+
+.pub-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pub-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: color 0.2s;
+}
+
+.pub-link:hover {
+  color: var(--terracotta);
+}
+
+.pub-toggle {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: var(--warm-gray);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.pub-toggle:hover {
+  color: var(--indigo);
+}
+
+.pub-none {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--warm-gray);
+  text-align: center;
+  padding: 3rem 0;
+  display: none;
+}
+
+

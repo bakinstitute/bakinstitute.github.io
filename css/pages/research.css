@@ -1,0 +1,196 @@
+/* ─── RESEARCH ─── */
+.research {
+  background: var(--cream);
+}
+
+.research-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(200, 154, 46, 0.15);
+  border: 2px solid rgba(200, 154, 46, 0.15);
+  margin-top: 4rem;
+}
+
+.research-card {
+  background: var(--cream);
+  padding: 2.5rem 2rem;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.research-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--terracotta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.research-card:hover {
+  background: white;
+}
+
+.research-card:hover::after {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 2.5rem;
+  color: var(--terracotta);
+  margin-bottom: 1.2rem;
+  opacity: 0.7;
+  display: block;
+}
+
+.card-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 0.8rem;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  color: var(--indigo);
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--warm-gray);
+}
+
+
+/* ─── Research Areas (research page) ─── */
+.area-card {
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(200, 154, 46, 0.15);
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.area-card:last-child {
+  border-bottom: none;
+}
+
+.area-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.area-icon-char {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 3rem;
+  color: var(--terracotta);
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.area-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--warm-gray);
+}
+
+.area-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 0.5rem;
+}
+
+.area-title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--indigo);
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.area-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--warm-gray);
+  margin-bottom: 1.5rem;
+  max-width: 65ch;
+}
+
+.area-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.area-details h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.area-details ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.area-details li {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--warm-gray);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.area-details li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--saffron);
+  font-size: 0.7rem;
+}
+
+.area-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(193, 68, 14, 0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.area-link:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+

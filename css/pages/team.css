@@ -1,0 +1,67 @@
+/* ─── TEAM ─── */
+.team {
+  background: var(--cream);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--indigo);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-avatar-initials {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: rgba(245, 239, 223, 0.5);
+}
+
+.team-avatar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(232, 131, 42, 0.2) 0%, transparent 60%);
+}
+
+.team-name {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--indigo);
+  margin-bottom: 0.2rem;
+}
+
+.team-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 0.5rem;
+}
+
+.team-inst {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+
+

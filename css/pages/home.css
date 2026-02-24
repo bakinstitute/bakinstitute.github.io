@@ -1,0 +1,179 @@
+/* ─── MISSION ─── */
+.mission {
+  background: var(--ink);
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission::before {
+  content: 'ভাষা';
+  font-family: 'Noto Sans Bengali', sans-serif;
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.mission .section-label {
+  color: var(--saffron);
+}
+
+.mission .section-label::after {
+  background: rgba(232, 131, 42, 0.3);
+}
+
+.mission-statement {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(245, 239, 223, 0.9);
+}
+
+.mission-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pillar {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.pillar-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--saffron);
+  padding-top: 0.4rem;
+}
+
+.pillar h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--parchment);
+  margin-bottom: 0.4rem;
+}
+
+.pillar p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(245, 239, 223, 0.55);
+}
+
+
+/* ─── CONTRIBUTE ─── */
+.contribute {
+  background: var(--indigo);
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+}
+
+.contribute::before {
+  content: 'বাক্';
+  font-family: 'Noto Sans Bengali', sans-serif;
+  position: absolute;
+  left: -3rem;
+  bottom: -3rem;
+  font-size: 30rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.025);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.contribute-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.contribute .section-label {
+  color: var(--saffron);
+}
+
+.contribute .section-label::after {
+  background: rgba(232, 131, 42, 0.3);
+}
+
+.contribute .section-title {
+  color: var(--parchment);
+}
+
+.contribute-desc {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 239, 223, 0.65);
+  margin-bottom: 2rem;
+}
+
+.ways {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.way {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(245, 239, 223, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+
+.way:hover {
+  border-color: var(--saffron);
+  background: rgba(232, 131, 42, 0.08);
+}
+
+.way-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.way-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--parchment);
+  margin-bottom: 0.2rem;
+}
+
+.way-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(245, 239, 223, 0.5);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.way-arrow {
+  margin-left: auto;
+  color: var(--saffron);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate — Bāk Institute</title>
+    <meta name="description"
+        content="Support Bāk Institute's open Bengali language research with a donation — fund fieldwork, annotator compensation, computational infrastructure, and educational tools.">
+    <meta property="og:title" content="Donate — Bāk Institute">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .donate-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .amount-btn {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            padding: 1rem;
+            border: 1px solid rgba(200, 154, 46, 0.3);
+            background: white;
+            color: var(--indigo);
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+
+        .amount-btn:hover,
+        .amount-btn.selected {
+            background: var(--indigo);
+            color: var(--parchment);
+            border-color: var(--indigo);
+        }
+
+        .custom-amount {
+            width: 100%;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            padding: 0.85rem 1rem 0.85rem 2rem;
+            border: 1px solid rgba(200, 154, 46, 0.25);
+            background: white;
+            color: var(--ink);
+            border-radius: 2px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .custom-amount:focus {
+            border-color: var(--gold);
+        }
+
+        .currency-label {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--warm-gray);
+            pointer-events: none;
+        }
+
+        .freq-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .freq-tab {
+            flex: 1;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.65rem;
+            border: 1px solid rgba(200, 154, 46, 0.3);
+            background: white;
+            color: var(--warm-gray);
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .freq-tab:hover,
+        .freq-tab.selected {
+            background: var(--indigo);
+            color: var(--parchment);
+            border-color: var(--indigo);
+        }
+
+        .impact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .impact-card {
+            background: var(--cream);
+            border: 1px solid rgba(200, 154, 46, 0.15);
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 5rem 1fr;
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .impact-card-amt {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--indigo);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .impact-card-title {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.25rem;
+        }
+
+        .impact-card-desc {
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.55;
+            color: var(--warm-gray);
+        }
+
+        .donate-note {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .progress-bar-wrap {
+            background: rgba(200, 154, 46, 0.12);
+            border-radius: 2px;
+            height: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .progress-bar {
+            background: var(--saffron);
+            height: 100%;
+            border-radius: 2px;
+            width: 63%;
+            transition: width 1s ease;
+        }
+
+        @media(max-width:1024px) {
+            .donate-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+            .amount-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-card {
+                grid-template-columns: 4rem 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html"><span class="nav-logo-bengali" lang="bn">বাক্</span><span
+                class="nav-logo-roman">Bāk Institute</span></a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+    <main id="main-content">
+
+        <div class="page-hero" data-text="সহায়তা">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Donate</div>
+                <h1 class="page-hero-title">Fund open Bengali<br><em>language science</em></h1>
+                <p class="page-hero-desc">Bāk Institute is a registered non-profit. Every donation goes directly to
+                    research — fieldwork, annotator compensation, compute infrastructure, and fellowships.</p>
+            </div>
+        </div>
+
+        <section style="background:var(--parchment);" aria-labelledby="donate-heading">
+            <div class="container">
+                <div class="donate-grid consume reveal">
+                    <!-- FORM -->
+                    <div>
+                        <div class="section-label" style="margin-bottom:1.5rem;">Make a Donation</div>
+
+                        <!-- Frequency -->
+                        <div class="freq-tabs" role="group" aria-label="Donation frequency">
+                            <button class="freq-tab selected" data-freq="once" id="freq-once">One-time</button>
+                            <button class="freq-tab" data-freq="monthly" id="freq-monthly">Monthly</button>
+                            <button class="freq-tab" data-freq="annual" id="freq-annual">Annual</button>
+                        </div>
+
+                        <!-- Amount selection -->
+                        <div class="amount-grid" role="group" aria-label="Select donation amount">
+                            <button class="amount-btn" data-amount="10">$10</button>
+                            <button class="amount-btn selected" data-amount="25">$25</button>
+                            <button class="amount-btn" data-amount="50">$50</button>
+                            <button class="amount-btn" data-amount="100">$100</button>
+                            <button class="amount-btn" data-amount="250">$250</button>
+                            <button class="amount-btn" data-amount="custom">Custom</button>
+                        </div>
+
+                        <!-- Custom input -->
+                        <div id="custom-wrap" style="position:relative;display:none;margin-bottom:1.5rem;">
+                            <span class="currency-label">$</span>
+                            <input type="number" id="custom-input" class="custom-amount" placeholder="Enter amount"
+                                min="1">
+                        </div>
+
+                        <!-- Personal info -->
+                        <form id="donate-form" class="contact-form" novalidate style="gap:1rem;">
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                                <div class="form-group">
+                                    <label class="form-label" for="d-first">First Name</label>
+                                    <input class="form-input" type="text" id="d-first" placeholder="Minhaj" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="d-last">Last Name</label>
+                                    <input class="form-input" type="text" id="d-last" placeholder="Rahman" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="d-email">Email</label>
+                                <input class="form-input" type="email" id="d-email" placeholder="your@email.com"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="d-fund">Designate to Fund (optional)</label>
+                                <select class="form-select" id="d-fund">
+                                    <option value="">General Fund (highest need)</option>
+                                    <option value="fieldwork">Dialect Fieldwork</option>
+                                    <option value="annotators">Annotator Compensation</option>
+                                    <option value="compute">Compute Infrastructure</option>
+                                    <option value="fellowship">Fellowship Program</option>
+                                    <option value="edtech">BākoLearn &amp; EdTech</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="flex-direction:row;align-items:center;gap:0.75rem;">
+                                <input type="checkbox" id="d-anon" style="width:1rem;height:1rem;cursor:pointer;">
+                                <label for="d-anon" class="form-label" style="margin:0;cursor:pointer;">Make donation
+                                    anonymous</label>
+                            </div>
+                            <button type="submit" class="form-submit" id="donate-btn">Donate <span
+                                    id="donate-amount-label">$25</span> →</button>
+                            <p class="donate-note">Bāk Institute is a registered non-profit in Bangladesh. Donations
+                                from the US may be tax-deductible under IRS 501(c)(3) via our fiscal sponsor. Receipt
+                                emailed automatically.</p>
+                        </form>
+
+                        <div class="form-success" id="donate-success" style="display:none;">
+                            <strong>✦ Thank you for your donation</strong>
+                            Your contribution directly supports open Bengali language research. You'll receive a receipt
+                            at your email address. We are deeply grateful.
+                        </div>
+                    </div>
+
+                    <!-- IMPACT + PROGRESS -->
+                    <div>
+                        <div class="section-label" style="margin-bottom:0.75rem;">2025 Annual Fund</div>
+                        <div style="margin-bottom:0.4rem;font-size:0.9rem;font-weight:300;color:var(--warm-gray);">
+                            $31,450 raised of $50,000 goal</div>
+                        <div class="progress-bar-wrap" role="progressbar" aria-valuenow="63" aria-valuemin="0"
+                            aria-valuemax="100" aria-label="63% of annual fund goal reached">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                        <p style="font-size:0.85rem;font-weight:300;color:var(--warm-gray);margin-bottom:2.5rem;">63%
+                            funded · 127 donors · 157 days remaining</p>
+
+                        <div class="section-label" style="margin-bottom:1.5rem;">What your donation funds</div>
+                        <div class="impact-cards">
+                            <div class="impact-card">
+                                <div class="impact-card-amt">$10</div>
+                                <div>
+                                    <div class="impact-card-title">Annotator Hour</div>
+                                    <p class="impact-card-desc">Pays a fair wage for one hour of expert Bengali language
+                                        annotation — building the datasets that make our research possible.</p>
+                                </div>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-card-amt">$50</div>
+                                <div>
+                                    <div class="impact-card-title">GPU Compute Hour</div>
+                                    <p class="impact-card-desc">One hour of A100 GPU time for training or evaluating
+                                        language models — enabling experiments that keep our research competitive.</p>
+                                </div>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-card-amt">$250</div>
+                                <div>
+                                    <div class="impact-card-title">Field Recording Session</div>
+                                    <p class="impact-card-desc">Covers transport, equipment, and compensation for one
+                                        dialect documentation field session — preserving voices that would otherwise go
+                                        unrecorded.</p>
+                                </div>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-card-amt">$1,500</div>
+                                <div>
+                                    <div class="impact-card-title">One Month of Fellowship</div>
+                                    <p class="impact-card-desc">Funds one month of a Bāk Research Fellowship stipend —
+                                        supporting an early-career researcher working full-time on Bengali language
+                                        science.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="fellowship.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+    <script>
+        // Amount selection
+        const amtBtns = document.querySelectorAll('.amount-btn');
+        const customWrap = document.getElementById('custom-wrap');
+        const customInput = document.getElementById('custom-input');
+        const donateLabel = document.getElementById('donate-amount-label');
+        let selectedAmt = 25;
+
+        function updateLabel() {
+            const fq = document.querySelector('.freq-tab.selected')?.dataset.freq;
+            const suffix = fq === 'monthly' ? '/mo' : fq === 'annual' ? '/yr' : '';
+            donateLabel.textContent = (selectedAmt === 'custom' ? ('$' + (customInput.value || '?')) : '$' + selectedAmt) + suffix;
+        }
+
+        amtBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                amtBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedAmt = btn.dataset.amount;
+                customWrap.style.display = selectedAmt === 'custom' ? 'block' : 'none';
+                updateLabel();
+            });
+        });
+
+        customInput.addEventListener('input', updateLabel);
+
+        // Frequency tabs
+        const freqTabs = document.querySelectorAll('.freq-tab');
+        freqTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                freqTabs.forEach(t => t.classList.remove('selected'));
+                tab.classList.add('selected');
+                updateLabel();
+            });
+        });
+
+        // Donate form
+        document.getElementById('donate-form').addEventListener('submit', e => {
+            e.preventDefault();
+            const first = document.getElementById('d-first').value.trim();
+            const email = document.getElementById('d-email').value.trim();
+            if (!first || !email) { alert('Please fill in your name and email.'); return; }
+            document.getElementById('donate-form').style.display = 'none';
+            document.getElementById('donate-success').style.display = 'block';
+        });
+
+        updateLabel();
+    </script>
+</body>
+
+</html>

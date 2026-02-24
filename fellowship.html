@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fellowship Program — Bāk Institute</title>
+    <meta name="description"
+        content="Apply for the Bāk Institute Research Fellowship — supporting early-career researchers in Bengali linguistics, NLP, and computational language science.">
+    <meta property="og:title" content="Fellowship Program — Bāk Institute">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            background: rgba(200, 154, 46, 0.1);
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-right: 1px solid rgba(200, 154, 46, 0.12);
+            border-bottom: 1px solid rgba(200, 154, 46, 0.12);
+        }
+
+        .benefit-item:nth-child(3n) {
+            border-right: none;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.4rem;
+        }
+
+        .benefit-desc {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--warm-gray);
+        }
+
+        .fellows-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .fellow-card {
+            background: var(--cream);
+            border: 1px solid rgba(200, 154, 46, 0.15);
+            padding: 1.75rem;
+        }
+
+        .fellow-year {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 0.4rem;
+        }
+
+        .fellow-name {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.15rem;
+        }
+
+        .fellow-inst {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--warm-gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .fellow-proj {
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
+
+        .timeline-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 3rem;
+            counter-reset: step;
+        }
+
+        .step {
+            padding: 2rem;
+            border-right: 1px solid rgba(200, 154, 46, 0.15);
+            position: relative;
+            counter-increment: step;
+        }
+
+        .step:last-child {
+            border-right: none;
+        }
+
+        .step::before {
+            content: counter(step);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            color: var(--saffron);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-desc {
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
+
+        .step-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--saffron);
+            margin-top: 0.75rem;
+        }
+
+        .eligibility-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .elig-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.25rem;
+            background: white;
+            border: 1px solid rgba(200, 154, 46, 0.12);
+        }
+
+        .elig-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            lines-height: 1;
+        }
+
+        .elig-text {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
+
+        .elig-text strong {
+            font-weight: 400;
+            color: var(--indigo);
+        }
+
+        @media(max-width:1024px) {
+            .benefit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .fellows-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .eligibility-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fellows-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                border-right: none;
+                border-bottom: 1px solid rgba(200, 154, 46, 0.15);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html">
+            <span class="nav-logo-bengali" lang="bn">বাক্</span>
+            <span class="nav-logo-roman">Bāk Institute</span>
+        </a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <div class="page-hero" data-text="বৃত্তি">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Fellowship</div>
+                <h1 class="page-hero-title">The Bāk Research<br><em>Fellowship</em></h1>
+                <p class="page-hero-desc">An annual fellowship supporting PhD students and early postdoctoral
+                    researchers working on Bengali language science — with a stipend, mentorship, and a path to
+                    publication.</p>
+            </div>
+        </div>
+
+        <!-- WHAT YOU GET -->
+        <section style="background:var(--cream);" aria-labelledby="benefits-heading">
+            <div class="container">
+                <div class="section-label reveal">What Fellows Receive</div>
+                <h2 class="section-title reveal" id="benefits-heading">A full year of<br><em>supported research</em>
+                </h2>
+                <div class="benefit-grid reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💰</div>
+                        <div class="benefit-title">Research Stipend</div>
+                        <p class="benefit-desc">USD $18,000 annual stipend, paid monthly. Fellows may combine this with
+                            their home institution funding. No service requirement — the stipend is for research.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🧑‍🏫</div>
+                        <div class="benefit-title">Senior Mentorship</div>
+                        <p class="benefit-desc">Each fellow is paired with a Bāk senior researcher in their area.
+                            Monthly 1:1 calls, manuscript feedback, and career guidance throughout the year.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✈️</div>
+                        <div class="benefit-title">Conference Travel</div>
+                        <p class="benefit-desc">Up to USD $3,000 for conference travel and registration, to present work
+                            at ACL, EMNLP, Interspeech, or equivalent top-tier venues.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🖥️</div>
+                        <div class="benefit-title">Compute Access</div>
+                        <p class="benefit-desc">Access to Bāk's GPU cluster and cloud compute budget for language model
+                            training and large-scale NLP experiments throughout the fellowship year.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📊</div>
+                        <div class="benefit-title">Dataset Access</div>
+                        <p class="benefit-desc">Early access to unreleased corpora, annotation datasets, and model
+                            checkpoints from active Bāk research projects — including pre-release BākoCorpus data.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🌐</div>
+                        <div class="benefit-title">Global Network</div>
+                        <p class="benefit-desc">Join a cohort of fellows and connect with Bāk's global network of 120+
+                            collaborators at universities and labs across South Asia, North America, and Europe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ELIGIBILITY -->
+        <section style="background:var(--parchment);" aria-labelledby="elig-heading">
+            <div class="container">
+                <div class="section-label reveal">Eligibility</div>
+                <h2 class="section-title reveal" id="elig-heading">Who should apply</h2>
+                <div class="eligibility-list reveal">
+                    <div class="elig-item">
+                        <div class="elig-icon">✔</div>
+                        <div class="elig-text"><strong>PhD students</strong> in linguistics, computer science, or a
+                            related field — at any stage of their doctoral program.</div>
+                    </div>
+                    <div class="elig-item">
+                        <div class="elig-icon">✔</div>
+                        <div class="elig-text"><strong>Early postdocs</strong> within 3 years of completing their PhD at
+                            the time of application.</div>
+                    </div>
+                    <div class="elig-item">
+                        <div class="elig-icon">✔</div>
+                        <div class="elig-text">Research focus on <strong>Bengali language</strong> — NLP, speech,
+                            morphology, dialectology, translation, or language learning technology.</div>
+                    </div>
+                    <div class="elig-item">
+                        <div class="elig-icon">✔</div>
+                        <div class="elig-text"><strong>Open to all nationalities.</strong> Citizens of Bangladesh,
+                            India, and South Asian diaspora communities are especially encouraged to apply.</div>
+                    </div>
+                    <div class="elig-item">
+                        <div class="elig-icon">✔</div>
+                        <div class="elig-text">Commitment to <strong>open-access</strong> publication and data sharing.
+                            Fellowship outputs must be released under a permissive license.</div>
+                    </div>
+                    <div class="elig-item">
+                        <div class="elig-icon">✘</div>
+                        <div class="elig-text">Not open to researchers employed full-time at a company. Academic
+                            researchers with part-time industry affiliations may apply — please disclose.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section style="background:var(--cream);" aria-labelledby="timeline-heading">
+            <div class="container">
+                <div class="section-label reveal">2025–26 Cohort</div>
+                <h2 class="section-title reveal" id="timeline-heading">Application timeline</h2>
+                <div class="timeline-steps reveal">
+                    <div class="step">
+                        <div class="step-title">Applications Open</div>
+                        <p class="step-desc">Online application form opens. Submit statement of purpose, CV, writing
+                            sample, and two reference contacts.</p>
+                        <div class="step-date">01 April 2025</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-title">Deadline</div>
+                        <p class="step-desc">All applications must be submitted by 11:59 PM Bangladesh Standard Time.
+                            Late applications will not be accepted.</p>
+                        <div class="step-date">15 June 2025</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-title">Interviews</div>
+                        <p class="step-desc">Shortlisted candidates (approximately 15–20) will be invited for 45-minute
+                            online interviews with the selection committee.</p>
+                        <div class="step-date">July 2025</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-title">Fellowships Awarded</div>
+                        <p class="step-desc">Up to 5 fellows selected. Notification by email. Fellowship year begins 1
+                            September 2025.</p>
+                        <div class="step-date">01 August 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAST FELLOWS -->
+        <section style="background:var(--parchment);" aria-labelledby="fellows-heading">
+            <div class="container">
+                <div class="section-label reveal">Past Fellows</div>
+                <h2 class="section-title reveal" id="fellows-heading">Fellows 2023–24</h2>
+                <div class="fellows-grid reveal">
+
+                    <div class="fellow-card">
+                        <div class="fellow-year">2023–24 Fellow</div>
+                        <div class="fellow-name">Arnab Biswas</div>
+                        <div class="fellow-inst">IIT Kanpur · PhD Student</div>
+                        <p class="fellow-proj"><em>Project:</em> Computational modeling of Bengali retroflex phoneme
+                            distribution across social registers, using the BākoSpeech corpus.</p>
+                    </div>
+
+                    <div class="fellow-card">
+                        <div class="fellow-year">2023–24 Fellow</div>
+                        <div class="fellow-name">Sadia Tamanna</div>
+                        <div class="fellow-inst">BRAC University · Postdoc</div>
+                        <p class="fellow-proj"><em>Project:</em> Automatic grammatical error correction for learners of
+                            Bengali as a second language, with a focus on diaspora children.</p>
+                    </div>
+
+                    <div class="fellow-card">
+                        <div class="fellow-year">2023–24 Fellow</div>
+                        <div class="fellow-name">Partha Ghosh</div>
+                        <div class="fellow-inst">Jadavpur University · PhD Student</div>
+                        <p class="fellow-proj"><em>Project:</em> Low-resource neural MT for Bengali↔Assamese using
+                            parallel religious texts and back-translation augmentation.</p>
+                    </div>
+
+                    <div class="fellow-card">
+                        <div class="fellow-year">2022–23 Fellow</div>
+                        <div class="fellow-name">Nasrin Akter</div>
+                        <div class="fellow-inst">University of Dhaka · PhD Student</div>
+                        <p class="fellow-proj"><em>Project:</em> Sentiment and emotion analysis in Bengali social media
+                            during political events using annotation by community workers.</p>
+                    </div>
+
+                    <div class="fellow-card">
+                        <div class="fellow-year">2022–23 Fellow</div>
+                        <div class="fellow-name">Debayan Roy</div>
+                        <div class="fellow-inst">University of Edinburgh · Postdoc</div>
+                        <p class="fellow-proj"><em>Project:</em> Cross-lingual transfer for dependency parsing: from
+                            Hindi to Bengali using Universal Dependencies representations.</p>
+                    </div>
+
+                    <div class="fellow-card">
+                        <div class="fellow-year">2022–23 Fellow</div>
+                        <div class="fellow-name">Sumaiya Hossain</div>
+                        <div class="fellow-inst">Simon Fraser University · PhD Student</div>
+                        <p class="fellow-proj"><em>Project:</em> Bengali speech synthesis with natural prosody modeling
+                            for the UK Bengali diaspora community — covering both Standard and Sylheti varieties.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="background:var(--indigo);padding:6rem 0;" aria-labelledby="apply-heading">
+            <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+                <div>
+                    <div class="section-label" style="color:var(--saffron);">Apply Now</div>
+                    <h2 class="section-title" id="apply-heading" style="color:var(--parchment);margin-bottom:1rem;">The
+                        2025–26 cohort<br>applications are <em>open</em></h2>
+                    <p
+                        style="font-size:1rem;font-weight:300;line-height:1.7;color:rgba(245,239,223,0.65);margin-bottom:2rem;">
+                        We award up to 5 fellowships each year. We strongly encourage applications from researchers in
+                        Bangladesh, northeast India, and the global Bengali diaspora.</p>
+                    <a href="contact.html" class="btn-primary">Apply Now → Deadline: 15 June 2025</a>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:1.5rem;">
+                    <div style="border-left:2px solid var(--saffron);padding-left:1.5rem;">
+                        <div
+                            style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--saffron);margin-bottom:0.3rem;">
+                            Questions?</div>
+                        <p style="font-size:0.95rem;font-weight:300;color:rgba(245,239,223,0.7);">Contact Fahmida Islam,
+                            Fellowship Coordinator:<br><a href="mailto:fellowship@bakinstitute.org"
+                                style="color:var(--light-gold);">fellowship@bakinstitute.org</a></p>
+                    </div>
+                    <div style="border-left:2px solid rgba(200,154,46,0.3);padding-left:1.5rem;">
+                        <div
+                            style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--saffron);margin-bottom:0.3rem;">
+                            What to Submit</div>
+                        <ul
+                            style="list-style:none;font-size:0.9rem;font-weight:300;color:rgba(245,239,223,0.65);line-height:1.8;">
+                            <li>— Statement of purpose (max 1,000 words)</li>
+                            <li>— Academic CV</li>
+                            <li>— One writing sample (paper or chapter)</li>
+                            <li>— Names of two referees</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="fellowship.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications — Bāk Institute</title>
+    <meta name="description"
+        content="Browse open-access publications from Bāk Institute — NLP, speech, morphology, machine translation, and dialectology for Bengali.">
+    <meta property="og:title" content="Publications — Bāk Institute">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- NAV -->
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html">
+            <span class="nav-logo-bengali" lang="bn">বাক্</span>
+            <span class="nav-logo-roman">Bāk Institute</span>
+        </a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html" class="nav-active">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- PAGE HERO -->
+        <div class="page-hero" data-text="প্রকাশ">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Publications</div>
+                <h1 class="page-hero-title">Open-Access <em>Research</em></h1>
+                <p class="page-hero-desc">All publications, datasets, and code are freely downloadable. We believe
+                    knowledge about Bengali belongs to Bengali speakers — without paywalls.</p>
+            </div>
+        </div>
+
+        <!-- PUBLICATIONS -->
+        <section style="background: var(--parchment);">
+            <div class="container">
+
+                <!-- Filter tabs -->
+                <div class="filter-bar" role="group" aria-label="Filter by research area">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="nlp">NLP &amp; AI</button>
+                    <button class="filter-tab" data-filter="speech">Speech</button>
+                    <button class="filter-tab" data-filter="morphology">Morphology</button>
+                    <button class="filter-tab" data-filter="translation">Translation</button>
+                    <button class="filter-tab" data-filter="dialectology">Dialectology</button>
+                    <button class="filter-tab" data-filter="edtech">EdTech</button>
+                </div>
+
+                <!-- Search bar -->
+                <div class="pub-search-wrap">
+                    <span class="pub-search-icon" aria-hidden="true">⌕</span>
+                    <input type="search" id="pub-search" class="pub-search"
+                        placeholder="Search by title, author, or venue…" aria-label="Search publications">
+                </div>
+
+                <!-- Count label -->
+                <div class="section-label reveal" id="pub-count" style="margin-bottom:0;">All Publications</div>
+
+                <!-- List -->
+                <div class="pub-list reveal" id="pub-list" style="margin-top:1.5rem;">
+
+                    <article class="pub-item" data-category="nlp"
+                        data-search="bengaliqa large scale open domain question answering benchmark rahman hossain chowdhury acl 2025">
+                        <div class="pub-year">2025</div>
+                        <div>
+                            <div class="pub-title">BengaliQA: A Large-Scale Open-Domain Question Answering Benchmark
+                            </div>
+                            <div class="pub-authors">Rahman, M. · Hossain, T. · Chowdhury, S. · Islam, N. · Sen, R. ·
+                                Ahmed, K. · Das, P.</div>
+                            <div class="pub-abstract">We introduce BengaliQA, a 50,000-question benchmark for
+                                open-domain QA in Bengali, covering 12 domains. We evaluate 8 multilingual models and
+                                find significant performance gaps compared to English benchmarks, motivating
+                                Bengali-native LLMs.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Dataset</a>
+                                <a href="#" class="pub-link">Code</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">ACL 2025</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">NLP</span></div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="speech"
+                        data-search="tonal variation chittagonian computational phonological das biswas journal phonetics 2025">
+                        <div class="pub-year">2025</div>
+                        <div>
+                            <div class="pub-title">Tonal Variation in Chittagonian: A Computational Phonological
+                                Analysis</div>
+                            <div class="pub-authors">Das, P. · Biswas, A.</div>
+                            <div class="pub-abstract">Chittagonian Bengali exhibits tonal distinctions absent from
+                                Standard Bengali. We present the first large-scale acoustic corpus study of 1,200
+                                minimal pairs and develop a computational model of tonal phonology using autosegmental
+                                representation.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Audio Dataset</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">Journal of Phonetics</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">Speech</span></div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="nlp"
+                        data-search="bakocorpus 5 billion token web corpus ahmed islam sen roy lrec coling 2024">
+                        <div class="pub-year">2024</div>
+                        <div>
+                            <div class="pub-title">BākoCorpus 2.0: A 5-Billion Token Web Corpus for Bengali</div>
+                            <div class="pub-authors">Ahmed, K. · Islam, N. · Sen, R. · Roy, D.</div>
+                            <div class="pub-abstract">BākoCorpus 2.0 is a 5-billion token web-crawled corpus for Bengali
+                                covering both Bangladesh and West Bengal variants, with document-level metadata,
+                                deduplication, quality filtering, and domain tags. Released under CC BY 4.0.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Corpus Download</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">LREC-COLING 2024</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">NLP</span></div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="translation"
+                        data-search="low resource neural machine translation bengali tibetan chakraborty tamang islam emnlp 2024">
+                        <div class="pub-year">2024</div>
+                        <div>
+                            <div class="pub-title">Low-Resource Neural Machine Translation: Bengali↔Tibetan</div>
+                            <div class="pub-authors">Chakraborty, M. · Tamang, S. · Islam, F.</div>
+                            <div class="pub-abstract">We construct a 52,000-sentence Bengali-Tibetan parallel corpus and
+                                train transformer NMT models achieving BLEU 22.4 (Ben→Tib) and 19.1 (Tib→Ben),
+                                establishing strong baselines for this previously unresourced language pair.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Parallel Corpus</a>
+                                <a href="#" class="pub-link">Model Weights</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">EMNLP 2024</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">Translation</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="morphology"
+                        data-search="morphological inflection agglutinative languages lessons bengali ghosh paul computational linguistics 2024">
+                        <div class="pub-year">2024</div>
+                        <div>
+                            <div class="pub-title">Morphological Inflection in Agglutinative Languages: Lessons from
+                                Bengali</div>
+                            <div class="pub-authors">Ghosh, I. · Paul, S.</div>
+                            <div class="pub-abstract">We present a neural sequence-to-sequence approach for Bengali
+                                morphological inflection that outperforms FST-based methods by 12.3% on our new
+                                BengaliMorphBench, with detailed error analysis across morphological categories.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">BengaliMorphBench</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">Computational Linguistics</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">Morphology</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="nlp"
+                        data-search="sentiment analysis bengali social media hossain chowdhury rahman naacl 2023">
+                        <div class="pub-year">2023</div>
+                        <div>
+                            <div class="pub-title">Sentiment Analysis for Bengali Social Media: Challenges and a
+                                Benchmark</div>
+                            <div class="pub-authors">Hossain, T. · Chowdhury, S. · Rahman, M.</div>
+                            <div class="pub-abstract">We construct BengaliSentiment, a 25,000-example dataset of
+                                Facebook posts annotated for sentiment using code-mixed Bengali, and benchmark 12
+                                multilingual pretrained models. Bengali-focused pretraining provides substantial gains
+                                over multilingual baselines.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Dataset</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">NAACL 2023</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">NLP</span></div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="dialectology"
+                        data-search="sylheti nlp first steps computational resources under-resourced dialect islam chakraborty coling 2023">
+                        <div class="pub-year">2023</div>
+                        <div>
+                            <div class="pub-title">Sylheti NLP: First Steps Toward Computational Resources for an
+                                Under-Resourced Dialect</div>
+                            <div class="pub-authors">Islam, F. · Chakraborty, M. · Das, P.</div>
+                            <div class="pub-abstract">Sylheti has no existing NLP resources. We present the first
+                                500K-word text corpus, a phonemic transcription guide, and baseline POS tagging models
+                                achieving 78.2% F1 with limited training data — establishing a foundation for Sylheti
+                                language technology.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Corpus</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">COLING 2023</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">Dialectology</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="speech"
+                        data-search="transfer learning low resource bengali automatic speech recognition sen islam ahmed acl 2023">
+                        <div class="pub-year">2023</div>
+                        <div>
+                            <div class="pub-title">Transfer Learning for Low-Resource Bengali Automatic Speech
+                                Recognition</div>
+                            <div class="pub-authors">Sen, R. · Islam, N. · Ahmed, K.</div>
+                            <div class="pub-abstract">We fine-tune Whisper and wav2vec2.0 on BākoSpeech (10,000 hours),
+                                demonstrating that cross-lingual transfer from related languages significantly reduces
+                                required Bengali audio. Our best model achieves 8.3% WER — a new state of the art for
+                                open Bengali ASR.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Model Weights</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">ACL 2023</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">Speech</span></div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="edtech"
+                        data-search="adaptive grammar learning bengali heritage learners evaluation islam rahman lak 2023">
+                        <div class="pub-year">2023</div>
+                        <div>
+                            <div class="pub-title">Adaptive Grammar Learning for Bengali Heritage Learners: An
+                                Evaluation Study</div>
+                            <div class="pub-authors">Islam, F. · Rahman, M.</div>
+                            <div class="pub-abstract">A 12-week study with 240 UK-based heritage Bengali learners shows
+                                BākoLearn delivers 32% improvements in grammatical accuracy and 45% gains in script
+                                reading fluency versus traditional workbook instruction.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">LAK 2023</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">EdTech</span></div>
+                        </div>
+                    </article>
+
+                    <article class="pub-item" data-category="morphology"
+                        data-search="bengaliud universal dependencies treebank ghosh sen paul roy lrec 2022">
+                        <div class="pub-year">2022</div>
+                        <div>
+                            <div class="pub-title">BengaliUD: A Universal Dependencies Treebank for Bengali</div>
+                            <div class="pub-authors">Ghosh, I. · Sen, R. · Paul, S. · Roy, D.</div>
+                            <div class="pub-abstract">15,000-sentence Bengali UD treebank with annotation guidelines for
+                                complex predicates, finite subordinate clauses, and conjunct coordination. Includes
+                                parser baselines using Stanza and UDPipe with full evaluation on development and test
+                                splits.</div>
+                            <div class="pub-links">
+                                <a href="#" class="pub-link">PDF</a>
+                                <a href="#" class="pub-link">Treebank</a>
+                            </div>
+                            <button class="pub-toggle">Show abstract ↓</button>
+                        </div>
+                        <div>
+                            <span class="pub-badge">LREC 2022</span>
+                            <div class="member-tags" style="margin-top:0.5rem;"><span class="tag">Morphology</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- No results message -->
+                <p class="pub-none" id="pub-none">No publications match your search.</p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="publications.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Tools &amp; Code</a>
+                        </li>
+                        <li><a href="contact.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="index.html#mission">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+    <script>
+        const tabs = document.querySelectorAll('.filter-tab');
+        const items = document.querySelectorAll('#pub-list .pub-item');
+        const noneMsg = document.getElementById('pub-none');
+        const countEl = document.getElementById('pub-count');
+        const searchEl = document.getElementById('pub-search');
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        function applyFilters() {
+            let visible = 0;
+            items.forEach(item => {
+                const catOk = currentFilter === 'all' || item.dataset.category === currentFilter;
+                const srchOk = !currentSearch || item.dataset.search.includes(currentSearch.toLowerCase());
+                const show = catOk && srchOk;
+                item.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+            noneMsg.style.display = visible === 0 ? 'block' : 'none';
+            const label = currentFilter === 'all' ? 'All' : tabs[Array.from(tabs).findIndex(t => t.dataset.filter === currentFilter)].textContent;
+            countEl.textContent = visible + ' ' + label + ' Publication' + (visible !== 1 ? 's' : '');
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        searchEl.addEventListener('input', () => {
+            currentSearch = searchEl.value.trim();
+            applyFilters();
+        });
+
+        // Expand / collapse abstracts
+        document.querySelectorAll('.pub-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.pub-item');
+                const open = item.classList.toggle('expanded');
+                btn.textContent = open ? 'Hide abstract ↑' : 'Show abstract ↓';
+            });
+        });
+
+        // URL ?filter= param support (linked from research page)
+        const param = new URLSearchParams(window.location.search).get('filter');
+        if (param) {
+            const match = document.querySelector(`.filter-tab[data-filter="${param}"]`);
+            if (match) match.click();
+        }
+
+        applyFilters();
+    </script>
+</body>
+
+</html>

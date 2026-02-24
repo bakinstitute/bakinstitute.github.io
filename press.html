@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press &amp; Media — Bāk Institute</title>
+    <meta name="description"
+        content="Press releases, media kit, news coverage, and contact information for journalists and media inquiries — Bāk Institute for Bengali Language Research.">
+    <meta property="og:title" content="Press &amp; Media — Bāk Institute">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .release-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid rgba(200, 154, 46, 0.2);
+            margin-top: 2.5rem;
+        }
+
+        .release-item {
+            display: grid;
+            grid-template-columns: 8rem 1fr auto;
+            gap: 2rem;
+            padding: 1.75rem 0;
+            border-bottom: 1px solid rgba(200, 154, 46, 0.12);
+            align-items: start;
+        }
+
+        .release-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--warm-gray);
+            padding-top: 0.2rem;
+        }
+
+        .release-title {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.4rem;
+        }
+
+        .release-desc {
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
+
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .coverage-card {
+            border: 1px solid rgba(200, 154, 46, 0.15);
+            padding: 1.75rem;
+            background: white;
+        }
+
+        .coverage-outlet {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 0.5rem;
+        }
+
+        .coverage-headline {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+        }
+
+        .coverage-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.08em;
+            color: var(--warm-gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .kit-item {
+            border: 1px solid rgba(200, 154, 46, 0.15);
+            padding: 1.5rem;
+            background: var(--cream);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .kit-item:hover {
+            background: white;
+        }
+
+        .kit-icon {
+            font-size: 1.5rem;
+        }
+
+        .kit-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--indigo);
+        }
+
+        .kit-size {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            color: var(--warm-gray);
+        }
+
+        @media(max-width:1024px) {
+            .coverage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .kit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:768px) {
+            .coverage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .release-item {
+                grid-template-columns: 1fr;
+            }
+
+            .kit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html"><span class="nav-logo-bengali" lang="bn">বাক্</span><span
+                class="nav-logo-roman">Bāk Institute</span></a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <div class="page-hero" data-text="মিডিয়া">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Press</div>
+                <h1 class="page-hero-title">Press &amp;<br><em>Media</em></h1>
+                <p class="page-hero-desc">Resources for journalists, broadcasters, and content creators covering Bengali
+                    language technology, AI equity, and open science. Media contact: <a
+                        href="mailto:press@bakinstitute.org" style="color:var(--saffron);">press@bakinstitute.org</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- PRESS RELEASES -->
+        <section style="background:var(--cream);" aria-labelledby="releases-heading">
+            <div class="container">
+                <div class="section-label reveal">Press Releases</div>
+                <h2 class="section-title reveal" id="releases-heading">Official Announcements</h2>
+                <div class="release-list reveal">
+                    <div class="release-item">
+                        <div class="release-date">Jan 2025</div>
+                        <div>
+                            <div class="release-title">Bāk Institute Presents BengaliQA at ACL 2025 — Largest Bengali
+                                NLP Benchmark Published</div>
+                            <p class="release-desc">50,000-question open-domain QA dataset released under CC BY 4.0.
+                                Paper accepted at ACL 2025 main conference.</p>
+                        </div>
+                        <a href="#" class="pub-link">PDF</a>
+                    </div>
+                    <div class="release-item">
+                        <div class="release-date">Oct 2024</div>
+                        <div>
+                            <div class="release-title">Mozilla Technology Fund Awards Bāk Institute Grant to Develop
+                                Open Bengali LLM</div>
+                            <p class="release-desc">Funding supports development of BākoLM 7B — a fully open,
+                                Bengali-native large language model to be released in 2025.</p>
+                        </div>
+                        <a href="#" class="pub-link">PDF</a>
+                    </div>
+                    <div class="release-item">
+                        <div class="release-date">Mar 2024</div>
+                        <div>
+                            <div class="release-title">BākoCorpus 2.0 Released: 5 Billion Tokens of Open Bengali Web
+                                Text</div>
+                            <p class="release-desc">Largest publicly available Bengali corpus, covering 18 domains and
+                                including Sylheti and Chittagonian content, released under CC BY 4.0.</p>
+                        </div>
+                        <a href="#" class="pub-link">PDF</a>
+                    </div>
+                    <div class="release-item">
+                        <div class="release-date">Dec 2023</div>
+                        <div>
+                            <div class="release-title">BākoSpeech: 10,200-Hour Bengali Speech Corpus Released on OpenSLR
+                            </div>
+                            <p class="release-desc">The largest open Bengali ASR corpus, featuring 4,800 speakers from
+                                Bangladesh and West Bengal, freely available for download.</p>
+                        </div>
+                        <a href="#" class="pub-link">PDF</a>
+                    </div>
+                    <div class="release-item">
+                        <div class="release-date">Aug 2023</div>
+                        <div>
+                            <div class="release-title">Bāk Institute Launches Annual Research Fellowship Program</div>
+                            <p class="release-desc">Up to 5 fellowships annually for early-career researchers, with USD
+                                $18,000 stipend, mentorship, and compute access.</p>
+                        </div>
+                        <a href="#" class="pub-link">PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEDIA COVERAGE -->
+        <section style="background:var(--parchment);" aria-labelledby="coverage-heading">
+            <div class="container">
+                <div class="section-label reveal">Media Coverage</div>
+                <h2 class="section-title reveal" id="coverage-heading">Selected Coverage</h2>
+                <div class="coverage-grid reveal">
+                    <div class="coverage-card">
+                        <div class="coverage-outlet">MIT Technology Review</div>
+                        <div class="coverage-headline">"The Research Lab Fighting to Give Bengali Speakers an AI That
+                            Actually Understands Them"</div>
+                        <div class="coverage-date">February 2025</div>
+                        <a href="#" class="pub-link">Read Article →</a>
+                    </div>
+                    <div class="coverage-card">
+                        <div class="coverage-outlet">The Daily Star (Bangladesh)</div>
+                        <div class="coverage-headline">"বাক্ ইনস্টিটিউট: বাংলা ভাষার ডিজিটাল অধিকার আদায়ে এক অগ্রদূত"
+                        </div>
+                        <div class="coverage-date">March 2024</div>
+                        <a href="#" class="pub-link">Read Article →</a>
+                    </div>
+                    <div class="coverage-card">
+                        <div class="coverage-outlet">The Guardian</div>
+                        <div class="coverage-headline">"Bengali Is Spoken by 230 Million People. Why Can't AI Understand
+                            It?"</div>
+                        <div class="coverage-date">November 2024</div>
+                        <a href="#" class="pub-link">Read Article →</a>
+                    </div>
+                    <div class="coverage-card">
+                        <div class="coverage-outlet">Wired India</div>
+                        <div class="coverage-headline">"How a Dhaka Startup Is Building the Infrastructure for Bengali
+                            AI"</div>
+                        <div class="coverage-date">September 2024</div>
+                        <a href="#" class="pub-link">Read Article →</a>
+                    </div>
+                    <div class="coverage-card">
+                        <div class="coverage-outlet">The Anandabazar Patrika</div>
+                        <div class="coverage-headline">"বাংলার জন্য কৃত্রিম বুদ্ধিমত্তা: বাক্ ইনস্টিটিউটের গবেষণা"</div>
+                        <div class="coverage-date">April 2024</div>
+                        <a href="#" class="pub-link">Read Article →</a>
+                    </div>
+                    <div class="coverage-card">
+                        <div class="coverage-outlet">Rest of World</div>
+                        <div class="coverage-headline">"The AI Language Gap Is Wider Than You Think. These Researchers
+                            Are Closing It."</div>
+                        <div class="coverage-date">January 2025</div>
+                        <a href="#" class="pub-link">Read Article →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEDIA KIT -->
+        <section style="background:var(--cream);" aria-labelledby="kit-heading">
+            <div class="container">
+                <div class="section-label reveal">Media Kit</div>
+                <h2 class="section-title reveal" id="kit-heading">Logos, photos &amp;<br>fact sheets</h2>
+                <div class="kit-grid reveal">
+                    <div class="kit-item">
+                        <div class="kit-icon">🖼️</div>
+                        <div class="kit-label">Logo Pack (SVG + PNG)</div>
+                        <div class="kit-size">All variants · Dark &amp; Light · ZIP 2.4 MB</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-icon">📸</div>
+                        <div class="kit-label">Team Photos</div>
+                        <div class="kit-size">Hi-res headshots · All researchers · ZIP 18 MB</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-icon">📋</div>
+                        <div class="kit-label">Institute Fact Sheet</div>
+                        <div class="kit-size">Stats, history, key findings · PDF 320 KB</div>
+                    </div>
+                    <div class="kit-item">
+                        <div class="kit-icon">🎤</div>
+                        <div class="kit-label">Speaker Bios</div>
+                        <div class="kit-size">Short &amp; long bios for all PIs · PDF 180 KB</div>
+                    </div>
+                </div>
+                <p style="font-size:0.9rem;font-weight:300;color:var(--warm-gray);margin-top:1.5rem;">For interview
+                    requests, expert commentary, or to be added to our press list: <a
+                        href="mailto:press@bakinstitute.org" style="color:var(--terracotta);">press@bakinstitute.org</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="fellowship.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

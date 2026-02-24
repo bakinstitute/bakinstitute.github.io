@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — Bāk Institute</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error-page {
+            flex: 1;
+            background: var(--indigo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-bg {
+            position: absolute;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 28rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.025);
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        .error-code {
+            font-family: 'DM Mono', monospace;
+            font-size: 7rem;
+            font-weight: 300;
+            color: var(--saffron);
+            line-height: 1;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--parchment);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .error-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(245, 239, 223, 0.6);
+            max-width: 40ch;
+            margin: 0 auto 2.5rem;
+            position: relative;
+        }
+
+        .error-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .error-link {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--parchment);
+            text-decoration: none;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid rgba(245, 239, 223, 0.2);
+            border-radius: 2px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .error-link:hover {
+            background: rgba(245, 239, 223, 0.08);
+            border-color: rgba(245, 239, 223, 0.4);
+        }
+
+        .error-link.primary {
+            background: var(--saffron);
+            color: var(--ink);
+            border-color: var(--saffron);
+        }
+
+        .error-link.primary:hover {
+            background: var(--light-gold);
+            border-color: var(--light-gold);
+        }
+
+        .error-bengali {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 1rem;
+            color: rgba(245, 239, 223, 0.3);
+            margin-top: 2.5rem;
+            position: relative;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html">
+            <span class="nav-logo-bengali" lang="bn">বাক্</span>
+            <span class="nav-logo-roman">Bāk Institute</span>
+        </a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="error-page" role="main">
+            <div class="error-bg" aria-hidden="true" lang="bn">৪০৪</div>
+            <div>
+                <div class="error-code" aria-label="Error 404">404</div>
+                <h1 class="error-title">Page not found</h1>
+                <p class="error-desc">The page you are looking for does not exist or has been moved. Perhaps you were
+                    looking for one of these?</p>
+                <div class="error-links">
+                    <a href="index.html" class="error-link primary">← Home</a>
+                    <a href="research.html" class="error-link">Research</a>
+                    <a href="publications.html" class="error-link">Publications</a>
+                    <a href="datasets.html" class="error-link">Datasets</a>
+                    <a href="team.html" class="error-link">People</a>
+                    <a href="contact.html" class="error-link">Contact</a>
+                </div>
+                <p class="error-bengali" lang="bn">পৃষ্ঠা পাওয়া যায়নি</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="fellowship.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

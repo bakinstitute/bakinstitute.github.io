@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners — Bāk Institute</title>
+    <meta name="description"
+        content="Academic, institutional, and funding partners supporting Bāk Institute's open Bengali language research mission.">
+    <meta property="og:title" content="Partners — Bāk Institute">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .partner-section {
+            margin-bottom: 5rem;
+        }
+
+        .partner-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: rgba(200, 154, 46, 0.12);
+            margin-top: 2.5rem;
+        }
+
+        .p-card {
+            background: white;
+            padding: 2rem;
+            transition: background 0.2s;
+        }
+
+        .p-card:hover {
+            background: var(--cream);
+        }
+
+        .p-category {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 0.35rem;
+        }
+
+        .p-name {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.2rem;
+        }
+
+        .p-location {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--warm-gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .p-desc {
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
+
+        .quote-strip {
+            background: var(--indigo);
+            padding: 4rem 0;
+        }
+
+        .quote-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .quote-text {
+            font-size: 1.15rem;
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(245, 239, 223, 0.85);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .quote-attr {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--saffron);
+        }
+
+        @media(max-width:1024px) {
+            .partner-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quote-items {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+            .partner-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html"><span class="nav-logo-bengali" lang="bn">বাক্</span><span
+                class="nav-logo-roman">Bāk Institute</span></a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <div class="page-hero" data-text="অংশীদার">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Partners</div>
+                <h1 class="page-hero-title">Institutions that<br><em>believe in open science</em></h1>
+                <p class="page-hero-desc">We collaborate with universities, research labs, open-source foundations, and
+                    community organizations across South Asia, the diaspora, and beyond.</p>
+            </div>
+        </div>
+
+        <section style="background:var(--cream);">
+            <div class="container">
+
+                <!-- Academic -->
+                <div class="partner-section">
+                    <div class="section-label reveal">Academic Partners</div>
+                    <div class="partner-cards reveal">
+                        <div class="p-card">
+                            <div class="p-category">Core Partner</div>
+                            <div class="p-name">University of Dhaka</div>
+                            <div class="p-location">Dhaka, Bangladesh</div>
+                            <p class="p-desc">Home institution of Dr. Rahman and primary anchoring university. Faculty
+                                co-appointments, lab space, and HR support for Dhaka-based researchers.</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Core Partner</div>
+                            <div class="p-name">Jadavpur University</div>
+                            <div class="p-location">Kolkata, India</div>
+                            <p class="p-desc">Longstanding collaboration in Bengali NLP and computational linguistics.
+                                Joint laboratory for dialectology research and treebank annotation.</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Research Partner</div>
+                            <div class="p-name">IIT Kharagpur</div>
+                            <div class="p-location">Kharagpur, India</div>
+                            <p class="p-desc">Collaboration on morphological analysis and parser development. Joint
+                                grant funding for the BengaliUD treebank project (2022–24).</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Research Partner</div>
+                            <div class="p-name">University of Toronto</div>
+                            <div class="p-location">Toronto, Canada</div>
+                            <p class="p-desc">Dr. Karim Ahmed's home institution. Supports Bāk's NLP infrastructure and
+                                LLM pretraining research under a research affiliate agreement.</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Research Partner</div>
+                            <div class="p-name">BRAC University</div>
+                            <div class="p-location">Dhaka, Bangladesh</div>
+                            <p class="p-desc">Joint research programs in EdTech and language learning technology. Hosts
+                                Bāk's Dhaka community annotation center.</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Research Partner</div>
+                            <div class="p-name">Presidency University, Kolkata</div>
+                            <div class="p-location">Kolkata, India</div>
+                            <p class="p-desc">Home institution of Dr. Chakraborty. Joint research in formal Bengali
+                                morphosyntax and the BengaliMorph analyzer project.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funders -->
+                <div class="partner-section">
+                    <div class="section-label reveal">Funders</div>
+                    <div class="partner-cards reveal">
+                        <div class="p-card">
+                            <div class="p-category">Founding Funder</div>
+                            <div class="p-name">Open Knowledge Foundation</div>
+                            <div class="p-location">Cambridge, UK</div>
+                            <p class="p-desc">Seed funding in 2019 that made Bāk possible. Ongoing relationship
+                                supporting open data infrastructure and policy advocacy for Bengali digital rights.</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Grant Funder</div>
+                            <div class="p-name">Mozilla Technology Fund</div>
+                            <div class="p-location">San Francisco, USA</div>
+                            <p class="p-desc">2024 grant supporting development of BākoLM — a fully open Bengali
+                                language model — as part of Mozilla's Common Voice initiative for language diversity.
+                            </p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">EdTech Funder</div>
+                            <div class="p-name">Silatech</div>
+                            <div class="p-location">Doha, Qatar</div>
+                            <p class="p-desc">Funds the BākoLearn literacy platform and the UK heritage learner school
+                                program, covering development, pilot deployment, and evaluation costs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language + Open Source -->
+                <div class="partner-section">
+                    <div class="section-label reveal">Language &amp; Open Source Partners</div>
+                    <div class="partner-cards reveal">
+                        <div class="p-card">
+                            <div class="p-category">Language Authority</div>
+                            <div class="p-name">Bangla Academy</div>
+                            <div class="p-location">Dhaka, Bangladesh</div>
+                            <p class="p-desc">Official advisory relationship. Bangla Academy provides standard lexical
+                                resources, dialect audio archives, and formal guidance on orthographic standards.</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Open Data Partner</div>
+                            <div class="p-name">Wikimedia Foundation</div>
+                            <div class="p-location">San Francisco, USA</div>
+                            <p class="p-desc">BākoCorpus 2.0 incorporates Bengali Wikipedia content under CC BY-SA.
+                                Ongoing partnership to improve Bengali Wikipedia NLP tools and content quality.</p>
+                        </div>
+                        <div class="p-card">
+                            <div class="p-category">Research Partner</div>
+                            <div class="p-name">AI4Bharat</div>
+                            <div class="p-location">IIT Madras, India</div>
+                            <p class="p-desc">Collaboration on Indic language NLP infrastructure. Joint corpus data
+                                sharing and shared evaluation benchmarks for South Asian languages.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PARTNER QUOTES -->
+        <div class="quote-strip">
+            <div class="container">
+                <div class="section-label" style="color:var(--saffron);">What Partners Say</div>
+                <div class="quote-items reveal" style="margin-top:2rem;">
+                    <div>
+                        <p class="quote-text">"Bāk's open datasets have accelerated our Bengali NLP research by years.
+                            The quality of the annotation and documentation is genuinely exceptional for a bootstrapped
+                            research institute."</p>
+                        <div class="quote-attr">— Professor, IIT Bombay · AI4Bharat Collaborator</div>
+                    </div>
+                    <div>
+                        <p class="quote-text">"Partnering with Bāk on the heritage learner program was one of the most
+                            impactful things our organization has done. The data they collected and willingly shared
+                            changed how we think about diaspora language education."</p>
+                        <div class="quote-attr">— Program Officer, Silatech</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BECOME A PARTNER -->
+        <div class="join-strip">
+            <div class="container">
+                <h2>Become a partner</h2>
+                <p>We are always open to new academic collaborations, funding partnerships, and community organization
+                    relationships. Let's talk.</p>
+                <a href="contact.html" class="btn-primary">Get in Touch →</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="fellowship.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

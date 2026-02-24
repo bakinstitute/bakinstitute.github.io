@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog &amp; News — Bāk Institute</title>
+    <meta name="description"
+        content="Research updates, dataset releases, field reports, and commentary from the Bāk Institute team on Bengali language research and technology.">
+    <meta property="og:title" content="Blog &amp; News — Bāk Institute">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-featured {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 0;
+            background: rgba(200, 154, 46, 0.1);
+            border: 1px solid rgba(200, 154, 46, 0.15);
+            margin-bottom: 3rem;
+        }
+
+        .blog-featured-img {
+            background: var(--indigo);
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 10rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.07);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-featured-body {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: white;
+        }
+
+        .blog-category {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--indigo);
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-excerpt {
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--warm-gray);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .blog-meta {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.08em;
+            color: var(--warm-gray);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .blog-read-more {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(193, 68, 14, 0.25);
+            transition: color 0.2s;
+        }
+
+        .blog-read-more:hover {
+            color: var(--indigo);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: rgba(200, 154, 46, 0.1);
+        }
+
+        .blog-card {
+            background: white;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.2s;
+        }
+
+        .blog-card:hover {
+            background: var(--cream);
+        }
+
+        .blog-card-img {
+            background: var(--indigo);
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.07);
+            overflow: hidden;
+        }
+
+        .blog-card-img.terracotta {
+            background: var(--terracotta);
+        }
+
+        .blog-card-img.saffron {
+            background: var(--saffron);
+        }
+
+        .blog-card-img.gold {
+            background: var(--gold);
+        }
+
+        .blog-card-body {
+            padding: 1.75rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .blog-card-excerpt {
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--warm-gray);
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        .blog-filter {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        @media(max-width:1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blog-featured {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-featured-img {
+                min-height: 200px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html">
+            <span class="nav-logo-bengali" lang="bn">বাক্</span>
+            <span class="nav-logo-roman">Bāk Institute</span>
+        </a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <div class="page-hero" data-text="লেখা">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Blog</div>
+                <h1 class="page-hero-title">Research updates<br>&amp; <em>field notes</em></h1>
+                <p class="page-hero-desc">Dispatches from our team — dataset releases, fieldwork reports, paper
+                    explainers, and commentary on Bengali language technology and policy.</p>
+            </div>
+        </div>
+
+        <section style="background:var(--cream);">
+            <div class="container">
+
+                <!-- Category filters -->
+                <div class="blog-filter">
+                    <button class="filter-tab active" data-filter="all">All Posts</button>
+                    <button class="filter-tab" data-filter="release">Dataset Releases</button>
+                    <button class="filter-tab" data-filter="research">Research</button>
+                    <button class="filter-tab" data-filter="field">Fieldwork</button>
+                    <button class="filter-tab" data-filter="commentary">Commentary</button>
+                    <button class="filter-tab" data-filter="news">News</button>
+                </div>
+
+                <!-- Featured post -->
+                <div class="blog-featured reveal">
+                    <div class="blog-featured-img" aria-hidden="true" lang="bn">ক</div>
+                    <div class="blog-featured-body">
+                        <div>
+                            <div class="blog-category">Dataset Release · NLP &amp; AI</div>
+                            <h2 class="blog-title">BākoCorpus 2.0 Is Here: 5 Billion Tokens of Open Bengali Text</h2>
+                            <p class="blog-excerpt">After two years of crawling, cleaning, and de-duplicating, we are
+                                releasing BākoCorpus 2.0 — the largest open Bengali text corpus ever published. In this
+                                post, we walk through the data pipeline, discuss quality filtering decisions, and
+                                explain what this means for Bengali NLP research.</p>
+                        </div>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+                            <div class="blog-meta">
+                                <span>Karim Ahmed &amp; Nusrat Islam</span>
+                                <span>March 12, 2024</span>
+                                <span>8 min read</span>
+                            </div>
+                            <a href="#" class="blog-read-more">Read post →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section label -->
+                <div class="section-label reveal" style="margin-bottom:1.5rem;">Recent Posts</div>
+
+                <!-- Blog grid -->
+                <div class="blog-grid reveal" id="blog-grid">
+
+                    <article class="blog-card" data-category="research">
+                        <div class="blog-card-img terracotta" aria-hidden="true" lang="bn">শ</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Research · Phonetics</div>
+                            <h3 class="blog-card-title">What Makes Chittagonian Unique: Tonal Phonology in the Bay of
+                                Bengal</h3>
+                            <p class="blog-card-excerpt">Prof. Priya Das explains her 2025 Journal of Phonetics study in
+                                accessible language — why Chittagonian Bengali is phonologically unlike any other
+                                Bengali variety, and why that matters for speech technology.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Priya Das</span><span>Jan 2025</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="release">
+                        <div class="blog-card-img saffron" aria-hidden="true" lang="bn">প্র</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Dataset Release</div>
+                            <h3 class="blog-card-title">BengaliQA: 50,000 Questions to Challenge Your Bengali LLM</h3>
+                            <p class="blog-card-excerpt">We release BengaliQA alongside our ACL 2025 paper. Here we
+                                discuss what makes QA in Bengali hard — entity ambiguity, cultural knowledge, and the
+                                absence of a Standard Simplified Bengali norm.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Minhaj Rahman</span><span>Jan 2025</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="field">
+                        <div class="blog-card-img gold" aria-hidden="true" lang="bn">গ্রা</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Fieldwork · Dialectology</div>
+                            <h3 class="blog-card-title">Twelve Weeks in Sylhet: Recording the Voices of a Living Dialect
+                            </h3>
+                            <p class="blog-card-excerpt">Fahmida Islam and Dr. Chakraborty report from the field —
+                                recording 80 Sylheti speakers across 6 upazilas. What we learned about speaker attitudes
+                                to dialect, and the challenges of naturalistic data collection.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Fahmida Islam</span><span>Dec 2024</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="commentary">
+                        <div class="blog-card-img" aria-hidden="true" lang="bn">ডি</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Commentary</div>
+                            <h3 class="blog-card-title">Why GPT-4 Fails Bengali Speakers — And What We Plan to Do About
+                                It</h3>
+                            <p class="blog-card-excerpt">A frank look at benchmark scores for frontier models on Bengali
+                                tasks. Spoiler: the gap is larger than the labs admit. Dr. Karim Ahmed argues for a
+                                Bengali-first pretraining paradigm.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Karim Ahmed</span><span>Nov 2024</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="news">
+                        <div class="blog-card-img terracotta" aria-hidden="true" lang="bn">পু</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">News</div>
+                            <h3 class="blog-card-title">Bāk Receives Mozilla Technology Fund Grant for Open Bengali AI
+                            </h3>
+                            <p class="blog-card-excerpt">We are delighted to announce a Mozilla Technology Fund grant to
+                                build BākoLM — a fully open Bengali language model trained from scratch. Here is what we
+                                plan to build and our timeline.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Bāk Institute</span><span>Oct 2024</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="research">
+                        <div class="blog-card-img saffron" aria-hidden="true" lang="bn">অনু</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Research · Machine Translation</div>
+                            <h3 class="blog-card-title">Bengali↔Tibetan MT: Building a Bridge Between Two Ancient
+                                Languages</h3>
+                            <p class="blog-card-excerpt">How we constructed a 52,000-sentence parallel corpus for one of
+                                the world's most challenging language pairs — and what it reveals about the limits of
+                                transfer learning from large multilingual models.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Mohua Chakraborty</span><span>Sep 2024</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="field">
+                        <div class="blog-card-img" aria-hidden="true" lang="bn">বি</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Fieldwork · EdTech</div>
+                            <h3 class="blog-card-title">BākoLearn in UK Schools: What 240 Heritage Learners Taught Us
+                            </h3>
+                            <p class="blog-card-excerpt">Results from our landmark 12-week study with
+                                British-Bangladeshi heritage learners aged 8–16. The data is encouraging — but so are
+                                the surprises. Fahmida Islam shares what she did not expect to find.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Fahmida Islam</span><span>Aug 2024</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="commentary">
+                        <div class="blog-card-img gold" aria-hidden="true" lang="bn">ভা</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Commentary · Language Policy</div>
+                            <h3 class="blog-card-title">21st February and the Unfinished Work of Language Recognition
+                            </h3>
+                            <p class="blog-card-excerpt">On International Mother Language Day, Dr. Rahman reflects on
+                                what it means that the language martyrs died for in 1952 still lacks a functional
+                                keyboard standard, official Unicode support for all scripts, and AI that speaks it well.
+                            </p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Minhaj Rahman</span><span>Feb 2024</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="release">
+                        <div class="blog-card-img terracotta" aria-hidden="true" lang="bn">বা</div>
+                        <div class="blog-card-body">
+                            <div class="blog-category">Dataset Release · ASR</div>
+                            <h3 class="blog-card-title">BākoSpeech: Open-Sourcing 10,200 Hours of Bengali Audio</h3>
+                            <p class="blog-card-excerpt">The largest open Bengali speech corpus is now available on
+                                OpenSLR. We cover the data collection process, speaker demographics, transcription
+                                pipeline, and baseline ASR results that accompany the release.</p>
+                            <div class="blog-meta" style="margin-top:auto;">
+                                <span>Riya Sen &amp; Nusrat Islam</span><span>Dec 2023</span>
+                            </div>
+                            <a href="#" class="blog-read-more" style="margin-top:0.75rem;">Read →</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Older posts link -->
+                <div style="text-align:center;margin-top:3rem;" class="reveal">
+                    <a href="#" class="btn-primary">Load More Posts →</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="fellowship.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+    <script>
+        // Blog category filter
+        const tabs = document.querySelectorAll('.blog-filter .filter-tab');
+        const cards = document.querySelectorAll('#blog-grid .blog-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const f = tab.dataset.filter;
+                cards.forEach(card => {
+                    card.style.display = (f === 'all' || card.dataset.category === f) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

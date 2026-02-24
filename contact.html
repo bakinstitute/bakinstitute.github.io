@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Contribute — Bāk Institute</title>
+    <meta name="description"
+        content="Get involved with Bāk Institute — collaborate on research, annotate data, contribute code, apply for a fellowship, or make a donation.">
+    <meta property="og:title" content="Contact &amp; Contribute — Bāk Institute">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Form success state */
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background: rgba(29, 43, 94, 0.06);
+            border: 1px solid var(--gold);
+            border-radius: 2px;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--indigo);
+            line-height: 1.65;
+        }
+
+        .form-success strong {
+            display: block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+            color: var(--saffron);
+        }
+
+        /* Ways to contribute section */
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .way-card {
+            background: white;
+            border: 1px solid rgba(200, 154, 46, 0.15);
+            padding: 2rem;
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+
+        .way-card:hover {
+            box-shadow: 0 6px 24px rgba(29, 43, 94, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .way-card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .way-card-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin-bottom: 0.5rem;
+        }
+
+        .way-card-desc {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--warm-gray);
+            margin-bottom: 1rem;
+        }
+
+        .way-card-link {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(193, 68, 14, 0.25);
+            transition: color 0.2s;
+        }
+
+        .way-card-link:hover {
+            color: var(--indigo);
+        }
+
+        @media (max-width: 768px) {
+            .ways-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .ways-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- NAV -->
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html">
+            <span class="nav-logo-bengali" lang="bn">বাক্</span>
+            <span class="nav-logo-roman">Bāk Institute</span>
+        </a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-active nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- PAGE HERO -->
+        <div class="page-hero" data-text="যোগাযোগ">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Get Involved</div>
+                <h1 class="page-hero-title">Bengali language research<br>needs <em>you.</em></h1>
+                <p class="page-hero-desc">Whether you are a researcher, speaker, developer, annotator, or donor — there
+                    is a meaningful place for you in this work.</p>
+            </div>
+        </div>
+
+        <!-- WAYS TO CONTRIBUTE -->
+        <section style="background: var(--cream);" aria-labelledby="ways-heading">
+            <div class="container">
+                <div class="section-label reveal">Ways to Contribute</div>
+                <h2 class="section-title reveal" id="ways-heading">Five ways to get<br><em>involved</em></h2>
+
+                <div class="ways-grid reveal">
+
+                    <div class="way-card">
+                        <div class="way-card-icon" aria-hidden="true">🔬</div>
+                        <div class="way-card-title">Research Collaboration</div>
+                        <p class="way-card-desc">We partner with universities, research labs, and independent scholars
+                            worldwide. Collaborate on datasets, co-author papers, or join a research working group.</p>
+                        <a href="#contact-form" class="way-card-link">Apply to collaborate →</a>
+                    </div>
+
+                    <div class="way-card">
+                        <div class="way-card-icon" aria-hidden="true">🏷️</div>
+                        <div class="way-card-title">Data Annotation</div>
+                        <p class="way-card-desc">We recruit volunteer annotators — native speakers of Bengali and its
+                            dialects — to help label text, audio, and image data. No technical background required;
+                            training provided.</p>
+                        <a href="#contact-form" class="way-card-link">Become an annotator →</a>
+                    </div>
+
+                    <div class="way-card">
+                        <div class="way-card-icon" aria-hidden="true">💻</div>
+                        <div class="way-card-title">Open Source Contribution</div>
+                        <p class="way-card-desc">All our tools are on GitHub. Contribute code, file issues, review pull
+                            requests, or help improve documentation. Every contribution — large or small — matters.</p>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                            class="way-card-link">Visit our GitHub →</a>
+                    </div>
+
+                    <div class="way-card">
+                        <div class="way-card-icon" aria-hidden="true">🎓</div>
+                        <div class="way-card-title">Fellowship Program</div>
+                        <p class="way-card-desc">Our annual fellowship supports early-career researchers — PhD students
+                            and postdocs — working on Bengali language technology. Fellows receive a stipend,
+                            mentorship, and publication support.</p>
+                        <a href="#contact-form" class="way-card-link">Apply for a fellowship →</a>
+                    </div>
+
+                    <div class="way-card">
+                        <div class="way-card-icon" aria-hidden="true">🏫</div>
+                        <div class="way-card-title">Institutional Partnership</div>
+                        <p class="way-card-desc">We work with schools, NGOs, and diaspora organizations to deploy our
+                            tools and literacy programs. If you represent an institution, let's explore what we can
+                            build together.</p>
+                        <a href="#contact-form" class="way-card-link">Discuss a partnership →</a>
+                    </div>
+
+                    <div class="way-card">
+                        <div class="way-card-icon" aria-hidden="true">❤️</div>
+                        <div class="way-card-title">Donate</div>
+                        <p class="way-card-desc">Bāk Institute is a registered non-profit. Donations fund fieldwork,
+                            server infrastructure, annotator compensation, and fellowship stipends. Every amount makes a
+                            difference.</p>
+                        <a href="mailto:donate@bakinstitute.org" class="way-card-link">Make a donation →</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT FORM + INFO -->
+        <section style="background: white;" aria-labelledby="contact-heading" id="contact-form">
+            <div class="container">
+                <div class="section-label reveal">Contact Us</div>
+                <h2 class="section-title reveal" id="contact-heading">Send us a message</h2>
+
+                <div class="contact-grid reveal">
+
+                    <!-- FORM -->
+                    <div>
+                        <form id="contact-form-el" class="contact-form" novalidate>
+
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                                <div class="form-group">
+                                    <label class="form-label" for="f-name">Full Name</label>
+                                    <input class="form-input" type="text" id="f-name" name="name"
+                                        placeholder="Dr. Asha Dey" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="f-email">Email Address</label>
+                                    <input class="form-input" type="email" id="f-email" name="email"
+                                        placeholder="asha@university.edu" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="f-org">Organization (optional)</label>
+                                <input class="form-input" type="text" id="f-org" name="org"
+                                    placeholder="University / Company / Independent">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="f-subject">Subject</label>
+                                <select class="form-select" id="f-subject" name="subject" required>
+                                    <option value="" disabled selected>Select a topic…</option>
+                                    <option value="research">Research Collaboration</option>
+                                    <option value="annotation">Data Annotation</option>
+                                    <option value="fellowship">Fellowship Application</option>
+                                    <option value="partnership">Institutional Partnership</option>
+                                    <option value="opensource">Open Source / GitHub</option>
+                                    <option value="press">Press &amp; Media</option>
+                                    <option value="donation">Donation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="f-message">Message</label>
+                                <textarea class="form-textarea" id="f-message" name="message"
+                                    placeholder="Tell us about your background, what you're working on, and how you'd like to collaborate…"
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit">Send Message →</button>
+
+                        </form>
+
+                        <!-- Success state -->
+                        <div class="form-success" id="form-success">
+                            <strong>✦ Message received</strong>
+                            Thank you for reaching out to Bāk Institute. We aim to respond to all inquiries within 3–5
+                            business days. In the meantime, please explore our open-access publications and GitHub
+                            repositories.
+                        </div>
+                    </div>
+
+                    <!-- CONTACT INFO CARDS -->
+                    <div class="contact-cards">
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon" aria-hidden="true">📍</div>
+                            <div class="contact-card-title">Main Office</div>
+                            <p class="contact-card-value">
+                                Bāk Institute for Bengali Language Research<br>
+                                Nilkhet Road, Dhaka 1205<br>
+                                Bangladesh
+                            </p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon" aria-hidden="true">✉️</div>
+                            <div class="contact-card-title">General Inquiries</div>
+                            <p class="contact-card-value">
+                                <a href="mailto:contact@bakinstitute.org">contact@bakinstitute.org</a><br>
+                                Response within 3–5 business days
+                            </p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon" aria-hidden="true">📰</div>
+                            <div class="contact-card-title">Press &amp; Media</div>
+                            <p class="contact-card-value">
+                                <a href="mailto:press@bakinstitute.org">press@bakinstitute.org</a><br>
+                                For interview requests and media kits
+                            </p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon" aria-hidden="true">🤝</div>
+                            <div class="contact-card-title">Partnerships</div>
+                            <p class="contact-card-value">
+                                <a href="mailto:partners@bakinstitute.org">partners@bakinstitute.org</a><br>
+                                Institutional &amp; NGO collaborations
+                            </p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon" aria-hidden="true">💻</div>
+                            <div class="contact-card-title">Open Source &amp; Code</div>
+                            <p class="contact-card-value">
+                                <a href="https://github.com" target="_blank"
+                                    rel="noopener noreferrer">github.com/bakinstitute</a><br>
+                                Issues, PRs, and discussions welcome
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER STRIP -->
+        <section style="background: var(--indigo); padding: 5rem 0;" aria-labelledby="newsletter-heading">
+            <div class="container">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+                    <div>
+                        <div class="section-label" style="color:var(--saffron);">Stay Updated</div>
+                        <h2 class="section-title" id="newsletter-heading"
+                            style="color:var(--parchment);margin-bottom:0.75rem;">
+                            Bāk Research<br><em>Digest</em>
+                        </h2>
+                        <p style="font-size:1rem;font-weight:300;color:rgba(245,239,223,0.6);line-height:1.7;">
+                            A quarterly newsletter covering new publications, dataset releases, tool launches, and
+                            fellowship opportunities. No spam, unsubscribe anytime.
+                        </p>
+                    </div>
+                    <form id="newsletter-form" style="display:flex;gap:0.75rem;flex-wrap:wrap;" novalidate>
+                        <input type="email" id="nl-email" placeholder="your@email.com"
+                            style="flex:1;min-width:200px;font-family:'Cormorant Garamond',serif;font-size:1rem;padding:0.8rem 1rem;border:1px solid rgba(245,239,223,0.2);background:rgba(255,255,255,0.06);color:var(--parchment);border-radius:2px;outline:none;"
+                            aria-label="Email address">
+                        <button type="submit"
+                            style="background:var(--saffron);color:var(--ink);font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1.6rem;border:none;border-radius:2px;cursor:pointer;white-space:nowrap;transition:background 0.2s;"
+                            onmouseover="this.style.background='var(--light-gold)'"
+                            onmouseout="this.style.background='var(--saffron)'">
+                            Subscribe →
+                        </button>
+                        <p id="nl-success"
+                            style="display:none;width:100%;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--saffron);margin-top:0.5rem;">
+                            ✦ Subscribed! You will receive the next issue of the Bāk Research Digest.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="publications.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="contact.html">Fellowship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="index.html#mission">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="mailto:donate@bakinstitute.org">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+    <script>
+        // ─── CONTACT FORM (demo — no backend) ───
+        const contactForm = document.getElementById('contact-form-el');
+        const formSuccess = document.getElementById('form-success');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Validate required fields
+            const name = document.getElementById('f-name').value.trim();
+            const email = document.getElementById('f-email').value.trim();
+            const subject = document.getElementById('f-subject').value;
+            const message = document.getElementById('f-message').value.trim();
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            // Simulate submission
+            contactForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+        });
+
+        // ─── NEWSLETTER FORM (demo) ───
+        const nlForm = document.getElementById('newsletter-form');
+        const nlSuccess = document.getElementById('nl-success');
+
+        nlForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('nl-email').value.trim();
+            if (!email) return;
+            nlSuccess.style.display = 'block';
+            document.getElementById('nl-email').disabled = true;
+            nlForm.querySelector('button').disabled = true;
+        });
+    </script>
+</body>
+
+</html>

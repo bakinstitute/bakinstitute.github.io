@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Areas — Bāk Institute</title>
+    <meta name="description"
+        content="Explore Bāk Institute's six research areas: NLP, Speech & Phonology, Morphology, Machine Translation, Dialectology, and Language Learning Technology.">
+    <meta property="og:title" content="Research Areas — Bāk Institute">
+    <meta property="og:description" content="Six research areas. One language. Open-access Bengali NLP research.">
+    <meta property="og:image" content="assets/cover.png">
+    <meta name="theme-color" content="#1d2b5e">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- NAV -->
+    <nav aria-label="Main navigation">
+        <a class="nav-logo" href="index.html">
+            <span class="nav-logo-bengali" lang="bn">বাক্</span>
+            <span class="nav-logo-roman">Bāk Institute</span>
+        </a>
+        <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="research.html" class="nav-active">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="team.html">People</a></li>
+            <li><a href="contact.html" class="nav-cta">Contribute</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- PAGE HERO -->
+        <div class="page-hero" data-text="গবেষণা">
+            <div class="container">
+                <div class="page-hero-eyebrow">Bāk Institute · Research</div>
+                <h1 class="page-hero-title">Six fields.<br><em>One language.</em></h1>
+                <p class="page-hero-desc">We pursue open, rigorous research across six interconnected areas of Bengali
+                    language science — from deep learning models to fieldwork in endangered dialects.</p>
+            </div>
+        </div>
+
+        <!-- RESEARCH AREAS -->
+        <section style="background: var(--cream);" aria-labelledby="areas-heading">
+            <div class="container">
+                <div class="section-label reveal">Research Areas</div>
+
+                <!-- 01 NLP -->
+                <div class="area-card reveal">
+                    <div class="area-icon-wrap">
+                        <span class="area-icon-char" lang="bn" aria-hidden="true">অ</span>
+                        <span class="area-num">01</span>
+                    </div>
+                    <div>
+                        <div class="area-tag">NLP · AI</div>
+                        <h2 class="area-title">Natural Language Processing</h2>
+                        <p class="area-desc">We build foundational NLP infrastructure trained natively on Bengali — not
+                            adapted from English models. Our work includes large language models, token classification,
+                            dependency parsing, and coreference resolution that capture Bengali's unique morphosyntactic
+                            properties.</p>
+                        <div class="area-details">
+                            <div>
+                                <h4>Current Projects</h4>
+                                <ul>
+                                    <li>BākoLM — Bengali-native large language model (7B parameters)</li>
+                                    <li>BengaliNER — Named entity recognition across 12 entity types</li>
+                                    <li>BengaliQA benchmark and evaluation framework</li>
+                                    <li>Dependency treebank annotation (50,000 sentences)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Tools & Datasets</h4>
+                                <ul>
+                                    <li>BengaliTokenizer v3 (open-source, pip-installable)</li>
+                                    <li>BākoCorpus 2.0 — 5B token web corpus</li>
+                                    <li>BengaliGlue — evaluation benchmark suite</li>
+                                    <li>POS-tagged corpus (2M words)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="publications.html?filter=nlp" class="area-link">View NLP publications →</a>
+                    </div>
+                </div>
+
+                <!-- 02 Speech -->
+                <div class="area-card reveal">
+                    <div class="area-icon-wrap">
+                        <span class="area-icon-char" lang="bn" aria-hidden="true">শ</span>
+                        <span class="area-num">02</span>
+                    </div>
+                    <div>
+                        <div class="area-tag">Phonetics · Speech</div>
+                        <h2 class="area-title">Speech &amp; Phonology</h2>
+                        <p class="area-desc">Bengali's phonological system — with its aspirated stops, inherent vowel
+                            patterns, and sandhi rules — presents unique challenges and opportunities for speech
+                            technology. We develop ASR, TTS, and acoustic models that capture the full prosodic and
+                            tonal range of spoken Bengali across registers and dialects.</p>
+                        <div class="area-details">
+                            <div>
+                                <h4>Current Projects</h4>
+                                <ul>
+                                    <li>BengaliASR — 10,000-hour speech recognition corpus</li>
+                                    <li>Multi-dialect TTS with natural prosody modeling</li>
+                                    <li>Phoneme inventory documentation for 7 dialects</li>
+                                    <li>Child language acquisition acoustic study</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Tools & Datasets</h4>
+                                <ul>
+                                    <li>BākoSpeech — 10K hour open ASR corpus</li>
+                                    <li>BengaliTTS model weights (MIT license)</li>
+                                    <li>Phoneme-aligned transcription toolkit</li>
+                                    <li>Forced-alignment tool for Bengali audio</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="publications.html?filter=speech" class="area-link">View Speech publications →</a>
+                    </div>
+                </div>
+
+                <!-- 03 Morphology -->
+                <div class="area-card reveal">
+                    <div class="area-icon-wrap">
+                        <span class="area-icon-char" lang="bn" aria-hidden="true">গ</span>
+                        <span class="area-num">03</span>
+                    </div>
+                    <div>
+                        <div class="area-tag">Computational Linguistics</div>
+                        <h2 class="area-title">Morphology &amp; Grammar</h2>
+                        <p class="area-desc">Bengali is an agglutinative language with a remarkably complex verb
+                            morphology — a single verb form can encode tense, aspect, mood, person, number, and
+                            politeness simultaneously. We develop formal computational grammars, morphological
+                            analyzers, and syntactic parsers that faithfully represent this complexity.</p>
+                        <div class="area-details">
+                            <div>
+                                <h4>Current Projects</h4>
+                                <ul>
+                                    <li>Finite-state morphological analyzer (500K vocab)</li>
+                                    <li>Honorific scale computational model</li>
+                                    <li>Bengali Universal Dependencies treebank</li>
+                                    <li>Verbal paradigm documentation project</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Tools & Datasets</h4>
+                                <ul>
+                                    <li>BengaliMorph analyzer (open-source)</li>
+                                    <li>Conjugation table generator</li>
+                                    <li>Bengali UD treebank v2.1 (15K sentences)</li>
+                                    <li>Lexical database (80K lemmas)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="publications.html?filter=morphology" class="area-link">View Morphology publications
+                            →</a>
+                    </div>
+                </div>
+
+                <!-- 04 Translation -->
+                <div class="area-card reveal">
+                    <div class="area-icon-wrap">
+                        <span class="area-icon-char" lang="bn" aria-hidden="true">ব</span>
+                        <span class="area-num">04</span>
+                    </div>
+                    <div>
+                        <div class="area-tag">Machine Translation</div>
+                        <h2 class="area-title">Cross-Lingual Systems</h2>
+                        <p class="area-desc">We develop neural machine translation systems for Bengali paired with
+                            low-resource languages — a critical gap given that the majority of MT research focuses on
+                            English-centric pairs. Our work covers Bengali↔Hindi, Bengali↔Tibetan, Bengali↔Sylheti, and
+                            other South and Southeast Asian pairs.</p>
+                        <div class="area-details">
+                            <div>
+                                <h4>Current Projects</h4>
+                                <ul>
+                                    <li>Bengali↔Tibetan neural MT (EMNLP 2024)</li>
+                                    <li>South Asian multilingual translation model</li>
+                                    <li>Parallel corpus construction for 6 language pairs</li>
+                                    <li>Domain adaptation for legal and medical text</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Tools & Datasets</h4>
+                                <ul>
+                                    <li>BākoMT model checkpoints</li>
+                                    <li>Bengali-Hindi parallel corpus (500K pairs)</li>
+                                    <li>Bengali-Tibetan parallel corpus (50K pairs)</li>
+                                    <li>MT evaluation benchmark (BengaliBleu)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="publications.html?filter=translation" class="area-link">View Translation publications
+                            →</a>
+                    </div>
+                </div>
+
+                <!-- 05 Dialectology -->
+                <div class="area-card reveal">
+                    <div class="area-icon-wrap">
+                        <span class="area-icon-char" lang="bn" aria-hidden="true">ড</span>
+                        <span class="area-num">05</span>
+                    </div>
+                    <div>
+                        <div class="area-tag">Dialectology</div>
+                        <h2 class="area-title">Dialect Documentation</h2>
+                        <p class="area-desc">Standard Bengali (Shuddhô Bhasha) dominates existing NLP research, leaving
+                            millions of speakers of Sylheti, Chittagonian, Rajshahi, Mymensingh, and Rangpur dialects
+                            invisible to language technology. We conduct fieldwork, build corpora, and develop
+                            computational tools for these underrepresented varieties — several of which face serious
+                            endangerment.</p>
+                        <div class="area-details">
+                            <div>
+                                <h4>Current Projects</h4>
+                                <ul>
+                                    <li>Sylheti corpus and ASR pilot (3,000 hours)</li>
+                                    <li>Chittagonian tonal phonology study (JPh 2025)</li>
+                                    <li>Dialect atlas of Bangladesh (digital, interactive)</li>
+                                    <li>Rangpur dialect documentation fieldwork</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Tools & Datasets</h4>
+                                <ul>
+                                    <li>Sylheti text corpus (2M words)</li>
+                                    <li>Dialect word list database (7 varieties)</li>
+                                    <li>Audio archive of 120 dialect speakers</li>
+                                    <li>Dialect identification classifier</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="publications.html?filter=dialectology" class="area-link">View Dialectology publications
+                            →</a>
+                    </div>
+                </div>
+
+                <!-- 06 EdTech -->
+                <div class="area-card reveal">
+                    <div class="area-icon-wrap">
+                        <span class="area-icon-char" lang="bn" aria-hidden="true">শি</span>
+                        <span class="area-num">06</span>
+                    </div>
+                    <div>
+                        <div class="area-tag">EdTech · Tools</div>
+                        <h2 class="area-title">Language Learning Technology</h2>
+                        <p class="area-desc">We design AI-powered tools for heritage learners, diaspora communities, and
+                            literacy programs in under-resourced Bengali-medium schools. Our tools include adaptive
+                            grammar exercises, an intelligent writing assistant, and a speaking practice companion — all
+                            built with learner-centered design principles.</p>
+                        <div class="area-details">
+                            <div>
+                                <h4>Current Projects</h4>
+                                <ul>
+                                    <li>BākoLearn — adaptive grammar exercise platform</li>
+                                    <li>Script learning app for diaspora children</li>
+                                    <li>Teacher training AI assistant (pilot in 12 schools)</li>
+                                    <li>Digital literacy curriculum for adult learners</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Tools & Datasets</h4>
+                                <ul>
+                                    <li>BākoLearn app (iOS & Android, free)</li>
+                                    <li>Graded reader corpus (500 texts, 6 levels)</li>
+                                    <li>Script recognition model for handwriting</li>
+                                    <li>Grammar exercise dataset (10K items)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="publications.html?filter=edtech" class="area-link">View EdTech publications →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="join-strip">
+            <div class="container">
+                <h2>Collaborate with us</h2>
+                <p>We actively seek research partners, data contributors, and collaborating institutions. All our work
+                    is open-access.</p>
+                <a href="contact.html" class="btn-primary">Get in Touch →</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand-bengali" lang="bn">বাক্</div>
+                    <div class="footer-brand-roman">Bāk Institute for Bengali Language Research</div>
+                    <p class="footer-tagline">A non-profit advancing open, equitable research in Bengali linguistics and
+                        computational language science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">NLP &amp; AI</a></li>
+                        <li><a href="research.html">Speech</a></li>
+                        <li><a href="research.html">Morphology</a></li>
+                        <li><a href="research.html">Dialects</a></li>
+                        <li><a href="research.html">Translation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="publications.html">Datasets</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Tools &amp; Code</a>
+                        </li>
+                        <li><a href="contact.html">Fellowship</a></li>
+                        <li><a href="mailto:contact@bakinstitute.org">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="index.html#mission">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Partners</a></li>
+                        <li><a href="contact.html">Press</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bāk Institute · Registered Non-Profit · Dhaka, Bangladesh</p>
+                <div class="footer-lang" aria-hidden="true" lang="bn">ক খ গ ঘ ঙ চ ছ</div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

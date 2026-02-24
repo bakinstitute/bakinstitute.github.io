@@ -35,3 +35,79 @@ section {
     line-height: 1.1;
     margin-bottom: 1.5rem;
 }
+
+/* ─── JOIN STRIP (CTA band) ─── */
+.join-strip {
+    background: var(--saffron);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.join-strip h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.join-strip p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(26, 18, 8, 0.7);
+    margin-bottom: 2.5rem;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.65;
+}
+
+/* ─── CONTACT CARDS ─── */
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid rgba(200, 154, 46, 0.15);
+    background: var(--parchment);
+}
+
+.contact-card-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.contact-card-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 0.4rem;
+}
+
+.contact-card-value {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink);
+}
+
+.contact-card-value a {
+    color: var(--indigo);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(29, 43, 94, 0.2);
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.contact-card-value a:hover {
+    color: var(--terracotta);
+    border-color: var(--terracotta);
+}

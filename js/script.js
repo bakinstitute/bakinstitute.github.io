@@ -3,8 +3,10 @@
    ───────────────────────────────────────── */
 
 // ─── TICKER: Clone items via JS (clean HTML, infinite scroll) ───
+// Skip cloning for users who prefer reduced motion (animation already disabled in CSS)
 const tickerInner = document.getElementById('ticker-inner');
-if (tickerInner) {
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (tickerInner && !prefersReducedMotion) {
   const originalItems = Array.from(tickerInner.children);
   originalItems.forEach(item => {
     tickerInner.appendChild(item.cloneNode(true));
@@ -30,17 +32,20 @@ reveals.forEach(el => revealObserver.observe(el));
 const nav = document.querySelector('nav');
 let navTicking = false;
 
-window.addEventListener('scroll', () => {
-  if (!navTicking) {
-    requestAnimationFrame(() => {
-      nav.style.borderBottomColor = window.scrollY > 80
-        ? 'rgba(200, 154, 46, 0.35)'
-        : 'rgba(200, 154, 46, 0.2)';
-      navTicking = false;
-    });
-    navTicking = true;
-  }
-}, { passive: true });
+// Guard: only run if nav exists on this page
+if (nav) {
+  window.addEventListener('scroll', () => {
+    if (!navTicking) {
+      requestAnimationFrame(() => {
+        nav.style.borderBottomColor = window.scrollY > 80
+          ? 'rgba(200, 154, 46, 0.35)'
+          : 'rgba(200, 154, 46, 0.2)';
+        navTicking = false;
+      });
+      navTicking = true;
+    }
+  }, { passive: true });
+}
 
 // ─── MOBILE HAMBURGER MENU ───
 const hamburger = document.getElementById('hamburger');

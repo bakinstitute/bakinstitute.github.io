@@ -222,31 +222,9 @@
   font-weight: 400;
 }
 
-/* ─── Skip link (accessibility) ─── */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  background: var(--saffron);
-  color: var(--ink);
-  padding: 0.5rem 1rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
-  text-decoration: none;
-  border-radius: 2px;
-  z-index: 9999;
-  transition: top 0.2s;
-}
 
-.skip-link:focus {
-  top: 1rem;
-}
+/* (Removed duplicates — see reset.css, publications.css, research.css) */
 
-/* ─── Focus visible (accessibility) ─── */
-:focus-visible {
-  outline: 2px solid var(--saffron);
-  outline-offset: 3px;
-}
 
 /* ─── Page Hero (inner pages) ─── */
 .page-hero {
@@ -315,87 +293,23 @@
   border: 1px solid rgba(29, 43, 94, 0.15);
 }
 
-/* ─── Filter Tabs (publications) ─── */
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  align-items: center;
-}
 
-.filter-tab {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.5rem 1.2rem;
-  border: 1px solid rgba(200, 154, 46, 0.3);
-  background: transparent;
-  color: var(--warm-gray);
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
+/* (Removed duplicates — see publications.css and research.css) */
 
-.filter-tab:hover {
-  border-color: var(--saffron);
-  color: var(--ink);
-}
 
-.filter-tab.active {
-  background: var(--indigo);
-  border-color: var(--indigo);
-  color: var(--parchment);
-}
 
-/* ─── Publication search ─── */
-.pub-search-wrap {
-  position: relative;
-  margin-bottom: 2.5rem;
-}
 
-.pub-search {
-  width: 100%;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  padding: 0.9rem 1rem 0.9rem 3rem;
-  border: 1px solid rgba(200, 154, 46, 0.3);
-  background: white;
-  color: var(--ink);
-  border-radius: 2px;
-  outline: none;
-  transition: border-color 0.2s;
-}
 
-.pub-search::placeholder {
-  color: var(--warm-gray);
-}
 
-.pub-search:focus {
-  border-color: var(--gold);
-}
 
-.pub-search-icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--warm-gray);
-  font-size: 0.85rem;
-  pointer-events: none;
-}
 
-/* Extended pub-item for inner pages */
-.pub-abstract {
-  font-size: 0.88rem;
-  font-weight: 300;
-  line-height: 1.65;
-  color: var(--warm-gray);
-  margin-top: 0.5rem;
-  display: none;
-}
+
+
+
+
+
+
+
 
 .pub-item.expanded .pub-abstract {
   display: block;
@@ -449,15 +363,7 @@
   display: none;
 }
 
-/* ─── Research Areas (research page) ─── */
-.area-card {
-  padding: 3rem 0;
-  border-bottom: 1px solid rgba(200, 154, 46, 0.15);
-  display: grid;
-  grid-template-columns: 5rem 1fr;
-  gap: 3rem;
-  align-items: start;
-}
+
 
 .area-card:last-child {
   border-bottom: none;

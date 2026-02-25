@@ -231,17 +231,17 @@ const DATA_LOADER = {
                 }
 
                 grid.innerHTML = `
-                  <article class="single-post-view reveal visible" style="background:white; padding: 4rem; border: 1px solid rgba(200,154,46,0.15);">
-                      <div class="blog-meta" style="margin-bottom: 2rem; font-family: 'DM Mono', monospace;">
+                  <article class="single-post-view reveal visible" style="background:white; padding: 3rem; border: 1px solid rgba(200,154,46,0.15);">
+                      <div class="blog-meta" style="margin-bottom: 1.5rem; font-family: 'DM Mono', monospace; font-size: 0.65rem;">
                           <span style="color:var(--saffron); text-transform:uppercase; letter-spacing:0.1em;">${post.category || 'News'}</span>
                           <span>&nbsp;&nbsp;·&nbsp;&nbsp;</span>
                           <span style="color:var(--warm-gray);">${new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                       </div>
-                      ${post.image ? `<div style="width:100%; height:400px; background-image:url('${post.image}'); background-size:cover; background-position:center; margin-bottom: 3rem;"></div>` : ''}
-                      <div class="markdown-content" style="font-size:1.1rem; line-height:1.85; color:var(--ink);">
+                      ${post.image ? `<div style="width:100%; height:400px; background-image:url('${post.image}'); background-size:cover; background-position:center; margin-bottom: 2rem; border-radius: 4px;"></div>` : ''}
+                      <div class="markdown-content">
                           ${bodyContent}
                       </div>
-                      <div style="margin-top: 4rem; border-top: 1px solid rgba(200,154,46,0.15); padding-top: 2rem;">
+                      <div style="margin-top: 3rem; border-top: 1px solid rgba(200,154,46,0.2); padding-top: 1.5rem;">
                           <a href="?" class="btn-primary">← Back to all posts</a>
                       </div>
                   </article>

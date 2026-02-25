@@ -208,43 +208,75 @@
         }
 
         /* Markdown content styling for single blog posts */
+        .single-post-view {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .markdown-content {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
         .markdown-content h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.65rem;
+            font-weight: 600;
             color: var(--indigo);
             margin: 2.5rem 0 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(200, 154, 46, 0.15);
+            border-bottom: 1px solid rgba(200, 154, 46, 0.3);
         }
 
         .markdown-content h3 {
-            font-size: 1.2rem;
-            font-weight: 400;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 600;
             color: var(--indigo);
             margin: 2rem 0 0.75rem;
         }
 
         .markdown-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--indigo);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--terracotta);
             margin: 1.5rem 0 0.5rem;
         }
 
         .markdown-content p {
-            margin: 0 0 1.25rem;
+            margin: 0 0 1.35rem;
             color: var(--ink);
+            line-height: 1.9;
+        }
+
+        .markdown-content>p:first-child {
+            font-size: 1.15em;
+            line-height: 1.85;
+            color: var(--indigo);
         }
 
         .markdown-content ul,
         .markdown-content ol {
-            margin: 1rem 0 1.5rem 1.5rem;
+            margin: 1rem 0 1.5rem 1.25rem;
             color: var(--ink);
+            line-height: 1.8;
+        }
+
+        .markdown-content ol {
+            list-style-type: decimal;
         }
 
         .markdown-content li {
-            margin-bottom: 0.4rem;
-            line-height: 1.7;
+            margin-bottom: 0.5rem;
+            line-height: 1.75;
+            padding-left: 0.35rem;
+        }
+
+        .markdown-content li::marker {
+            color: var(--saffron);
+            font-weight: 600;
         }
 
         .markdown-content table {
@@ -252,41 +284,60 @@
             border-collapse: collapse;
             margin: 1.5rem 0 2rem;
             font-size: 0.95rem;
+            border: 1px solid rgba(200, 154, 46, 0.15);
         }
 
         .markdown-content th {
-            background: var(--cream);
+            background: var(--indigo);
             font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
+            font-size: 0.72rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--indigo);
+            color: var(--parchment);
             text-align: left;
             padding: 0.75rem 1rem;
-            border-bottom: 2px solid rgba(200, 154, 46, 0.2);
+            border-bottom: none;
         }
 
         .markdown-content td {
-            padding: 0.65rem 1rem;
-            border-bottom: 1px solid rgba(200, 154, 46, 0.1);
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(200, 154, 46, 0.12);
             color: var(--ink);
+        }
+
+        .markdown-content tr:nth-child(even) {
+            background: rgba(200, 154, 46, 0.04);
+        }
+
+        .markdown-content tr:hover {
+            background: rgba(200, 154, 46, 0.08);
         }
 
         .markdown-content blockquote {
             border-left: 3px solid var(--saffron);
-            padding: 1rem 1.5rem;
+            padding: 1.25rem 1.5rem;
             margin: 1.5rem 0;
-            background: var(--cream);
+            background: rgba(200, 154, 46, 0.06);
             font-style: italic;
             color: var(--warm-gray);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .markdown-content blockquote p {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .markdown-content blockquote p:last-child {
+            margin-bottom: 0;
         }
 
         .markdown-content code {
             font-family: 'DM Mono', monospace;
-            font-size: 0.88em;
+            font-size: 0.85em;
             background: rgba(29, 43, 94, 0.06);
-            padding: 0.15em 0.4em;
-            border-radius: 2px;
+            padding: 0.15em 0.45em;
+            border-radius: 3px;
             color: var(--terracotta);
         }
 
@@ -294,25 +345,27 @@
             background: var(--indigo);
             color: var(--parchment);
             padding: 1.5rem;
-            border-radius: 2px;
+            border-radius: 4px;
             overflow-x: auto;
             margin: 1.5rem 0;
+            line-height: 1.6;
         }
 
         .markdown-content pre code {
             background: none;
             color: inherit;
             padding: 0;
+            font-size: 0.9em;
         }
 
         .markdown-content hr {
             border: none;
-            border-top: 1px solid rgba(200, 154, 46, 0.2);
-            margin: 3rem 0;
+            border-top: 1px solid rgba(200, 154, 46, 0.25);
+            margin: 2.5rem 0;
         }
 
         .markdown-content strong {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--indigo);
         }
 
@@ -323,26 +376,45 @@
         .markdown-content a {
             color: var(--terracotta);
             text-decoration: none;
-            border-bottom: 1px solid rgba(193, 68, 14, 0.25);
-            transition: color 0.2s;
+            border-bottom: 1px solid rgba(193, 68, 14, 0.3);
+            transition: color 0.2s, border-color 0.2s;
         }
 
         .markdown-content a:hover {
             color: var(--indigo);
+            border-bottom-color: var(--indigo);
+        }
+
+        /* Author bio / closing italic paragraph after hr */
+        .markdown-content hr+p {
+            font-size: 0.9em;
+            color: var(--warm-gray);
+            line-height: 1.7;
         }
 
         @media(max-width:768px) {
             .single-post-view {
-                padding: 2rem !important;
+                padding: 1.5rem !important;
+            }
+
+            .markdown-content h2 {
+                font-size: 1.35rem;
+            }
+
+            .markdown-content h3 {
+                font-size: 1.1rem;
             }
 
             .markdown-content table {
-                font-size: 0.8rem;
+                font-size: 0.82rem;
+                display: block;
+                overflow-x: auto;
             }
 
             .markdown-content th,
             .markdown-content td {
-                padding: 0.5rem;
+                padding: 0.5rem 0.65rem;
+                white-space: nowrap;
             }
         }
     </style>

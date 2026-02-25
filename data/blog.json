@@ -1,0 +1,82 @@
+[
+  {
+    "category": "Dataset Release",
+    "body": "The largest open Bengali speech corpus is now available on OpenSLR. We cover the data collection process, speaker demographics, transcription pipeline, and baseline ASR results that accompany the release.",
+    "image": "",
+    "excerpt": "The largest open Bengali speech corpus is now available on OpenSLR.",
+    "title": "BākoSpeech: Open-Sourcing 10,200 Hours of Bengali Audio",
+    "date": "2023-12-10"
+  },
+  {
+    "category": "Commentary",
+    "body": "On International Mother Language Day, Dr. Rahman reflects on what it means that the language martyrs died for in 1952 still lacks a functional keyboard standard, official Unicode support for all scripts, and AI that speaks it well.",
+    "image": "",
+    "excerpt": "On International Mother Language Day, Dr. Rahman reflects on the digital status of the Bengali language.",
+    "title": "21st February and the Unfinished Work of Language Recognition",
+    "date": "2024-02-21"
+  },
+  {
+    "category": "Dataset Release",
+    "body": "After two years of crawling, cleaning, and de-duplicating, we are releasing BākoCorpus 2.0 — the largest open Bengali text corpus ever published. In this post, we walk through the data pipeline, discuss quality filtering decisions, and explain what this means for Bengali NLP research.",
+    "image": "",
+    "excerpt": "The largest open Bengali text corpus ever published. In this post, we walk through the data pipeline and quality filtering decisions.",
+    "title": "BākoCorpus 2.0 Is Here: 5 Billion Tokens of Open Bengali Text",
+    "date": "2024-03-12"
+  },
+  {
+    "category": "Fieldwork",
+    "body": "Results from our landmark 12-week study with British-Bangladeshi heritage learners aged 8–16. The data is encouraging — but so are the surprises. Fahmida Islam shares what she did not expect to find.",
+    "image": "",
+    "excerpt": "Results from our landmark 12-week study with British-Bangladeshi heritage learners aged 8–16.",
+    "title": "BākoLearn in UK Schools: What 240 Heritage Learners Taught Us",
+    "date": "2024-08-15"
+  },
+  {
+    "category": "Research",
+    "body": "How we constructed a 52,000-sentence parallel corpus for one of the world's most challenging language pairs — and what it reveals about the limits of transfer learning from large multilingual models.",
+    "image": "",
+    "excerpt": "How we constructed a 52,000-sentence parallel corpus for one of the world's most challenging language pairs.",
+    "title": "Bengali↔Tibetan MT: Building a Bridge Between Two Ancient Languages",
+    "date": "2024-09-01"
+  },
+  {
+    "category": "News",
+    "body": "We are delighted to announce a Mozilla Technology Fund grant to build BākoLM — a fully open Bengali language model trained from scratch. Here is what we plan to build and our timeline.",
+    "image": "",
+    "excerpt": "We are delighted to announce a Mozilla Technology Fund grant to build BākoLM — a fully open Bengali language model.",
+    "title": "Bāk Receives Mozilla Technology Fund Grant for Open Bengali AI",
+    "date": "2024-10-15"
+  },
+  {
+    "category": "Commentary",
+    "body": "A frank look at benchmark scores for frontier models on Bengali tasks. Spoiler: the gap is larger than the labs admit. Dr. Karim Ahmed argues for a Bengali-first pretraining paradigm.",
+    "image": "",
+    "excerpt": "A frank look at benchmark scores for frontier models on Bengali tasks. Spoiler: the gap is larger than the labs admit.",
+    "title": "Why GPT-4 Fails Bengali Speakers — And What We Plan to Do About It",
+    "date": "2024-11-20"
+  },
+  {
+    "category": "Fieldwork",
+    "body": "Fahmida Islam and Dr. Chakraborty report from the field — recording 80 Sylheti speakers across 6 upazilas. What we learned about speaker attitudes to dialect, and the challenges of naturalistic data collection.",
+    "image": "",
+    "excerpt": "Fahmida Islam and Dr. Chakraborty report from the field — recording 80 Sylheti speakers across 6 upazilas.",
+    "title": "Twelve Weeks in Sylhet: Recording the Voices of a Living Dialect",
+    "date": "2024-12-05"
+  },
+  {
+    "category": "Dataset Release",
+    "body": "We release BengaliQA alongside our ACL 2025 paper. Here we discuss what makes QA in Bengali hard — entity ambiguity, cultural knowledge, and the absence of a Standard Simplified Bengali norm.",
+    "image": "",
+    "excerpt": "We release BengaliQA alongside our ACL 2025 paper. Here we discuss what makes QA in Bengali hard.",
+    "title": "BengaliQA: 50,000 Questions to Challenge Your Bengali LLM",
+    "date": "2025-01-10"
+  },
+  {
+    "category": "Research",
+    "body": "Prof. Priya Das explains her 2025 Journal of Phonetics study in accessible language — why Chittagonian Bengali is phonologically unlike any other Bengali variety, and why that matters for speech technology.",
+    "image": "",
+    "excerpt": "Prof. Priya Das explains why Chittagonian Bengali is phonologically unlike any other Bengali variety.",
+    "title": "What Makes Chittagonian Unique: Tonal Phonology in the Bay of Bengal",
+    "date": "2025-01-15"
+  }
+]

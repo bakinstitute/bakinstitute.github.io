@@ -524,8 +524,8 @@
 }
 
 .member-avatar-sm {
-  width: 72px;
-  height: 72px;
+  width: 94px;
+  height: 94px;
   background: var(--indigo);
   border-radius: 4px;
   display: flex;
@@ -545,7 +545,7 @@
 }
 
 .member-avatar-sm .team-avatar-initials {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .member-name {
@@ -631,8 +631,8 @@
 }
 
 .leader-avatar {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   background: var(--indigo);
   border-radius: 4px;
   flex-shrink: 0;
@@ -651,7 +651,7 @@
 }
 
 .leader-avatar .team-avatar-initials {
-  font-size: 2rem;
+  font-size: 2.6rem;
 }
 
 /* ─── Advisory board ─── */

@@ -9,18 +9,16 @@ const CMS = {
 
     async fetchFile(url) {
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return await response.text();
     },
 
     parseFrontmatter(text) {
         const match = text.match(/^---\r?\n([\s\S]+?)\r?\n---\r?\n?([\s\S]*)$/);
         if (!match) return { data: {}, content: text };
-
         const yamlPart = match[1];
         const content = match[2];
         const data = {};
-
         yamlPart.split('\n').forEach(line => {
             const parts = line.split(':');
             if (parts.length < 2) return;
@@ -39,12 +37,12 @@ const CMS = {
     async loadPublications() {
         const container = document.getElementById('pub-list') || document.querySelector('.pub-list');
         if (!container) return;
-        console.log("CMS: Loading Publications...");
+        console.log("CMS: 📚 Loading Publications...");
 
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/publications?ref=${this.branch}`);
             const files = await response.json();
-            if (!Array.isArray(files)) throw new Error("Publications folder not found on GitHub.");
+            if (!Array.isArray(files)) throw new Error("Folder not found.");
 
             container.innerHTML = '';
             let allPubs = [];
@@ -81,27 +79,24 @@ const CMS = {
             document.querySelectorAll('.pub-toggle').forEach(btn => {
                 btn.onclick = (e) => {
                     const item = e.target.closest('.pub-item');
-                    const open = item.classList.toggle('expanded');
-                    e.target.textContent = open ? 'Hide abstract ↑' : 'Show abstract ↓';
+                    item.classList.toggle('expanded');
+                    e.target.textContent = item.classList.contains('expanded') ? 'Hide abstract ↑' : 'Show abstract ↓';
                 };
             });
-            if (window.applyFilters) window.applyFilters();
-        } catch (err) {
-            console.error("CMS Error:", err);
-            container.innerHTML = `<p style="color:var(--terracotta); padding:2rem; text-align:center;">Could not load data. Make sure your changes are pushed to GitHub.</p>`;
-        }
+            console.log("CMS: ✅ Publications Loaded Successfully!");
+        } catch (err) { console.error("CMS Error:", err); }
     },
 
     async loadTeam() {
         const leaderGrid = document.getElementById('leader-grid');
         const staffGrid = document.getElementById('staff-grid');
         if (!leaderGrid && !staffGrid) return;
-        console.log("CMS: Loading Team...");
+        console.log("CMS: 👥 Loading Team...");
 
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/team?ref=${this.branch}`);
             const files = await response.json();
-            if (!Array.isArray(files)) throw new Error("Team folder not found.");
+            if (!Array.isArray(files)) throw new Error("Folder not found.");
 
             if (leaderGrid) leaderGrid.innerHTML = '';
             if (staffGrid) staffGrid.innerHTML = '';
@@ -116,7 +111,7 @@ const CMS = {
                 div.className = member.section === 'leadership' ? 'leader-card reveal' : 'member-card reveal';
                 div.innerHTML = `
             <div class="${member.section === 'leadership' ? 'leader-avatar' : 'member-avatar-sm'}" aria-hidden="true">
-                <div class="team-avatar-initials" lang="bn">${member.initials}</div>
+                <div class="team-avatar-initials" lang="bn">${member.initials || '..'}</div>
             </div>
             ${member.section === 'leadership' ? '<div>' : ''}
                 <div class="member-name">${member.title}</div>
@@ -132,62 +127,19 @@ const CMS = {
                 if (member.section === 'leadership' && leaderGrid) leaderGrid.appendChild(div);
                 else if (member.section === 'staff' && staffGrid) staffGrid.appendChild(div);
             }
-        } catch (err) { console.error("CMS Error:", err); }
-    },
-
-    async loadBlog() {
-        const grid = document.getElementById('blog-grid');
-        if (!grid) return;
-        console.log("CMS: Loading Blog...");
-
-        try {
-            const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/blog?ref=${this.branch}`);
-            const files = await response.json();
-            if (!Array.isArray(files)) return;
-
-            grid.innerHTML = '';
-            let allPosts = [];
-            for (const file of files) {
-                if (!file.name.endsWith('.md')) continue;
-                const raw = await this.fetchFile(file.download_url);
-                const { data, content } = this.parseFrontmatter(raw);
-                allPosts.push({ ...data, content });
-            }
-
-            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-            allPosts.forEach(post => {
-                const article = document.createElement('article');
-                article.className = 'blog-card reveal';
-                article.dataset.category = post.category ? post.category.toLowerCase().split(' ')[0] : 'news';
-                article.innerHTML = `
-            <div class="blog-card-img" style="background-image: url('${post.image}'); background-size: cover;">
-                ${!post.image ? `<span aria-hidden="true" lang="bn">ব</span>` : ''}
-            </div>
-            <div class="blog-card-body">
-                <div class="blog-category">${post.category || 'News'}</div>
-                <h3 class="blog-card-title">${post.title}</h3>
-                <p class="blog-card-excerpt">${post.excerpt || post.content.substring(0, 150) + '...'}</p>
-                <div class="blog-meta">
-                    <span>${new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
-                </div>
-                <a href="#" class="blog-read-more">Read →</a>
-            </div>
-        `;
-                grid.appendChild(article);
-            });
-            if (window.applyBlogFilters) window.applyBlogFilters();
+            console.log("CMS: ✅ Team Loaded Successfully!");
         } catch (err) { console.error("CMS Error:", err); }
     },
 
     async loadResearch() {
         const container = document.getElementById('research-container');
         if (!container) return;
-        console.log("CMS: Loading Research...");
+        console.log("CMS: 🔬 Loading Research...");
 
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/research?ref=${this.branch}`);
             const files = await response.json();
-            if (!Array.isArray(files)) throw new Error("Research folder not found.");
+            if (!Array.isArray(files)) throw new Error("Folder not found.");
 
             container.innerHTML = '';
             let allAreas = [];
@@ -226,11 +178,12 @@ const CMS = {
         `;
                 container.appendChild(div);
             });
+            console.log("CMS: ✅ Research Loaded Successfully!");
         } catch (err) { console.error("CMS Error:", err); }
     },
 
     async loadHome() {
-        console.log("CMS: Loading Homepage...");
+        console.log("CMS: 🏠 Loading Homepage...");
         this.loadHomePubs();
         this.loadHomeTeam();
     },
@@ -238,7 +191,6 @@ const CMS = {
     async loadHomePubs() {
         const pubContainer = document.querySelector('.pub-list');
         if (!pubContainer) return;
-
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/publications?ref=${this.branch}`);
             const files = await response.json();
@@ -265,7 +217,6 @@ const CMS = {
     async loadHomeTeam() {
         const teamGrid = document.querySelector('.team-grid');
         if (!teamGrid) return;
-
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/team?ref=${this.branch}`);
             const files = await response.json();
@@ -280,16 +231,65 @@ const CMS = {
                     div.innerHTML = `<div class="team-avatar"><div class="team-avatar-initials" lang="bn">${data.initials || '..'}</div></div><div class="team-name">${data.title}</div><div class="team-role">${data.role}</div><div class="team-inst">${data.institution}</div>`;
                     teamGrid.appendChild(div);
                 }
+                console.log("CMS: ✅ Homepage Content Ready!");
             }
         } catch (err) { console.error("Home Team Error:", err); }
+    },
+
+    async loadBlog() {
+        const grid = document.getElementById('blog-grid');
+        if (!grid) return;
+        console.log("CMS: ✍️ Loading Blog...");
+        try {
+            const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/blog?ref=${this.branch}`);
+            const files = await response.json();
+            if (!Array.isArray(files)) return;
+            grid.innerHTML = '';
+            let allPosts = [];
+            for (const file of files) {
+                if (!file.name.endsWith('.md')) continue;
+                const raw = await this.fetchFile(file.download_url);
+                const { data, content } = this.parseFrontmatter(raw);
+                allPosts.push({ ...data, content });
+            }
+            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            allPosts.forEach(post => {
+                const article = document.createElement('article');
+                article.className = 'blog-card reveal';
+                article.innerHTML = `
+            <div class="blog-card-img" style="background-image: url('${post.image}'); background-size: cover;">
+                ${!post.image ? `<span aria-hidden="true" lang="bn">ব</span>` : ''}
+            </div>
+            <div class="blog-card-body">
+                <div class="blog-category">${post.category || 'News'}</div>
+                <h3 class="blog-card-title">${post.title}</h3>
+                <p class="blog-card-excerpt">${post.excerpt || post.content.substring(0, 150) + '...'}</p>
+                <div class="blog-meta">
+                    <span>${new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
+                </div>
+                <a href="#" class="blog-read-more">Read →</a>
+            </div>
+        `;
+                grid.appendChild(article);
+            });
+            console.log("CMS: ✅ Blog Loaded Successfully!");
+        } catch (err) { console.error("CMS Error:", err); }
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
-    if (path === '/' || path.endsWith('index.html') || path === '' || path.endsWith('/')) CMS.loadHome();
-    if (path.includes('/publications/')) CMS.loadPublications();
-    if (path.includes('/team/')) CMS.loadTeam();
-    if (path.includes('/blog/')) CMS.loadBlog();
-    if (path.includes('/research/')) CMS.loadResearch();
+    console.log("CMS: Current Path is " + path);
+
+    if (path === '/' || path.endsWith('index.html') || path === '') {
+        CMS.loadHome();
+    } else if (path.includes('/publications')) {
+        CMS.loadPublications();
+    } else if (path.includes('/team')) {
+        CMS.loadTeam();
+    } else if (path.includes('/blog')) {
+        CMS.loadBlog();
+    } else if (path.includes('/research')) {
+        CMS.loadResearch();
+    }
 });

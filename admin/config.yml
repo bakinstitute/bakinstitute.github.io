@@ -51,3 +51,18 @@ collections:
       - { label: "Category", name: "category", widget: "string" }
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Post Content", name: "body", widget: "markdown" }
+
+  - name: "research"
+    label: "Research Areas"
+    folder: "content/research"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Area Name", name: "title", widget: "string" }
+      - { label: "Order Number (01, 02, etc)", name: "order", widget: "string" }
+      - { label: "Bengali Character", name: "char", widget: "string" }
+      - { label: "Tags", name: "tag", widget: "string" }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Current Projects", name: "projects", widget: "list" }
+      - { label: "Tools & Datasets", name: "tools", widget: "list" }
+      - { label: "Link to Filtered Pubs", name: "link", widget: "string" }

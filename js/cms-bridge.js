@@ -1,17 +1,22 @@
 /**
- * Bāk Institute — CMS Bridge
- * This script fetches content from the /content folder and populates the pages.
+ * Bāk Institute CMS Bridge
+ * Dynamically loads content from GitHub into the frontend.
  */
-
 const CMS = {
-    // Configuration
     repoOwner: 'bakinstitute',
     repoName: 'bakinstitute.github.io',
     branch: 'main',
 
     /**
-     * Parse Markdown Frontmatter
-     * @param {string} text 
+     * Fetch a raw file from GitHub
+     */
+    async fetchFile(url) {
+        const response = await fetch(url);
+        return await response.text();
+    },
+
+    /**
+     * Simple Frontmatter Parser
      */
     parseFrontmatter(text) {
         const match = text.match(/^---\r?\n([\s\S]+?)\r?\n---\r?\n?([\s\S]*)$/);
@@ -27,29 +32,18 @@ const CMS = {
             const key = parts[0].trim();
             let value = parts.slice(1).join(':').trim();
 
-            if (value === '' || value === '[]') return;
-
-            // Basic string/list cleaning
+            // Clean quotes and handle lists
             if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
 
-            // Handle simple hyphenated lists
-            if (value === '') {
-                // might be a list below it, not handled in this simple parser
+            // Basic list parsing for config lists like "[item1, item2]"
+            if (value.startsWith('[') && value.endsWith(']')) {
+                data[key] = value.slice(1, -1).split(',').map(s => s.trim().replace(/^"|"$/g, ''));
+            } else {
+                data[key] = value;
             }
-
-            data[key] = value;
         });
 
         return { data, content };
-    },
-
-    /**
-     * Fetch a single file content
-     */
-    async fetchFile(path) {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error(`Could not fetch ${path}`);
-        return await response.text();
     },
 
     /**
@@ -76,13 +70,13 @@ const CMS = {
                 allPubs.push({ ...data, abstract: content });
             }
 
+            // Sort by year descending
             allPubs.sort((a, b) => (b.year || 0) - (a.year || 0));
 
             allPubs.forEach(pub => {
                 const article = document.createElement('article');
                 article.className = 'pub-item reveal';
-                article.dataset.category = pub.category || 'nlp';
-                article.dataset.search = `${pub.title} ${pub.authors} ${pub.year} ${pub.badge}`.toLowerCase();
+                article.dataset.category = (pub.category || 'nlp').toLowerCase();
 
                 article.innerHTML = `
             <div class="pub-year">${pub.year}</div>
@@ -99,16 +93,15 @@ const CMS = {
             </div>
             <div>
                 <span class="pub-badge">${pub.badge || ''}</span>
-                <div class="member-tags" style="margin-top:0.5rem;">
-                    <span class="tag">${(pub.category || 'NLP').toUpperCase()}</span>
-                </div>
             </div>
         `;
                 container.appendChild(article);
             });
 
+            // Filter logic integration
             if (window.applyFilters) window.applyFilters();
 
+            // Toggle logic
             document.querySelectorAll('.pub-toggle').forEach(btn => {
                 btn.onclick = () => {
                     const item = btn.closest('.pub-item');
@@ -123,10 +116,8 @@ const CMS = {
      * Load Team
      */
     async loadTeam() {
-        const leaderGrid = document.querySelector('.leader-grid');
-        const staffGrid = document.querySelector('.member-grid');
-        const advisoryList = document.querySelector('.advisory-list'); // Need to add this class to HTML
-
+        const leaderGrid = document.getElementById('leader-grid');
+        const staffGrid = document.getElementById('staff-grid');
         if (!leaderGrid && !staffGrid) return;
 
         const apiUrl = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/team?ref=${this.branch}`;
@@ -238,17 +229,152 @@ const CMS = {
 
             if (window.applyBlogFilters) window.applyBlogFilters();
         } catch (err) { console.error("CMS Error:", err); }
+    },
+
+    /**
+     * Load Research Areas
+     */
+    async loadResearch() {
+        const container = document.querySelector('section[aria-labelledby="areas-heading"] .container');
+        if (!container) return;
+
+        const apiUrl = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/research?ref=${this.branch}`;
+
+        try {
+            const response = await fetch(apiUrl);
+            const files = await response.json();
+            if (!Array.isArray(files)) return;
+
+            // Keep only label
+            const label = container.querySelector('.section-label');
+            container.innerHTML = '';
+            if (label) container.appendChild(label);
+
+            let allAreas = [];
+            for (const file of files) {
+                if (!file.name.endsWith('.md')) continue;
+                const raw = await this.fetchFile(file.download_url);
+                const { data, content } = this.parseFrontmatter(raw);
+
+                const projects = Array.isArray(data.projects) ? data.projects : [];
+                const tools = Array.isArray(data.tools) ? data.tools : [];
+
+                allAreas.push({ ...data, body: content, projectsList: projects, toolsList: tools });
+            }
+
+            allAreas.sort((a, b) => (a.order || '00').localeCompare(b.order || '00'));
+
+            allAreas.forEach(area => {
+                const div = document.createElement('div');
+                div.className = 'area-card reveal';
+                div.innerHTML = `
+            <div class="area-icon-wrap">
+                <span class="area-icon-char" lang="bn" aria-hidden="true">${area.char}</span>
+                <span class="area-num">${area.order}</span>
+            </div>
+            <div>
+                <div class="area-tag">${area.tag}</div>
+                <h2 class="area-title">${area.title}</h2>
+                <div class="area-desc">${area.body}</div>
+                <div class="area-details">
+                    <div>
+                        <h4>Current Projects</h4>
+                        <ul>${area.projectsList.map(p => `<li>${p}</li>`).join('')}</ul>
+                    </div>
+                    <div>
+                        <h4>Tools & Datasets</h4>
+                        <ul>${area.toolsList.map(t => `<li>${t}</li>`).join('')}</ul>
+                    </div>
+                </div>
+                <a href="${area.link}" class="area-link">View ${area.title} publications →</a>
+            </div>
+        `;
+                container.appendChild(div);
+            });
+        } catch (err) { console.error("CMS Error:", err); }
+    },
+
+    /**
+     * Load Home Page Sections
+     */
+    async loadHome() {
+        // 1. Recent Publications
+        const pubContainer = document.querySelector('.pub-list');
+        if (pubContainer) {
+            const apiUrl = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/publications?ref=${this.branch}`;
+            try {
+                const response = await fetch(apiUrl);
+                const files = await response.json();
+                if (Array.isArray(files)) {
+                    pubContainer.innerHTML = '';
+                    let recentPubs = [];
+                    for (const file of files.slice(0, 3)) { // Only get first 3 for home
+                        if (!file.name.endsWith('.md')) continue;
+                        const raw = await this.fetchFile(file.download_url);
+                        const { data } = this.parseFrontmatter(raw);
+                        recentPubs.push(data);
+                    }
+                    recentPubs.sort((a, b) => (b.year || 0) - (a.year || 0));
+                    recentPubs.forEach(pub => {
+                        const article = document.createElement('article');
+                        article.className = 'pub-item reveal';
+                        article.innerHTML = `
+                <div class="pub-year">${pub.year}</div>
+                <div>
+                    <div class="pub-title">${pub.title}</div>
+                    <div class="pub-authors">${pub.authors}</div>
+                </div>
+                <div><span class="pub-badge">${pub.badge || ''}</span></div>
+            `;
+                        pubContainer.appendChild(article);
+                    });
+                }
+            } catch (err) { console.error("Home Pubs Error:", err); }
+        }
+
+        // 2. Team Preview
+        const teamGrid = document.querySelector('.team-grid');
+        if (teamGrid) {
+            const apiUrl = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/team?ref=${this.branch}`;
+            try {
+                const response = await fetch(apiUrl);
+                const files = await response.json();
+                if (Array.isArray(files)) {
+                    teamGrid.innerHTML = '';
+                    let homeTeam = [];
+                    for (const file of files.slice(0, 4)) { // Only show first 4 on home
+                        if (!file.name.endsWith('.md')) continue;
+                        const raw = await this.fetchFile(file.download_url);
+                        const { data } = this.parseFrontmatter(raw);
+                        homeTeam.push(data);
+                    }
+                    homeTeam.forEach(member => {
+                        const div = document.createElement('div');
+                        div.className = 'team-card reveal';
+                        div.innerHTML = `
+                <div class="team-avatar" aria-hidden="true">
+                    <div class="team-avatar-initials" lang="bn">${member.initials}</div>
+                </div>
+                <div class="team-name">${member.title}</div>
+                <div class="team-role">${member.role}</div>
+                <div class="team-inst">${member.institution}</div>
+            `;
+                        teamGrid.appendChild(div);
+                    });
+                }
+            } catch (err) { console.error("Home Team Error:", err); }
+        }
     }
 };
 
-// Initialize based on page
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
-    if (path.includes('/publications/')) {
-        CMS.loadPublications();
-    } else if (path.includes('/team/')) {
-        CMS.loadTeam();
-    } else if (path.includes('/blog/')) {
-        CMS.loadBlog();
-    }
+    const isHome = path === '/' || path.endsWith('index.html') || path === '';
+
+    if (isHome) CMS.loadHome();
+    if (path.includes('/publications/')) CMS.loadPublications();
+    if (path.includes('/team/')) CMS.loadTeam();
+    if (path.includes('/blog/')) CMS.loadBlog();
+    if (path.includes('/research/')) CMS.loadResearch();
 });

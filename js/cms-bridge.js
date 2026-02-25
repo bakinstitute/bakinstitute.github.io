@@ -10,11 +10,9 @@ const CMS = {
     async fetchGitHub(path) {
         const url = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${path}?ref=${this.branch}`;
         const response = await fetch(url);
-
-        if (response.status === 403) throw new Error("GitHub Rate Limit Exceeded.");
+        if (response.status === 403) throw new Error("GitHub Rate Limit.");
         if (response.status === 404) throw new Error(`Folder '${path}' not found.`);
-        if (!response.ok) throw new Error(`GitHub Error: ${response.status}`);
-
+        if (!response.ok) throw new Error(`API Error: ${response.status}`);
         return await response.json();
     },
 
@@ -90,8 +88,8 @@ const CMS = {
     },
 
     async loadTeam() {
-        const leaderGrid = document.getElementById('leader-grid');
-        const staffGrid = document.getElementById('staff-grid');
+        const leaderGrid = document.getElementById('leader-grid') || document.querySelector('.leader-grid');
+        const staffGrid = document.getElementById('staff-grid') || document.querySelector('.staff-grid') || document.querySelector('.member-grid');
         if (!leaderGrid && !staffGrid) return;
         try {
             const files = await this.fetchGitHub('content/team');
@@ -126,7 +124,7 @@ const CMS = {
     },
 
     async loadResearch() {
-        const container = document.getElementById('research-container');
+        const container = document.getElementById('research-container') || document.querySelector('.research-container');
         if (!container) return;
         try {
             const files = await this.fetchGitHub('content/research');
@@ -203,7 +201,7 @@ const CMS = {
     },
 
     async loadBlog() {
-        const grid = document.getElementById('blog-grid');
+        const grid = document.getElementById('blog-grid') || document.querySelector('.blog-grid');
         if (!grid) return;
         try {
             const files = await this.fetchGitHub('content/blog');
@@ -239,7 +237,6 @@ const CMS = {
 
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname.toLowerCase();
-
     if (path.includes('/publications')) {
         CMS.loadPublications();
     } else if (path.includes('/team')) {

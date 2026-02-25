@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "section": "leadership",
+        "initials": "কা",
+        "title": "Dr. Karim Ahmed",
+        "role": "Founder & Technical Lead",
+        "institution": "University of Toronto / Bāk Institute",
+        "body": "Expert in Bengali NLP and Machine Learning. Dedicated to building open-source infrastructure for South Asian languages.",
+        "email": "karim@bakinstitute.org",
+        "link": "#"
+    },
+    {
+        "section": "staff",
+        "initials": "আ",
+        "title": "Dr. Asha Dey",
+        "role": "Senior Research Scientist",
+        "institution": "Bāk Institute",
+        "body": "Specializes in corpus linguistics and data annotation. leads the BākoCorpus project.",
+        "email": "asha@bakinstitute.org",
+        "link": "#"
+    },
+    {
+        "section": "advisory",
+        "initials": "অ",
+        "title": "Prof. Arnab Chakraborty",
+        "institution": "Jadavpur University",
+        "role": "Linguistic Advisor",
+        "body": "World-renowned linguist specializing in Bengali morphology and phonology."
+    }
+]

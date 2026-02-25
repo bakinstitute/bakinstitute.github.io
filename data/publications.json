@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "year": 2025,
+        "title": "BākoCorpus: A Large-Scale Open Dataset for Benchmarking Bengali NLP",
+        "authors": "Asha Dey, Arnab Chakraborty, et al.",
+        "body": "This paper introduces BākoCorpus, the largest open-access Bengali text corpus to date, containing over 5 billion tokens from diverse domains.",
+        "badge": "LREC-COLING 2024",
+        "category": "nlp",
+        "pdf": "#",
+        "dataset": "#",
+        "code": "#"
+    },
+    {
+        "year": 2024,
+        "title": "Towards Robust Automatic Speech Recognition for Bengali Dialects",
+        "authors": "Fahmida Islam, Karim Ahmed",
+        "body": "We present a novel approach to ASR that leverages transfer learning to improve performance on under-resourced Bengali dialects like Sylheti.",
+        "badge": "Interspeech 2023",
+        "category": "speech",
+        "pdf": "#"
+    }
+]

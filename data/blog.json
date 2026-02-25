@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "title": "Bāk Institute: Redefining Bengali Open Science",
+        "date": "2025-02-25",
+        "category": "news",
+        "slug": "launch-announcement",
+        "excerpt": "We are excited to announce the launch of the Bāk Institute, an independent non-profit dedicated to Bengali language research.",
+        "body": "Welcome to the Bāk Institute. Our mission is to democratize access to language technology for 230 million Bengali speakers."
+    },
+    {
+        "title": "Benchmarking Bengali LLMs in 2025",
+        "date": "2025-02-15",
+        "category": "research",
+        "slug": "llm-benchmarking",
+        "excerpt": "How do current language models perform on complex Bengali linguistic tasks? Our latest study reveals promising results and persistent challenges.",
+        "body": "In this post, we dive into the evaluation of several LLMs on the BākoBenchmark suite."
+    }
+]

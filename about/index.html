@@ -147,36 +147,74 @@
             color: rgba(245, 239, 223, 0.55);
         }
 
-        .partner-grid {
+        /* ── Logo Wall ── */
+        .logo-wall {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-top: 2.5rem;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
-        .partner-item {
-            border: 1px solid rgba(200, 154, 46, 0.15);
-            padding: 1.5rem;
+        .logo-item {
+            background: white;
+            border: 1px solid rgba(200, 154, 46, 0.1);
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            transition: box-shadow 0.3s, transform 0.3s;
+            min-height: 140px;
         }
 
-        .partner-name {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--indigo);
+        .logo-item:hover {
+            box-shadow: 0 6px 24px rgba(29, 43, 94, 0.08);
+            transform: translateY(-3px);
         }
 
-        .partner-type {
+        .logo-item img {
+            max-height: 52px;
+            max-width: 120px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.55);
+            transition: filter 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%) opacity(1);
+        }
+
+        .logo-item .logo-text-mark {
             font-family: 'DM Mono', monospace;
-            font-size: 0.55rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--indigo);
+            opacity: 0.4;
+            transition: opacity 0.3s;
+            text-align: center;
+        }
+
+        .logo-item:hover .logo-text-mark {
+            opacity: 0.85;
+        }
+
+        .logo-item-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.5rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--warm-gray);
+            text-align: center;
+            line-height: 1.4;
         }
 
         @media (max-width: 1024px) {
+            .logo-wall {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
             .value-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -184,13 +222,22 @@
             .stat-row {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .partner-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
+            .logo-wall {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .logo-item {
+                padding: 1.5rem 1rem;
+                min-height: 120px;
+            }
+
+            .logo-item img {
+                max-height: 40px;
+            }
+
             .value-grid {
                 grid-template-columns: 1fr;
             }
@@ -198,9 +245,17 @@
             .stat-row {
                 grid-template-columns: 1fr 1fr;
             }
+        }
 
-            .partner-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 480px) {
+            .logo-wall {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .logo-item {
+                min-height: 100px;
+                padding: 1.2rem 0.75rem;
             }
         }
     </style>
@@ -403,59 +458,72 @@
             </div>
         </section>
 
-        <!-- PARTNERS -->
-        <section style="background:var(--cream);" aria-labelledby="partners-heading">
+        <!-- PARTNERS & FUNDERS -->
+        <section class="partners-section" aria-labelledby="partners-heading">
             <div class="container">
                 <div class="section-label reveal">Partners &amp; Funders</div>
                 <h2 class="section-title reveal" id="partners-heading">Institutions that<br>support our work</h2>
-                <div class="partner-grid reveal">
-                    <div class="partner-item">
-                        <div class="partner-name">University of Dhaka</div>
-                        <div class="partner-type">Academic Partner</div>
+
+                <div class="logo-wall reveal">
+                    <div class="logo-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Mozilla_Firefox_logo_2013.svg/200px-Mozilla_Firefox_logo_2013.svg.png"
+                            alt="Mozilla Foundation">
+                        <div class="logo-item-name">Mozilla Foundation</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">Jadavpur University</div>
-                        <div class="partner-type">Academic Partner</div>
+                    <div class="logo-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/200px-Cc.logo.circle.svg.png"
+                            alt="Creative Commons">
+                        <div class="logo-item-name">Creative Commons</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">IIT Kharagpur</div>
-                        <div class="partner-type">Academic Partner</div>
+                    <div class="logo-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Wikimedia-logo.svg/200px-Wikimedia-logo.svg.png"
+                            alt="Wikimedia Foundation">
+                        <div class="logo-item-name">Wikimedia Foundation</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">University of Toronto</div>
-                        <div class="partner-type">Academic Partner</div>
+                    <div class="logo-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/IIT_Kharagpur_Logo.svg/200px-IIT_Kharagpur_Logo.svg.png"
+                            alt="IIT Kharagpur">
+                        <div class="logo-item-name">IIT Kharagpur</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">Open Knowledge Foundation</div>
-                        <div class="partner-type">Founding Funder</div>
+                    <div class="logo-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/200px-Utoronto_coa.svg.png"
+                            alt="University of Toronto">
+                        <div class="logo-item-name">University of Toronto</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">Bangla Academy</div>
-                        <div class="partner-type">Language Authority</div>
+                    <div class="logo-item">
+                        <span class="logo-text-mark"
+                            style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;letter-spacing:0.02em;">University
+                            of Dhaka</span>
+                        <div class="logo-item-name">University of Dhaka</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">BRAC University</div>
-                        <div class="partner-type">Research Partner</div>
+                    <div class="logo-item">
+                        <span class="logo-text-mark"
+                            style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;letter-spacing:0.02em;">Jadavpur
+                            University</span>
+                        <div class="logo-item-name">Jadavpur University</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">Mozilla Foundation</div>
-                        <div class="partner-type">Open Source Funder</div>
+                    <div class="logo-item">
+                        <span class="logo-text-mark"
+                            style="font-weight:400;font-size:1rem;letter-spacing:0.08em;">BRAC</span>
+                        <div class="logo-item-name">BRAC University</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">Wikimedia Foundation</div>
-                        <div class="partner-type">Data Partner</div>
+                    <div class="logo-item">
+                        <span class="logo-text-mark">Silatech</span>
+                        <div class="logo-item-name">Silatech</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">AI4Bharat</div>
-                        <div class="partner-type">Research Partner</div>
+                    <div class="logo-item">
+                        <span class="logo-text-mark">AI4Bharat</span>
+                        <div class="logo-item-name">AI4Bharat</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">Silatech</div>
-                        <div class="partner-type">EdTech Funder</div>
+                    <div class="logo-item">
+                        <span class="logo-text-mark" style="font-size:0.85rem;letter-spacing:0.02em;">Open
+                            Knowledge</span>
+                        <div class="logo-item-name">Open Knowledge<br>Foundation</div>
                     </div>
-                    <div class="partner-item">
-                        <div class="partner-name">CC BY Community</div>
-                        <div class="partner-type">Open License Advocate</div>
+                    <div class="logo-item">
+                        <span class="logo-text-mark" lang="bn"
+                            style="font-family:'Noto Sans Bengali',sans-serif;font-size:1.3rem;">বাংলা</span>
+                        <div class="logo-item-name">Bangla Academy</div>
                     </div>
                 </div>
             </div>

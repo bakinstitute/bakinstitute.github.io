@@ -1,0 +1,40 @@
+# ─── Dependencies ───
+node_modules/
+package-lock.json
+
+# ─── OS files ───
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# ─── IDE / Editor ───
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ─── Build artifacts ───
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# ─── Environment ───
+.env
+.env.local
+.env.*.local
+
+# ─── Logs ───
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ─── Temporary files ───
+*.tmp
+*.temp
+*.bak

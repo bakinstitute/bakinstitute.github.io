@@ -37,14 +37,14 @@ const CMS = {
     },
 
     async loadPublications() {
-        const container = document.getElementById('pub-list');
+        const container = document.getElementById('pub-list') || document.querySelector('.pub-list');
         if (!container) return;
         console.log("CMS: Loading Publications...");
 
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/publications?ref=${this.branch}`);
             const files = await response.json();
-            if (!Array.isArray(files)) throw new Error("Could not find publications folder on GitHub. Have you pushed your files?");
+            if (!Array.isArray(files)) throw new Error("Publications folder not found on GitHub.");
 
             container.innerHTML = '';
             let allPubs = [];
@@ -79,16 +79,16 @@ const CMS = {
             });
 
             document.querySelectorAll('.pub-toggle').forEach(btn => {
-                btn.onclick = () => {
-                    const item = btn.closest('.pub-item');
+                btn.onclick = (e) => {
+                    const item = e.target.closest('.pub-item');
                     const open = item.classList.toggle('expanded');
-                    btn.textContent = open ? 'Hide abstract ↑' : 'Show abstract ↓';
+                    e.target.textContent = open ? 'Hide abstract ↑' : 'Show abstract ↓';
                 };
             });
             if (window.applyFilters) window.applyFilters();
         } catch (err) {
             console.error("CMS Error:", err);
-            container.innerHTML = `<p style="color:red; padding:2rem;">Error: ${err.message}</p>`;
+            container.innerHTML = `<p style="color:var(--terracotta); padding:2rem; text-align:center;">Could not load data. Make sure your changes are pushed to GitHub.</p>`;
         }
     },
 
@@ -101,7 +101,7 @@ const CMS = {
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/team?ref=${this.branch}`);
             const files = await response.json();
-            if (!Array.isArray(files)) throw new Error("Could not find team folder on GitHub.");
+            if (!Array.isArray(files)) throw new Error("Team folder not found.");
 
             if (leaderGrid) leaderGrid.innerHTML = '';
             if (staffGrid) staffGrid.innerHTML = '';
@@ -160,7 +160,7 @@ const CMS = {
                 article.className = 'blog-card reveal';
                 article.dataset.category = post.category ? post.category.toLowerCase().split(' ')[0] : 'news';
                 article.innerHTML = `
-            <div class="blog-card-img" style="background-image: url('${post.image}');">
+            <div class="blog-card-img" style="background-image: url('${post.image}'); background-size: cover;">
                 ${!post.image ? `<span aria-hidden="true" lang="bn">ব</span>` : ''}
             </div>
             <div class="blog-card-body">
@@ -187,7 +187,7 @@ const CMS = {
         try {
             const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/content/research?ref=${this.branch}`);
             const files = await response.json();
-            if (!Array.isArray(files)) throw new Error("Could not find research folder on GitHub.");
+            if (!Array.isArray(files)) throw new Error("Research folder not found.");
 
             container.innerHTML = '';
             let allAreas = [];
@@ -277,7 +277,7 @@ const CMS = {
                     const { data } = this.parseFrontmatter(raw);
                     const div = document.createElement('div');
                     div.className = 'team-card reveal';
-                    div.innerHTML = `<div class="team-avatar"><div class="team-avatar-initials" lang="bn">${data.initials}</div></div><div class="team-name">${data.title}</div><div class="team-role">${data.role}</div><div class="team-inst">${data.institution}</div>`;
+                    div.innerHTML = `<div class="team-avatar"><div class="team-avatar-initials" lang="bn">${data.initials || '..'}</div></div><div class="team-name">${data.title}</div><div class="team-role">${data.role}</div><div class="team-inst">${data.institution}</div>`;
                     teamGrid.appendChild(div);
                 }
             }
@@ -287,7 +287,7 @@ const CMS = {
 
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
-    if (path === '/' || path.endsWith('index.html') || path === '') CMS.loadHome();
+    if (path === '/' || path.endsWith('index.html') || path === '' || path.endsWith('/')) CMS.loadHome();
     if (path.includes('/publications/')) CMS.loadPublications();
     if (path.includes('/team/')) CMS.loadTeam();
     if (path.includes('/blog/')) CMS.loadBlog();

@@ -4,16 +4,16 @@ order: "05"
 char: "ড"
 tag: "Dialectology"
 projects:
-  - "Sylheti corpus and ASR pilot (3,000 hours)"
-  - "Chittagonian tonal phonology study (JPh 2025)"
-  - "Dialect atlas of Bangladesh (digital, interactive)"
-  - "Rangpur dialect documentation fieldwork"
+  - "Regional dialect corpus development"
+  - "Phonological studies of regional varieties"
+  - "Digital interactive dialect atlas"
+  - "Fieldwork documentation in regional districts"
 tools:
-  - "Sylheti text corpus (2M words)"
-  - "Dialect word list database (7 varieties)"
-  - "Audio archive of 120 dialect speakers"
-  - "Dialect identification classifier"
+  - "Dialectal text corpora"
+  - "Linguistic word list databases"
+  - "Audio archives for regional varieties"
+  - "Dialect identification tools"
 link: "../publications/?filter=dialectology"
 ---
 
-Standard Bengali (Shuddhô Bhasha) dominates existing NLP research, leaving millions of speakers of Sylheti, Chittagonian, Rajshahi, Mymensingh, and Rangpur dialects invisible to language technology. We conduct fieldwork, build corpora, and develop computational tools for these underrepresented varieties — several of which face serious endangerment.
+Standard Bengali (Shuddhô Bhasha) dominates existing NLP research, leaving millions of speakers of Sylheti, Chittagonian, Rajshahi, Mymensingh, and Rangpur dialects invisible to language technology. We conduct fieldwork, build corpora, and develop computational tools for these underrepresented varieties — ensuring every speaker is represented.

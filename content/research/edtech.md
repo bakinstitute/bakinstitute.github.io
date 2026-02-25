@@ -4,16 +4,16 @@ order: "06"
 char: "শি"
 tag: "EdTech · Tools"
 projects:
-  - "BākoLearn — adaptive grammar exercise platform"
-  - "Script learning app for diaspora children"
-  - "Teacher training AI assistant (pilot in 12 schools)"
-  - "Digital literacy curriculum for adult learners"
+  - "Adaptive grammar learning systems"
+  - "Script acquisition tools for learners"
+  - "Educational AI support tools"
+  - "Digital literacy resources for Bengali communities"
 tools:
-  - "BākoLearn app (iOS & Android, free)"
-  - "Graded reader corpus (500 texts, 6 levels)"
-  - "Script recognition model for handwriting"
-  - "Grammar exercise dataset (10K items)"
+  - "Learning application prototypes"
+  - "Graded reading material corpora"
+  - "Handwriting recognition benchmarks"
+  - "Educational exercise datasets"
 link: "../publications/?filter=edtech"
 ---
 
-We design AI-powered tools for heritage learners, diaspora communities, and literacy programs in under-resourced Bengali-medium schools. Our tools include adaptive grammar exercises, an intelligent writing assistant, and a speaking practice companion — all built with learner-centered design principles.
+We design AI-powered tools for heritage learners, diaspora communities, and literacy programs in under-resourced Bengali-medium schools. Our work focuses on adaptive learning systems, writing support tools, and language practice companions — all built with learner-centered design principles to support the Bengali community globally.

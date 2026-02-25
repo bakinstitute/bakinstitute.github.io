@@ -4,15 +4,15 @@ order: "02"
 char: "শ"
 tag: "Phonetics · Speech"
 projects:
-  - "BengaliASR — 10,000-hour speech recognition corpus"
-  - "Multi-dialect TTS with natural prosody modeling"
-  - "Phoneme inventory documentation for 7 dialects"
-  - "Child language acquisition acoustic study"
+  - "Bengali Automatic Speech Recognition (ASR) corpora"
+  - "Text-to-Speech (TTS) with natural prosody modeling"
+  - "Phonemic inventory documentation of regional varieties"
+  - "Acoustic studies of language acquisition"
 tools:
-  - "BākoSpeech — 10K hour open ASR corpus"
-  - "BengaliTTS model weights (MIT license)"
-  - "Phoneme-aligned transcription toolkit"
-  - "Forced-alignment tool for Bengali audio"
+  - "Open-access speech recognition datasets"
+  - "Neural TTS model architectures and weights"
+  - "Phoneme-level transcription resources"
+  - "Linguistic alignment tools for Bengali audio"
 link: "../publications/?filter=speech"
 ---
 

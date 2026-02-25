@@ -241,7 +241,9 @@
 
                     <!-- FORM -->
                     <div>
-                        <form id="contact-form-el" class="contact-form" novalidate>
+                        <form id="contact-form-el" class="contact-form" name="contact" method="POST"
+                            data-netlify="true">
+                            <input type="hidden" name="form-name" value="contact">
 
                             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                                 <div class="form-group">
@@ -459,19 +461,6 @@
             // Simulate submission
             contactForm.style.display = 'none';
             formSuccess.style.display = 'block';
-        });
-
-        // ─── NEWSLETTER FORM (demo) ───
-        const nlForm = document.getElementById('newsletter-form');
-        const nlSuccess = document.getElementById('nl-success');
-
-        nlForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('nl-email').value.trim();
-            if (!email) return;
-            nlSuccess.style.display = 'block';
-            document.getElementById('nl-email').disabled = true;
-            nlForm.querySelector('button').disabled = true;
         });
     </script>
 </body>

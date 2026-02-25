@@ -176,4 +176,18 @@
   flex-shrink: 0;
 }
 
+/* ─── Lucide icons in Contribute section (dark bg) ─── */
+.contribute .way-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
 
+.contribute .way-icon svg {
+  color: var(--saffron);
+  width: 1.5rem;
+  height: 1.5rem;
+}

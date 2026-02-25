@@ -106,3 +106,37 @@
 }
 
 
+/* ─── LUCIDE ICONS ─── */
+/* Size SVG icons inside icon containers to match former emoji sizing */
+.way-icon svg,
+.way-card-icon svg,
+.contact-card-icon svg,
+.benefit-icon svg,
+.tool-icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--indigo);
+  stroke-width: 1.5;
+  display: block;
+}
+
+/* Benefit icons on fellowship page slightly larger */
+.benefit-icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--saffron);
+}
+
+/* Contact card icons */
+.contact-card-icon svg {
+  color: var(--terracotta);
+}
+
+/* Icon containers: flex align */
+.way-icon,
+.way-card-icon,
+.contact-card-icon,
+.benefit-icon {
+  display: flex;
+  align-items: center;
+}

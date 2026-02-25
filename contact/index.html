@@ -21,6 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+Bengali:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <noscript>
         <style>
             .reveal {
@@ -171,7 +172,7 @@
                 <div class="ways-grid reveal">
 
                     <div class="way-card">
-                        <div class="way-card-icon" aria-hidden="true">🔬</div>
+                        <div class="way-card-icon" aria-hidden="true"><i data-lucide="microscope"></i></div>
                         <div class="way-card-title">Research Collaboration</div>
                         <p class="way-card-desc">We partner with universities, research labs, and independent scholars
                             worldwide. Collaborate on datasets, co-author papers, or join a research working group.</p>
@@ -179,7 +180,7 @@
                     </div>
 
                     <div class="way-card">
-                        <div class="way-card-icon" aria-hidden="true">🏷️</div>
+                        <div class="way-card-icon" aria-hidden="true"><i data-lucide="tag"></i></div>
                         <div class="way-card-title">Data Annotation</div>
                         <p class="way-card-desc">We recruit volunteer annotators — native speakers of Bengali and its
                             dialects — to help label text, audio, and image data. No technical background required;
@@ -188,7 +189,7 @@
                     </div>
 
                     <div class="way-card">
-                        <div class="way-card-icon" aria-hidden="true">💻</div>
+                        <div class="way-card-icon" aria-hidden="true"><i data-lucide="code-2"></i></div>
                         <div class="way-card-title">Open Source Contribution</div>
                         <p class="way-card-desc">All our tools are on GitHub. Contribute code, file issues, review pull
                             requests, or help improve documentation. Every contribution — large or small — matters.</p>
@@ -201,7 +202,7 @@
                     </div>
 
                     <div class="way-card">
-                        <div class="way-card-icon" aria-hidden="true">🎓</div>
+                        <div class="way-card-icon" aria-hidden="true"><i data-lucide="graduation-cap"></i></div>
                         <div class="way-card-title">Fellowship Program</div>
                         <p class="way-card-desc">Our annual fellowship supports early-career researchers — PhD students
                             and postdocs — working on Bengali language technology. Fellows receive a stipend,
@@ -210,7 +211,7 @@
                     </div>
 
                     <div class="way-card">
-                        <div class="way-card-icon" aria-hidden="true">🏫</div>
+                        <div class="way-card-icon" aria-hidden="true"><i data-lucide="building-2"></i></div>
                         <div class="way-card-title">Institutional Partnership</div>
                         <p class="way-card-desc">We work with schools, NGOs, and diaspora organizations to deploy our
                             tools and literacy programs. If you represent an institution, let's explore what we can
@@ -219,7 +220,7 @@
                     </div>
 
                     <div class="way-card">
-                        <div class="way-card-icon" aria-hidden="true">❤️</div>
+                        <div class="way-card-icon" aria-hidden="true"><i data-lucide="heart"></i></div>
                         <div class="way-card-title">Donate</div>
                         <p class="way-card-desc">Bāk Institute is a registered non-profit. Donations fund fieldwork,
                             server infrastructure, annotator compensation, and fellowship stipends. Every amount makes a
@@ -303,7 +304,7 @@
                     <div class="contact-cards">
 
                         <div class="contact-card">
-                            <div class="contact-card-icon" aria-hidden="true">📍</div>
+                            <div class="contact-card-icon" aria-hidden="true"><i data-lucide="map-pin"></i></div>
                             <div class="contact-card-title">Main Office</div>
                             <p class="contact-card-value">
                                 Bāk Institute for Bengali Language Research<br>
@@ -313,7 +314,7 @@
                         </div>
 
                         <div class="contact-card">
-                            <div class="contact-card-icon" aria-hidden="true">✉️</div>
+                            <div class="contact-card-icon" aria-hidden="true"><i data-lucide="mail"></i></div>
                             <div class="contact-card-title">General Inquiries</div>
                             <p class="contact-card-value">
                                 <a href="mailto:contact@bakinstitute.org">contact@bakinstitute.org</a><br>
@@ -322,7 +323,7 @@
                         </div>
 
                         <div class="contact-card">
-                            <div class="contact-card-icon" aria-hidden="true">📰</div>
+                            <div class="contact-card-icon" aria-hidden="true"><i data-lucide="newspaper"></i></div>
                             <div class="contact-card-title">Press &amp; Media</div>
                             <p class="contact-card-value">
                                 <a href="mailto:press@bakinstitute.org">press@bakinstitute.org</a><br>
@@ -331,7 +332,7 @@
                         </div>
 
                         <div class="contact-card">
-                            <div class="contact-card-icon" aria-hidden="true">🤝</div>
+                            <div class="contact-card-icon" aria-hidden="true"><i data-lucide="handshake"></i></div>
                             <div class="contact-card-title">Partnerships</div>
                             <p class="contact-card-value">
                                 <a href="mailto:partners@bakinstitute.org">partners@bakinstitute.org</a><br>
@@ -340,7 +341,7 @@
                         </div>
 
                         <div class="contact-card">
-                            <div class="contact-card-icon" aria-hidden="true">💻</div>
+                            <div class="contact-card-icon" aria-hidden="true"><i data-lucide="github"></i></div>
                             <div class="contact-card-title">Open Source &amp; Code</div>
                             <p class="contact-card-value">
                                 <a href="https://github.com" target="_blank"
@@ -440,6 +441,7 @@
 
     <button id="back-to-top" aria-label="Back to top">↑</button>
     <script src="../js/script.js"></script>
+    <script>lucide.createIcons();</script>
     <script>
         // ─── CONTACT FORM (demo — no backend) ───
         const contactForm = document.getElementById('contact-form-el');

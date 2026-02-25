@@ -1,5 +1,6 @@
 [
   {
+    "slug": "2023-12-10-bakospeech-release",
     "category": "Dataset Release",
     "body": "The largest open Bengali speech corpus is now available on OpenSLR. We cover the data collection process, speaker demographics, transcription pipeline, and baseline ASR results that accompany the release.",
     "image": "",
@@ -8,6 +9,7 @@
     "date": "2023-12-10"
   },
   {
+    "slug": "2024-02-21-21st-february",
     "category": "Commentary",
     "body": "On International Mother Language Day, Dr. Rahman reflects on what it means that the language martyrs died for in 1952 still lacks a functional keyboard standard, official Unicode support for all scripts, and AI that speaks it well.",
     "image": "",
@@ -16,6 +18,7 @@
     "date": "2024-02-21"
   },
   {
+    "slug": "2024-03-12-bakocorpus-v2",
     "category": "Dataset Release",
     "body": "After two years of crawling, cleaning, and de-duplicating, we are releasing BākoCorpus 2.0 — the largest open Bengali text corpus ever published. In this post, we walk through the data pipeline, discuss quality filtering decisions, and explain what this means for Bengali NLP research.",
     "image": "",
@@ -24,6 +27,7 @@
     "date": "2024-03-12"
   },
   {
+    "slug": "2024-08-15-bakolearn-uk",
     "category": "Fieldwork",
     "body": "Results from our landmark 12-week study with British-Bangladeshi heritage learners aged 8–16. The data is encouraging — but so are the surprises. Fahmida Islam shares what she did not expect to find.",
     "image": "",
@@ -32,6 +36,7 @@
     "date": "2024-08-15"
   },
   {
+    "slug": "2024-09-01-bengali-tibetan-mt",
     "category": "Research",
     "body": "How we constructed a 52,000-sentence parallel corpus for one of the world's most challenging language pairs — and what it reveals about the limits of transfer learning from large multilingual models.",
     "image": "",
@@ -40,6 +45,7 @@
     "date": "2024-09-01"
   },
   {
+    "slug": "2024-10-15-mozilla-grant",
     "category": "News",
     "body": "We are delighted to announce a Mozilla Technology Fund grant to build BākoLM — a fully open Bengali language model trained from scratch. Here is what we plan to build and our timeline.",
     "image": "",
@@ -48,6 +54,7 @@
     "date": "2024-10-15"
   },
   {
+    "slug": "2024-11-20-gpt4-bengali",
     "category": "Commentary",
     "body": "A frank look at benchmark scores for frontier models on Bengali tasks. Spoiler: the gap is larger than the labs admit. Dr. Karim Ahmed argues for a Bengali-first pretraining paradigm.",
     "image": "",
@@ -56,6 +63,7 @@
     "date": "2024-11-20"
   },
   {
+    "slug": "2024-12-05-sylhet-fieldwork",
     "category": "Fieldwork",
     "body": "Fahmida Islam and Dr. Chakraborty report from the field — recording 80 Sylheti speakers across 6 upazilas. What we learned about speaker attitudes to dialect, and the challenges of naturalistic data collection.",
     "image": "",
@@ -64,6 +72,7 @@
     "date": "2024-12-05"
   },
   {
+    "slug": "2025-01-10-bengaliqa-release",
     "category": "Dataset Release",
     "body": "We release BengaliQA alongside our ACL 2025 paper. Here we discuss what makes QA in Bengali hard — entity ambiguity, cultural knowledge, and the absence of a Standard Simplified Bengali norm.",
     "image": "",
@@ -72,6 +81,7 @@
     "date": "2025-01-10"
   },
   {
+    "slug": "2025-01-15-chittagonian-phonology",
     "category": "Research",
     "body": "Prof. Priya Das explains her 2025 Journal of Phonetics study in accessible language — why Chittagonian Bengali is phonologically unlike any other Bengali variety, and why that matters for speech technology.",
     "image": "",

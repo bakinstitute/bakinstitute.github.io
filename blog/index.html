@@ -206,6 +206,145 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Markdown content styling for single blog posts */
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(200, 154, 46, 0.15);
+        }
+
+        .markdown-content h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--indigo);
+            margin: 2rem 0 0.75rem;
+        }
+
+        .markdown-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--indigo);
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .markdown-content p {
+            margin: 0 0 1.25rem;
+            color: var(--ink);
+        }
+
+        .markdown-content ul,
+        .markdown-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--ink);
+        }
+
+        .markdown-content li {
+            margin-bottom: 0.4rem;
+            line-height: 1.7;
+        }
+
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.95rem;
+        }
+
+        .markdown-content th {
+            background: var(--cream);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--indigo);
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 2px solid rgba(200, 154, 46, 0.2);
+        }
+
+        .markdown-content td {
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid rgba(200, 154, 46, 0.1);
+            color: var(--ink);
+        }
+
+        .markdown-content blockquote {
+            border-left: 3px solid var(--saffron);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: var(--cream);
+            font-style: italic;
+            color: var(--warm-gray);
+        }
+
+        .markdown-content code {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.88em;
+            background: rgba(29, 43, 94, 0.06);
+            padding: 0.15em 0.4em;
+            border-radius: 2px;
+            color: var(--terracotta);
+        }
+
+        .markdown-content pre {
+            background: var(--indigo);
+            color: var(--parchment);
+            padding: 1.5rem;
+            border-radius: 2px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .markdown-content pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid rgba(200, 154, 46, 0.2);
+            margin: 3rem 0;
+        }
+
+        .markdown-content strong {
+            font-weight: 600;
+            color: var(--indigo);
+        }
+
+        .markdown-content em {
+            font-style: italic;
+        }
+
+        .markdown-content a {
+            color: var(--terracotta);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(193, 68, 14, 0.25);
+            transition: color 0.2s;
+        }
+
+        .markdown-content a:hover {
+            color: var(--indigo);
+        }
+
+        @media(max-width:768px) {
+            .single-post-view {
+                padding: 2rem !important;
+            }
+
+            .markdown-content table {
+                font-size: 0.8rem;
+            }
+
+            .markdown-content th,
+            .markdown-content td {
+                padding: 0.5rem;
+            }
+        }
     </style>
 </head>
 

@@ -30,6 +30,7 @@ const DATA_LOADER = {
                 const article = document.createElement('article');
                 article.className = 'pub-item reveal visible';
                 article.dataset.category = (pub.category || 'nlp').toLowerCase();
+                article.dataset.search = [pub.title, pub.authors, pub.badge, pub.body].join(' ').toLowerCase();
                 article.innerHTML = `
             <div class="pub-year">${pub.year}</div>
             <div>
@@ -56,6 +57,8 @@ const DATA_LOADER = {
                 };
             });
             console.log("CMS: ✅ Publications loaded.");
+            // Activate filters if exposed by the publications page
+            if (typeof window.applyFilters === 'function') window.applyFilters();
         } catch (err) {
             console.error("CMS Error:", err);
             container.innerHTML = `<p style="padding:2rem; text-align:center; color:red;">Error loading publications.</p>`;
@@ -209,7 +212,23 @@ const DATA_LOADER = {
 
                 grid.style.display = 'block';
 
-                const bodyContent = typeof marked !== 'undefined' ? marked.parse(post.body || '') : (post.body || '').replace(/\n/g, '<br>');
+                // Fetch full markdown content from the content/blog/ directory
+                let bodyContent = '';
+                try {
+                    const mdPath = (window.location.pathname.includes('/blog') ? '../' : '') + 'content/blog/' + post.slug + '.md';
+                    const mdResponse = await fetch(mdPath);
+                    if (mdResponse.ok) {
+                        let mdText = await mdResponse.text();
+                        // Strip YAML frontmatter (---...---)
+                        mdText = mdText.replace(/^---[\s\S]*?---\s*/, '');
+                        bodyContent = typeof marked !== 'undefined' ? marked.parse(mdText) : mdText.replace(/\n/g, '<br>');
+                    } else {
+                        throw new Error('Markdown file not found');
+                    }
+                } catch (mdErr) {
+                    console.warn('CMS: Could not load markdown file, falling back to JSON body:', mdErr);
+                    bodyContent = typeof marked !== 'undefined' ? marked.parse(post.body || '') : (post.body || '').replace(/\n/g, '<br>');
+                }
 
                 grid.innerHTML = `
                   <article class="single-post-view reveal visible" style="background:white; padding: 4rem; border: 1px solid rgba(200,154,46,0.15);">
@@ -219,7 +238,7 @@ const DATA_LOADER = {
                           <span style="color:var(--warm-gray);">${new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                       </div>
                       ${post.image ? `<div style="width:100%; height:400px; background-image:url('${post.image}'); background-size:cover; background-position:center; margin-bottom: 3rem;"></div>` : ''}
-                      <div style="font-size:1.15rem; line-height: 1.8; color: var(--indigo);" class="markdown-content">
+                      <div class="markdown-content" style="font-size:1.1rem; line-height:1.85; color:var(--ink);">
                           ${bodyContent}
                       </div>
                       <div style="margin-top: 4rem; border-top: 1px solid rgba(200,154,46,0.15); padding-top: 2rem;">
@@ -241,12 +260,49 @@ const DATA_LOADER = {
             }
 
             grid.innerHTML = '';
+
+            // Dynamically populate the featured section with the most recent post
+            const featuredSection = document.querySelector('.blog-featured');
+            if (featuredSection && allPosts.length > 0) {
+                const latest = allPosts[0];
+                const featuredImg = featuredSection.querySelector('.blog-featured-img');
+                const featuredCat = featuredSection.querySelector('.blog-category');
+                const featuredTitle = featuredSection.querySelector('.blog-title');
+                const featuredExcerpt = featuredSection.querySelector('.blog-excerpt');
+                const featuredMeta = featuredSection.querySelector('.blog-meta');
+                const featuredLink = featuredSection.querySelector('.blog-read-more');
+
+                if (featuredImg && latest.image) {
+                    featuredImg.style.backgroundImage = `url('${latest.image}')`;
+                    featuredImg.style.backgroundSize = 'cover';
+                    featuredImg.style.backgroundPosition = 'center';
+                    featuredImg.textContent = '';
+                }
+                if (featuredCat) featuredCat.textContent = latest.category || 'News';
+                if (featuredTitle) featuredTitle.textContent = latest.title;
+                if (featuredExcerpt) featuredExcerpt.textContent = latest.excerpt || (latest.body ? latest.body.substring(0, 250) + '...' : '');
+                if (featuredMeta) {
+                    featuredMeta.innerHTML = `<span>${new Date(latest.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>`;
+                }
+                if (featuredLink) featuredLink.href = `?post=0`;
+            }
+
+            // Category normalization map to match filter button data-filter values
+            const categoryMap = {
+                'dataset release': 'release',
+                'research': 'research',
+                'fieldwork': 'field',
+                'commentary': 'commentary',
+                'news': 'news'
+            };
+
             allPosts.forEach((post, index) => {
                 const article = document.createElement('article');
                 article.className = 'blog-card reveal visible';
-                article.dataset.category = (post.category || 'News').toLowerCase();
+                const rawCat = (post.category || 'News').toLowerCase();
+                article.dataset.category = categoryMap[rawCat] || rawCat;
                 article.innerHTML = `
-            <div class="blog-card-img" style="background-image: url('${post.image}'); background-size: cover; background-position: center;">
+            <div class="blog-card-img"${post.image ? ` style="background-image: url('${post.image}'); background-size: cover; background-position: center;"` : ''}>
                 ${!post.image ? `<span aria-hidden="true" lang="bn">ব</span>` : ''}
             </div>
             <div class="blog-card-body">
@@ -260,8 +316,8 @@ const DATA_LOADER = {
                 grid.appendChild(article);
             });
 
-            const featuredLink = document.querySelector('.blog-featured .blog-read-more');
-            if (featuredLink) featuredLink.href = `?post=0`;
+            // Activate blog category filters if the function exists
+            if (typeof window.applyBlogFilters === 'function') window.applyBlogFilters();
 
             console.log("CMS: ✅ Blog loaded.");
         } catch (err) { console.error("CMS Error:", err); }

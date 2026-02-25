@@ -10,8 +10,8 @@ const CMS = {
     async fetchGitHub(path) {
         const url = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${path}?ref=${this.branch}`;
         const response = await fetch(url);
-        if (response.status === 403) throw new Error("GitHub Rate Limit.");
-        if (response.status === 404) throw new Error(`Folder '${path}' not found.`);
+        if (response.status === 403) throw new Error("GitHub Rate Limit Exceeded.");
+        if (response.status === 404) throw new Error(`Data folder '${path}' not found.`);
         if (!response.ok) throw new Error(`API Error: ${response.status}`);
         return await response.json();
     },
@@ -58,7 +58,7 @@ const CMS = {
             allPubs.sort((a, b) => (b.year || 0) - (a.year || 0));
             allPubs.forEach(pub => {
                 const article = document.createElement('article');
-                article.className = 'pub-item reveal';
+                article.className = 'pub-item reveal visible';
                 article.dataset.category = (pub.category || 'nlp').toLowerCase();
                 article.innerHTML = `
             <div class="pub-year">${pub.year}</div>
@@ -84,7 +84,7 @@ const CMS = {
                     e.target.textContent = item.classList.contains('expanded') ? 'Hide abstract ↑' : 'Show abstract ↓';
                 };
             });
-        } catch (err) { container.innerHTML = `<p style="color:red;padding:2rem;">${err.message}</p>`; }
+        } catch (err) { container.innerHTML = `<p style="color:red;padding:2rem;text-align:center;">${err.message}</p>`; }
     },
 
     async loadTeam() {
@@ -101,7 +101,7 @@ const CMS = {
                 const { data, content } = this.parseFrontmatter(raw);
                 const member = { ...data, bio: content };
                 const div = document.createElement('div');
-                div.className = member.section === 'leadership' ? 'leader-card reveal' : 'member-card reveal';
+                div.className = (member.section === 'leadership' ? 'leader-card' : 'member-card') + ' reveal visible';
                 div.innerHTML = `
             <div class="${member.section === 'leadership' ? 'leader-avatar' : 'member-avatar-sm'}" aria-hidden="true">
                 <div class="team-avatar-initials" lang="bn">${member.initials || '..'}</div>
@@ -110,7 +110,7 @@ const CMS = {
                 <div class="member-name">${member.title}</div>
                 <div class="member-role">${member.role}</div>
                 <div class="member-inst">${member.institution}</div>
-                <p class="member-bio">${member.bio}</p>
+                <p class="member-bio" style="display:block; opacity:1;">${member.bio}</p>
                 <div class="member-links">
                     ${member.email ? `<a href="mailto:${member.email}" class="member-link">Email</a>` : ''}
                     ${member.link ? `<a href="${member.link}" class="member-link">Profile</a>` : ''}
@@ -120,7 +120,9 @@ const CMS = {
                 if (member.section === 'leadership' && leaderGrid) leaderGrid.appendChild(div);
                 else if (member.section === 'staff' && staffGrid) staffGrid.appendChild(div);
             }
-        } catch (err) { console.error(err); }
+        } catch (err) {
+            if (leaderGrid) leaderGrid.innerHTML = `<p style="grid-column:1/-1; color:red; text-align:center;">${err.message}</p>`;
+        }
     },
 
     async loadResearch() {
@@ -139,7 +141,7 @@ const CMS = {
             allAreas.sort((a, b) => (a.order || '00').localeCompare(b.order || '00'));
             allAreas.forEach(area => {
                 const div = document.createElement('div');
-                div.className = 'area-card reveal';
+                div.className = 'area-card reveal visible';
                 div.innerHTML = `
             <div class="area-icon-wrap">
                 <span class="area-icon-char" lang="bn" aria-hidden="true">${area.char}</span>
@@ -158,7 +160,7 @@ const CMS = {
         `;
                 container.appendChild(div);
             });
-        } catch (err) { console.error(err); }
+        } catch (err) { container.innerHTML = `<p style="color:red; text-align:center;">${err.message}</p>`; }
     },
 
     async loadHome() {
@@ -179,7 +181,7 @@ const CMS = {
                 pubs.sort((a, b) => (b.year || 0) - (a.year || 0));
                 pubs.forEach(pub => {
                     const article = document.createElement('article');
-                    article.className = 'pub-item reveal';
+                    article.className = 'pub-item reveal visible';
                     article.innerHTML = `<div class="pub-year">${pub.year}</div><div><div class="pub-title">${pub.title}</div><div class="pub-authors">${pub.authors}</div></div><div><span class="pub-badge">${pub.badge || ''}</span></div>`;
                     pubContainer.appendChild(article);
                 });
@@ -192,60 +194,20 @@ const CMS = {
                     const raw = await this.fetchFile(file.download_url);
                     const { data } = this.parseFrontmatter(raw);
                     const div = document.createElement('div');
-                    div.className = 'team-card reveal';
+                    div.className = 'team-card reveal visible';
                     div.innerHTML = `<div class="team-avatar"><div class="team-avatar-initials" lang="bn">${data.initials || '..'}</div></div><div class="team-name">${data.title}</div><div class="team-role">${data.role}</div><div class="team-inst">${data.institution}</div>`;
                     teamGrid.appendChild(div);
                 }
             }
-        } catch (err) { console.error(err); }
-    },
-
-    async loadBlog() {
-        const grid = document.getElementById('blog-grid') || document.querySelector('.blog-grid');
-        if (!grid) return;
-        try {
-            const files = await this.fetchGitHub('content/blog');
-            grid.innerHTML = '';
-            let allPosts = [];
-            for (const file of files) {
-                if (!file.name.endsWith('.md')) continue;
-                const raw = await this.fetchFile(file.download_url);
-                const { data, content } = this.parseFrontmatter(raw);
-                allPosts.push({ ...data, content });
-            }
-            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-            allPosts.forEach(post => {
-                const article = document.createElement('article');
-                article.className = 'blog-card reveal';
-                article.innerHTML = `
-            <div class="blog-card-img" style="background-image: url('${post.image}'); background-size: cover;">
-                ${!post.image ? `<span aria-hidden="true" lang="bn">ব</span>` : ''}
-            </div>
-            <div class="blog-card-body">
-                <div class="blog-category">${post.category || 'News'}</div>
-                <h3 class="blog-card-title">${post.title}</h3>
-                <p class="blog-card-excerpt">${post.excerpt || post.content.substring(0, 150) + '...'}</p>
-                <div class="blog-meta"><span>${new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span></div>
-                <a href="#" class="blog-read-more">Read →</a>
-            </div>
-        `;
-                grid.appendChild(article);
-            });
         } catch (err) { console.error(err); }
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname.toLowerCase();
-    if (path.includes('/publications')) {
-        CMS.loadPublications();
-    } else if (path.includes('/team')) {
-        CMS.loadTeam();
-    } else if (path.includes('/blog')) {
-        CMS.loadBlog();
-    } else if (path.includes('/research')) {
-        CMS.loadResearch();
-    } else if (path === '/' || path.endsWith('index.html') || path === '' || path.endsWith('/')) {
-        CMS.loadHome();
-    }
+    if (path.includes('/publications')) CMS.loadPublications();
+    else if (path.includes('/team')) CMS.loadTeam();
+    else if (path.includes('/blog')) CMS.loadBlog();
+    else if (path.includes('/research')) CMS.loadResearch();
+    else if (path === '/' || path.endsWith('index.html') || path === '' || path.endsWith('/')) CMS.loadHome();
 });
